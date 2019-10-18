@@ -3,8 +3,9 @@
 
 #include <QWidget>
 
-namespace Ui {
-class home;
+namespace Ui
+{
+    class home;
 }
 
 class home : public QWidget
@@ -17,6 +18,7 @@ public:
 
 public slots:
     void goCredit();
+    void goJeuLocal();
 
 private:
     Ui::home *ui;
