@@ -22,12 +22,12 @@ home::~home()
 
 void home::goCredit()
 {
-    (new Credits())->showFullScreen();
+    (new Credits())->show();
     delete this;
 }
 
 void home::goJeuLocal()
 {
-    (new JeuLocal())->showFullScreen();
+    (new JeuLocal())->show();
     delete this;
 }

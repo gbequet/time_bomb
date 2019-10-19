@@ -17,6 +17,7 @@ public:
 
 public slots:
     void goHome();
+    void goReveal();
 
 private:
     Ui::JeuLocal *ui;

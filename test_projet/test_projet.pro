@@ -3,15 +3,21 @@ QT += widgets
 FORMS += \
     credits.ui \
     home.ui \
-    jeulocal.ui
+    jeulocal.ui \
+    revealCards.ui \
+    revealcard.ui
 
 HEADERS += \
     credits.h \
     home.h \
-    jeulocal.h
+    jeulocal.h \
+    revealcard.h \
+    revealcard.h
 
 SOURCES += \
     credits.cpp \
     home.cpp \
     jeulocal.cpp \
-    main.cpp
+    main.cpp \
+    revealcard.cpp \
+    revealcard.cpp

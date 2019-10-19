@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     home *fenetre;
     fenetre = new home();
 
-    fenetre->showFullScreen();
+    fenetre->show();
 
     return app.exec();
 }

@@ -18,6 +18,6 @@ Credits::~Credits()
 
 void Credits::goHome()
 {
-    (new home())->showFullScreen();
+    (new home())->show();
     delete this;
 }
