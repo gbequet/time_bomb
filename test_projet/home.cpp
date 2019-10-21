@@ -1,6 +1,8 @@
 #include "home.h"
 #include "ui_home.h"
 #include "credits.h"
+#include "home.h"
+#include "ui_home.h"
 #include "jeulocal.h"
 
 home::home(QWidget *parent) :

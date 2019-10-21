@@ -26,7 +26,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="home">
         <property name="text">
          <string>Home</string>
         </property>
