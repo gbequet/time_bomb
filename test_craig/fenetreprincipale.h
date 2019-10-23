@@ -6,6 +6,7 @@
 #include "regles.h"
 #include "jeuenligne.h"
 #include "creationsalon.h"
+#include "salononline.h"
 
 class FenetrePrincipale : public QWidget
 {
@@ -18,6 +19,7 @@ public:
     regles *regle;
     JeuEnLigne *jeuEnLigne;
     CreationSalon *creationSalon;
+    SalonOnline *salonOnline;
 
     QString pseudo;
     QString nomSalon;
@@ -27,6 +29,7 @@ public slots:
     void goHome();
     void goJeuEnLigne();
     void goCreationSalon();
+    void goSalonOnline();
     void recupertaionPseudo(QString);
     void recuperationNomSalon(QString);
 

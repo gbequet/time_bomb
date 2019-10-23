@@ -1064,7 +1064,7 @@ background-color: #bfbfbf;
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="joindre">
+      <widget class="QPushButton" name="creer">
        <property name="minimumSize">
         <size>
          <width>150</width>

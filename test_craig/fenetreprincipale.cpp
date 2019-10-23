@@ -10,11 +10,13 @@ FenetrePrincipale::FenetrePrincipale()
     regle = new regles(this);
     jeuEnLigne = new JeuEnLigne(this);
     creationSalon = new CreationSalon(this);
+    salonOnline = new SalonOnline(this);
 
     stack->addWidget(home);
     stack->addWidget(regle);
     stack->addWidget(jeuEnLigne);
     stack->addWidget(creationSalon);
+    stack->addWidget(salonOnline);
 
     stack->setCurrentWidget(home);
 
@@ -43,6 +45,11 @@ void FenetrePrincipale::goJeuEnLigne()
 void FenetrePrincipale::goCreationSalon()
 {
     stack->setCurrentWidget(creationSalon);
+}
+
+void FenetrePrincipale::goSalonOnline()
+{
+stack->setCurrentWidget(salonOnline);
 }
 
 void FenetrePrincipale::recupertaionPseudo(QString pseudo)

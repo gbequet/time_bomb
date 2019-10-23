@@ -23,6 +23,8 @@ CreationSalon::CreationSalon(QWidget *parent) :
     connect(ui->timerInfinity, SIGNAL(clicked()), this, SLOT(unSeulTimer()));
 
     connect(ui->nomSalon, SIGNAL(textEdited(QString)), parent, SLOT(recuperationNomSalon(QString)));
+
+    connect(ui->creer, SIGNAL(clicked()), parent, SLOT(goSalonOnline()));
 }
 
 CreationSalon::~CreationSalon()
