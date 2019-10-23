@@ -73,7 +73,7 @@ border-color: black;
 border-radius: 25px;</string>
        </property>
        <property name="text">
-        <string>Salon de </string>
+        <string>Salon de user</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>

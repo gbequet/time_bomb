@@ -11,12 +11,14 @@ FenetrePrincipale::FenetrePrincipale()
     jeuEnLigne = new JeuEnLigne(this);
     creationSalon = new CreationSalon(this);
     salonOnline = new SalonOnline(this);
+    jeuLocal = new JeuLocal(this);
 
     stack->addWidget(home);
     stack->addWidget(regle);
     stack->addWidget(jeuEnLigne);
     stack->addWidget(creationSalon);
     stack->addWidget(salonOnline);
+    stack->addWidget(jeuLocal);
 
     stack->setCurrentWidget(home);
 
@@ -25,6 +27,7 @@ FenetrePrincipale::FenetrePrincipale()
     setLayout(layout);
 
     connect(this, SIGNAL(changerNom(QString)), creationSalon, SLOT(setNom(QString)));
+    connect(this, SIGNAL(changerNomSalon(QString)), salonOnline, SLOT(setSalonDe(QString)));
 }
 
 void FenetrePrincipale::goRegles()
@@ -49,7 +52,12 @@ void FenetrePrincipale::goCreationSalon()
 
 void FenetrePrincipale::goSalonOnline()
 {
-stack->setCurrentWidget(salonOnline);
+    stack->setCurrentWidget(salonOnline);
+}
+
+void FenetrePrincipale::goJeuLocal()
+{
+    stack->setCurrentWidget(jeuLocal);
 }
 
 void FenetrePrincipale::recupertaionPseudo(QString pseudo)
@@ -59,9 +67,11 @@ void FenetrePrincipale::recupertaionPseudo(QString pseudo)
     this->nomSalon = "Salon de " + pseudo;
 
     emit changerNom(pseudo);
+    emit changerNomSalon(this->nomSalon);
 }
 
 void FenetrePrincipale::recuperationNomSalon(QString nom)
 {
     nomSalon = nom;
+    emit changerNomSalon(this->nomSalon);
 }

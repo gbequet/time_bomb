@@ -11,6 +11,7 @@ Home::Home(QWidget *parent) :
     connect(ui->quitter, SIGNAL(clicked()), qApp, SLOT(quit()));
     connect(ui->regles, SIGNAL(clicked()), parent, SLOT(goRegles()));
     connect(ui->jeuEnLigne, SIGNAL(clicked()), parent, SLOT(goJeuEnLigne()));
+    connect(ui->jeuLocal, SIGNAL(clicked()), parent, SLOT(goJeuLocal()));
 }
 
 Home::~Home()
