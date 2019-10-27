@@ -15,6 +15,11 @@ CreationSalon::CreationSalon(QWidget *parent) :
     connect(ui->nbrJoueur6, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->nbrJoueur7, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->nbrJoueur8, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
+    connect(ui->nbrJoueur4, SIGNAL(clicked()), parent, SLOT(recuperationnbrJoueur()));
+    connect(ui->nbrJoueur5, SIGNAL(clicked()), parent, SLOT(recuperationnbrJoueur()));
+    connect(ui->nbrJoueur6, SIGNAL(clicked()), parent, SLOT(recuperationnbrJoueur()));
+    connect(ui->nbrJoueur7, SIGNAL(clicked()), parent, SLOT(recuperationnbrJoueur()));
+    connect(ui->nbrJoueur8, SIGNAL(clicked()), parent, SLOT(recuperationnbrJoueur()));
 
     connect(ui->timer30, SIGNAL(clicked()), this, SLOT(unSeulTimer()));
     connect(ui->timer60, SIGNAL(clicked()), this, SLOT(unSeulTimer()));

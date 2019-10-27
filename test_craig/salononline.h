@@ -20,6 +20,7 @@ private:
 
 private slots:
     void setSalonDe(QString);
+    void setNbrJoueur(int);
 };
 
 #endif // SALONONLINE_H

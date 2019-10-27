@@ -15,6 +15,9 @@ public:
     explicit JeuLocal(QWidget *parent = nullptr);
     ~JeuLocal();
 
+private slots:
+    void unSeulJoueur();
+
 private:
     Ui::JeuLocal *ui;
 };

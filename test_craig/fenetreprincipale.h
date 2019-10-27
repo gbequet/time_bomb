@@ -36,10 +36,12 @@ public slots:
     void goJeuLocal();
     void recupertaionPseudo(QString);
     void recuperationNomSalon(QString);
+    void recuperationnbrJoueur();
 
 signals:
     void changerNom(QString);
     void changerNomSalon(QString);
+    void changerNbrJoueur(int);
 };
 
 #endif // FENETREPRINCIPALE_H

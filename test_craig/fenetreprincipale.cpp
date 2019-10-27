@@ -28,6 +28,7 @@ FenetrePrincipale::FenetrePrincipale()
 
     connect(this, SIGNAL(changerNom(QString)), creationSalon, SLOT(setNom(QString)));
     connect(this, SIGNAL(changerNomSalon(QString)), salonOnline, SLOT(setSalonDe(QString)));
+    connect(this, SIGNAL(changerNbrJoueur(int)), salonOnline, SLOT(setNbrJoueur(int)));
 }
 
 void FenetrePrincipale::goRegles()
@@ -74,4 +75,11 @@ void FenetrePrincipale::recuperationNomSalon(QString nom)
 {
     nomSalon = nom;
     emit changerNomSalon(this->nomSalon);
+}
+
+void FenetrePrincipale::recuperationnbrJoueur()
+{
+    QPushButton* btn = qobject_cast<QPushButton*>(sender());
+    int nbr = btn->text().toInt();
+    emit changerNbrJoueur(nbr);
 }
