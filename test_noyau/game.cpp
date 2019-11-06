@@ -4,6 +4,10 @@
 #include <QString>
 #include "game.h"
 
+#define BOMB 2
+#define DESAMORCAGE 1
+#define CABLE 0
+
 using namespace std;
 
 Game::Game(int nb_player, vector<QString> users) : nbPlayer(nb_player)
@@ -13,6 +17,7 @@ Game::Game(int nb_player, vector<QString> users) : nbPlayer(nb_player)
     this->nbTour = 0;
 
     // creer les joueurs
+    //TODO : pas d'argument hasPLayed dans le constructeur, initialisé à false
     for(i=0; i < this->nbPlayer; i++)
         this->players.push_back(Player(users[i], true));
 
@@ -46,11 +51,12 @@ Game::Game(int nb_player, vector<QString> users) : nbPlayer(nb_player)
     }
 
     // on melange et on distribue
-    this->distribute();
+    this->deal();
 
     // qui commence?
     this->curPlayer = this->players[rand()%this->nbPlayer];
 
+    //TODO : on s'en fout si il a joué ou pas, il peut jouer plusieurs fois
     this->curPlayer.setHasPlayed(false);
     qDebug() << "tour de :";
     this->curPlayer.show();
@@ -60,10 +66,14 @@ Game::Game(int nb_player, vector<QString> users) : nbPlayer(nb_player)
 //    {
         for(k=0; k < this->nbPlayer; k++) // nb de tour = nb de joueur
         {
+
+            //TODO : modifier while par if
             while(!this->curPlayer.getHasPlayed()) // tant que le joueur n'a pas choisi qui il allait couper
             {
                 // quand le joueur courant coupe le 3eme fil du joueur i par exemple
 //                i = 3;
+
+                //TODO : supprimer id fixe (idéfix lol)
                 int tmp = this->curPlayer.cutCardTo(this->players[i], 3);
                 this->removeCard(tmp);
 
@@ -80,13 +90,13 @@ Game::Game(int nb_player, vector<QString> users) : nbPlayer(nb_player)
         for(j=0; j<this->nbPlayer; j++)
             this->players[i].removeHand();
 
-        this->distribute();
+        this->deal();
 //    }
 }
 
 void Game::printDeck()
 {
-    for(int i=0; i < this->cards.size(); i++)
+    for(int i=0; i < (int) this->cards.size(); i++)
     {
         this->cards[i].show();
     }
@@ -98,15 +108,17 @@ vector<CardJeu> Game::getCards()
     return this->cards;
 }
 
+//TODO : revoir, bizarre de passer le nb de joueurs de chaque team
 void Game::createDeck(int good, int bad)
 {
     int i;
 
+    //TODO : false valeur par défaut -> à bouger dans le constructeur
     for(i=0;i<good;i++)
-        this->cards.push_back(CardJeu(false,0));
+        this->cards.push_back(CardJeu(false,CABLE));
     for(i=0;i<bad;i++)
-        this->cards.push_back(CardJeu(false,1));
-    this->cards.push_back(CardJeu(false,2));
+        this->cards.push_back(CardJeu(false,DESAMORCAGE));
+    this->cards.push_back(CardJeu(false,BOMBE));
 }
 
 void Game::assignTeam(int good, int bad)
@@ -133,7 +145,7 @@ void Game::printPlayers()
         this->players[i].show();
 }
 
-void Game::distribute()
+void Game::deal()
 {
     random_shuffle(this->cards.begin(), this->cards.end());
     int k = 0;
@@ -147,11 +159,12 @@ void Game::distribute()
     }
 }
 
+//TODO utiliser objet card et pas id
 void Game::removeCard(int t)
 {
     int i;
     bool tmp = false;
-    for(i=0; (i<this->cards.size()) && (!tmp); i++)
+    for(i=0; i < (int) this->cards.size() && !tmp; i++)
     {
         if(this->cards[i].getType() == t)
             tmp = true;
@@ -160,16 +173,17 @@ void Game::removeCard(int t)
     this->cards.erase(this->cards.begin()+i);
 }
 
+//TODO à revoir
 bool Game::isOver()
 {
+    bool res = false;
     ++this->nbTour;
-    if(this->nbTour >= 4)
+    //if(this->nbTour >= 4) res = true;
 
-    bool res = true;
-    for(int i=0; i<this->cards.size(); i++)
+    for(int i=0; i< (int)this->cards.size(); i++)
     {
-        if(this->cards[i].getType() == 2)
-            res = false;
+        if(this->cards[i].getType() == BOMBE)
+            res = true;
     }
     return res;
 }

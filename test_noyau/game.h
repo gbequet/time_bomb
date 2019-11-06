@@ -5,7 +5,7 @@
 #include "player.h"
 //#include "card.h"
 #include "cardjeu.h"
-#include "deck.h"
+//#include "deck.h"
 
 class Game
 {
@@ -20,7 +20,7 @@ class Game
         void assignTeam(int good, int bad);
 
         // distribue 5 cartes par joueur
-        void distribute();
+        void deal();
 
         void printPlayers();
         void printDeck();
