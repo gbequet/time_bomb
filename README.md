@@ -21,22 +21,16 @@ Organisation et tâches à faire
 Conventions de code
 -------------------
 
- - Indentation :
+- Indentation :
     - accolades en début de ligne
     - tabulations -> espaces
     - taille d'indentation à 4
-
-
- - Commentaires/doc en **Français** : (with Doxygen)
+- Commentaires/doc en **Français** : (with Doxygen)
     - si sur une ou plusieurs lignes :  `/* ... */` 
     - si à la suite d'une ligne :       `/**< ... */`
-
-
- - Écriture des fonctions/vars/consts en **Anglais** (pour garder 
+- Écriture des fonctions/vars/consts en **Anglais** (pour garder 
   l'homogénéité avec les autres fonctions de Qt et du C++) :
     - fonctions et variables en CamelCase : `functionForSomething`
     - constantes : `CONSTANT_FOR_SOMETHING`
-
-
- - (si on y arrive, essayer de respecter les 80 colonnes xd)
+- (si on y arrive, essayer de respecter les 80 colonnes xd)
   (on checkera à la fin))
