@@ -5,7 +5,7 @@
 #include "game.h"
 
 #define BOMB 2
-#define DESAMORCAGE 1
+#define DEFUSING 1
 #define CABLE 0
 
 using namespace std;
@@ -108,17 +108,15 @@ vector<CardJeu> Game::getCards()
     return this->cards;
 }
 
-//TODO : revoir, bizarre de passer le nb de joueurs de chaque team
-void Game::createDeck(int good, int bad)
+void Game::createDeck(int cable, int defusing)
 {
     int i;
 
-    //TODO : false valeur par défaut -> à bouger dans le constructeur
-    for(i=0;i<good;i++)
-        this->cards.push_back(CardJeu(false,CABLE));
-    for(i=0;i<bad;i++)
-        this->cards.push_back(CardJeu(false,DESAMORCAGE));
-    this->cards.push_back(CardJeu(false,BOMBE));
+    for(i=0;i<cable;i++)
+        this->cards.push_back(CardJeu(CABLE));
+    for(i=0;i<defusing;i++)
+        this->cards.push_back(CardJeu(DEFUSING));
+    this->cards.push_back(CardJeu(BOMB));
 }
 
 void Game::assignTeam(int good, int bad)
@@ -178,7 +176,8 @@ bool Game::isOver()
 {
     bool res = false;
     ++this->nbTour;
-    //if(this->nbTour >= 4) res = true;
+    if(this->nbTour >= 4)
+        res = true;
 
     for(int i=0; i< (int)this->cards.size(); i++)
     {

@@ -1,7 +1,7 @@
 #include "cardjeu.h"
 #include <QDebug>
 
-CardJeu::CardJeu(bool c, int t) : cut(c), type(t)
+CardJeu::CardJeu(int t) : cut(false), type(t)
 {
 
 }

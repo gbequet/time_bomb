@@ -69,7 +69,7 @@ void Player::addCard(CardJeu& c)
 
 void Player::removeHand()
 {
-    for(int i=0; i<this->cards.size(); i++)
+    for(int i=0; i < int(this->cards.size()); i++)
         this->cards.pop_back();
 }
 
@@ -87,7 +87,7 @@ void Player::show()
 void Player::showCards()
 {
     qDebug() << "cartes de" << this->name << endl;
-    for(int i=0; i<this->cards.size(); i++)
+    for(int i=0; i < int(this->cards.size()); i++)
     {
         if(!this->cards[i].isCut())
             this->cards[i].show();

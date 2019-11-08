@@ -10,7 +10,7 @@
 class CardJeu
 {
     public:
-        CardJeu(bool cut, int type);
+        CardJeu(int type);
 
         void show();
         bool isCut();

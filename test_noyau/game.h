@@ -14,7 +14,7 @@ class Game
         Game(int nb_player, std::vector<QString> users);
 
         // creer le paquet en fonction du nombre de cables
-        void createDeck(int good, int bad);
+        void createDeck(int cable, int defusing);
 
         // donne a chaque joueur une equipe
         void assignTeam(int good, int bad);
@@ -42,6 +42,7 @@ class Game
         int nbTour;
         int nbCut;
         int nbPlayer;
+        int winner;
         Player curPlayer;
         std::vector<Player> players;
         std::vector<CardJeu> cards;
