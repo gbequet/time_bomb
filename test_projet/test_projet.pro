@@ -18,3 +18,6 @@ SOURCES += \
     jeulocal.cpp \
     main.cpp \
     revealcard.cpp \
+
+RESOURCES += \
+    ressources.qrc

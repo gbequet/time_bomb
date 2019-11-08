@@ -89,12 +89,14 @@
             <pointsize>10</pointsize>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true">QToolButton
+{
+	border-image: url(:/image/backPerso.png);
+}</string>
+          </property>
           <property name="text">
            <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>image/backPerso.png</normaloff>image/backPerso.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -110,6 +112,12 @@
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
          <widget class="QToolButton" name="toolButton_8">
+          <property name="styleSheet">
+           <string notr="true">QToolButton
+{
+	border-image:url(:/image/backCard.png);
+}</string>
+          </property>
           <property name="text">
            <string>...</string>
           </property>
@@ -130,6 +138,12 @@
         </item>
         <item>
          <widget class="QToolButton" name="toolButton_9">
+          <property name="styleSheet">
+           <string notr="true">QToolButton
+{
+	border-image:url(:/image/backCard.png);
+}</string>
+          </property>
           <property name="text">
            <string>...</string>
           </property>
@@ -147,6 +161,12 @@
         </item>
         <item>
          <widget class="QToolButton" name="toolButton_10">
+          <property name="styleSheet">
+           <string notr="true">QToolButton
+{
+	border-image:url(:/image/backCard.png);
+}</string>
+          </property>
           <property name="text">
            <string>...</string>
           </property>
@@ -164,6 +184,12 @@
         </item>
         <item>
          <widget class="QToolButton" name="toolButton_11">
+          <property name="styleSheet">
+           <string notr="true">QToolButton
+{
+	border-image:url(:/image/backCard.png);
+}</string>
+          </property>
           <property name="text">
            <string>...</string>
           </property>
@@ -181,6 +207,12 @@
         </item>
         <item>
          <widget class="QToolButton" name="toolButton_12">
+          <property name="styleSheet">
+           <string notr="true">QToolButton
+{
+	border-image:url(:/image/backCard.png);
+}</string>
+          </property>
           <property name="text">
            <string>...</string>
           </property>
