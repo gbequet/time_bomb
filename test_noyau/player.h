@@ -12,6 +12,7 @@ class Player
         Player();
         Player(QString n, bool b);
         Player(int t, bool b);
+        Player(QString n, int t);
         QString getName();
         void setName(QString n);
         int getTeam();

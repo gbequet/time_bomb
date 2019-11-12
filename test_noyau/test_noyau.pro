@@ -12,6 +12,8 @@ SOURCES += \
     cardjeu.cpp \
     cardperso.cpp \
     player.cpp \
+    card_controller.cpp \
+    player_controller.cpp
 
 HEADERS += \
     card.h \
@@ -19,3 +21,5 @@ HEADERS += \
     cardperso.h \
     game.h \
     player.h \
+    card_controller.h \
+    player_controller.h

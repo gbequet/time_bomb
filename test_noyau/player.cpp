@@ -16,6 +16,11 @@ Player::Player(QString n, bool b) : name(n), hasPlayed(b)
 
 }
 
+Player::Player(QString n, int team) : name(n), team(team)
+{
+
+}
+
 Player::Player(int t, bool b) : team(t), hasPlayed(b)
 {
 
@@ -65,6 +70,7 @@ void Player::addCard(CardJeu& c)
 {
     if(this->cards.size() < 5)
         this->cards.push_back(c);
+    cout << "ADD " << this->cards[0].getType();
 }
 
 void Player::removeHand()
@@ -81,7 +87,8 @@ void Player::show()
     else
         team = "Sherlock";
 
-    qDebug() << this->name << "equipe de" << team << "à joué?" << this->hasPlayed << endl;
+    qDebug() << this->name << " doit jouer " << endl;
+    //qDebug() << this->name << "equipe de" << team << "à joué?" << this->hasPlayed << endl;
 }
 
 void Player::showCards()

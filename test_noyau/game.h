@@ -29,6 +29,8 @@ class Game
 
         bool isOver();
 
+        void simulationJeu(int nbJoueurs);
+
         // Retire une carte de type t du paquet
         // Le paquet doit contenir au moins une carte de type t
         void removeCard(int t);

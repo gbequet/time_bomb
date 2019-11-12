@@ -3,6 +3,8 @@
 #include <QDebug>
 #include <QString>
 #include "game.h"
+#include "card_controller.h"
+#include "player_controller.h"
 
 #define BOMB 2
 #define DEFUSING 1
@@ -18,81 +20,77 @@ Game::Game(int nb_player, vector<QString> users) : nbPlayer(nb_player)
 
     // creer les joueurs
     //TODO : pas d'argument hasPLayed dans le constructeur, initialisé à false
-    for(i=0; i < this->nbPlayer; i++)
-        this->players.push_back(Player(users[i], true));
+    /*for(i=0; i < this->nbPlayer; i++)
+        this->players.push_back(Player(users[i], true));*/
 
     // on creer le paquet de cartes et on assigne un role a chacun
     // en fonction du nombre de joueurs
-    switch(this->nbPlayer)
-    {
-        case 4:
-            this->createDeck(15,4);
-            this->assignTeam(3,2);
-            break;
-        case 5:
-            this->createDeck(19,5);
-            this->assignTeam(3,2);
-            break;
-        case 6:
-            this->createDeck(23,6);
-            this->assignTeam(4,2);
-            break;
-        case 7:
-            this->createDeck(27,7);
-            this->assignTeam(5,3);
-            break;
-        case 8:
-            this->createDeck(31,8);
-            this->assignTeam(5,3);
-            break;
+    Card_Controller::createDeck(this->nbPlayer);
+    Player_Controller::assignTeams(users);
 
-        default:
-            qDebug() << "nombre de joueur invalide" << endl;
-    }
 
     // on melange et on distribue
-    this->deal();
-
+    Player_Controller::deal();
+    this->players = Player_Controller::getPlayers();
     // qui commence?
-    this->curPlayer = this->players[rand()%this->nbPlayer];
+    this->curPlayer = Player_Controller::getRandomPlayer(this->players);
 
-    //TODO : on s'en fout si il a joué ou pas, il peut jouer plusieurs fois
-    this->curPlayer.setHasPlayed(false);
-    qDebug() << "tour de :";
+    //qDebug() << "tour de :";
     this->curPlayer.show();
     i = 0;
 
-//    while(!this->isOver()) // main boucle
-//    {
-        for(k=0; k < this->nbPlayer; k++) // nb de tour = nb de joueur
+    while(!this->isOver()) // main boucle
+    {
+        int player = 0;
+        int card = 0;
+
+        for(k=0; k < this->players.size(); k++) // nb de tour = nb de joueur
         {
-
             //TODO : modifier while par if
-            while(!this->curPlayer.getHasPlayed()) // tant que le joueur n'a pas choisi qui il allait couper
-            {
-                // quand le joueur courant coupe le 3eme fil du joueur i par exemple
-//                i = 3;
 
-                //TODO : supprimer id fixe (idéfix lol)
-                int tmp = this->curPlayer.cutCardTo(this->players[i], 3);
-                this->removeCard(tmp);
-
-                this->curPlayer.setHasPlayed(true);
+            for(i = 0; i < this->players.size(); i++){
+                cout <<"[" << i+1 << "] " << this->players[i].getName().toStdString() << " ";
             }
-            // on change de joueur courant, ca devient le ieme (celui qui vient de se faire couper)
-            this->curPlayer = this->players[i];
-            this->curPlayer.setHasPlayed(false);
-            qDebug() << this->cards.size();
-            i++;
+
+            cout << endl << "Choisir quel joueur couper : " << endl;
+            cin >> player;
+            vector <CardJeu> playerCards = this->players[player-1].getCards();
+            for(i = 0; i < playerCards.size(); i++){
+                if(!playerCards[i].isCut())
+                    cout <<"[" << i+1 << "]." << " ";
+            }
+            cout << endl << "Choisir quelle carte couper : " << endl;
+            cin >> card;
+            if(playerCards[card - 1].getType() == DEFUSING)
+                cout << "Cable de désamorçage" << endl;
+            if(playerCards[card - 1].getType() == CABLE)
+                cout << "Cable normal" << endl;
+            if(playerCards[card - 1].getType() == BOMB)
+                cout << "BOMBE" << endl;
+
+            //TODO : supprimer id fixe (idéfix lol)
+            //int tmp = this->curPlayer.cutCardTo(this->players[player - 1], card);
+            //this->removeCard(tmp);
+
+
+            // on change de joueur courant (celui qui vient de se faire couper)
+            this->curPlayer = this->players[player - 1];
+            cout << "Au tour de " << this->curPlayer.getName().toStdString() << endl;
+         }
+
+        cout << "Tout le monde à joué" << endl;
+
+
 
 //            this->players[i].showCards();
-        }
-        for(j=0; j<this->nbPlayer; j++)
-            this->players[i].removeHand();
 
-        this->deal();
-//    }
+        /*for(j=0; j<this->nbPlayer; j++)
+            this->players[i].removeHand();*/
+
+        //this->deal();
+    }
 }
+
 
 void Game::printDeck()
 {
@@ -108,18 +106,20 @@ vector<CardJeu> Game::getCards()
     return this->cards;
 }
 
-void Game::createDeck(int cable, int defusing)
+//TODO : revoir, bizarre de passer le nb de joueurs de chaque team
+/*void Game::createDeck(int good, int bad)
 {
     int i;
 
-    for(i=0;i<cable;i++)
-        this->cards.push_back(CardJeu(CABLE));
-    for(i=0;i<defusing;i++)
-        this->cards.push_back(CardJeu(DEFUSING));
-    this->cards.push_back(CardJeu(BOMB));
-}
+    //TODO : false valeur par défaut -> à bouger dans le constructeur
+    for(i=0;i<good;i++)
+        this->cards.push_back(CardJeu(false,CABLE));
+    for(i=0;i<bad;i++)
+        this->cards.push_back(CardJeu(false,DEFUSING));
+    this->cards.push_back(CardJeu(false,BOMBE));
+}*/
 
-void Game::assignTeam(int good, int bad)
+/*void Game::assignTeam(int good, int bad)
 {
     int i;
     vector<int> b;
@@ -135,7 +135,7 @@ void Game::assignTeam(int good, int bad)
     {
         this->players[i].setTeam(b[i]);
     }
-}
+}*/
 
 void Game::printPlayers()
 {
@@ -143,7 +143,7 @@ void Game::printPlayers()
         this->players[i].show();
 }
 
-void Game::deal()
+/*void Game::deal()
 {
     random_shuffle(this->cards.begin(), this->cards.end());
     int k = 0;
@@ -155,7 +155,7 @@ void Game::deal()
             k++;
         }
     }
-}
+}*/
 
 //TODO utiliser objet card et pas id
 void Game::removeCard(int t)
@@ -179,10 +179,10 @@ bool Game::isOver()
     if(this->nbTour >= 4)
         res = true;
 
-    for(int i=0; i< (int)this->cards.size(); i++)
+    /*for(int i=0; i< (int)this->cards.size(); i++)
     {
         if(this->cards[i].getType() == BOMBE)
             res = true;
-    }
+    }*/
     return res;
 }
