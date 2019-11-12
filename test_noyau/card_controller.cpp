@@ -34,10 +34,10 @@ vector<CardJeu> Card_Controller::createDeck(int nbPlayer)
 
     //TODO : false valeur par défaut -> à bouger dans le constructeur
     for(i=0;i<nbNormal;i++)
-        cards.push_back(CardJeu(false,CABLE));
+        cards.push_back(CardJeu(CABLE));
     for(i=0;i<nbDefusing;i++)
-        cards.push_back(CardJeu(false,DEFUSING));
-    cards.push_back(CardJeu(false,BOMBE));
+        cards.push_back(CardJeu(DEFUSING));
+    cards.push_back(CardJeu(BOMBE));
 
     return cards;
 }
