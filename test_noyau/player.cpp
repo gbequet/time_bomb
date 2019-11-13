@@ -70,7 +70,6 @@ void Player::addCard(CardJeu& c)
 {
     if(this->cards.size() < 5)
         this->cards.push_back(c);
-    cout << "ADD " << this->cards[0].getType();
 }
 
 void Player::removeHand()

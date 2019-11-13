@@ -39,6 +39,8 @@ Game::Game(int nb_player, vector<QString> users) : nbPlayer(nb_player)
     this->curPlayer.show();
     i = 0;
 
+    vector<CardJeu> cards = Card_Controller::getCards();
+
     while(!this->isOver()) // main boucle
     {
         int player = 0;
@@ -57,7 +59,8 @@ Game::Game(int nb_player, vector<QString> users) : nbPlayer(nb_player)
             vector <CardJeu> playerCards = this->players[player-1].getCards();
             for(i = 0; i < playerCards.size(); i++){
                 if(!playerCards[i].isCut())
-                    cout <<"[" << i+1 << "]." << " ";
+                    cout <<"[" << i+1 << "]-"<< playerCards[i].getType() << " ";
+
             }
             cout << endl << "Choisir quelle carte couper : " << endl;
             cin >> card;
