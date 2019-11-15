@@ -192,8 +192,10 @@ bool Game::isOver()
 {
     bool res = gameOver;
     ++this->nbTour;
-    if(this->nbTour >= 4)
+    if(this->nbTour >= 4){
         res = true;
+        cout << "Les tarlouses ont pas été foutues de trouver les câbles de désamorçage, les terroristes ont pas été foutus de trouver la bombe mais ils gagnent quand même, cimer la justice." << endl;
+    }
 
     /*for(int i=0; i< (int)this->cards.size(); i++)
     {
