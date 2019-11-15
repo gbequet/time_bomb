@@ -12,11 +12,14 @@
 
 using namespace std;
 
+bool Game::gameOver = false;
+
 Game::Game(int nb_player, vector<QString> users) : nbPlayer(nb_player)
 {
     int i,j,k;
 
     this->nbTour = 0;
+    this->nbDefusingCut = 0;
 
     // creer les joueurs
     //TODO : pas d'argument hasPLayed dans le constructeur, initialisé à false
@@ -65,23 +68,33 @@ Game::Game(int nb_player, vector<QString> users) : nbPlayer(nb_player)
             cout << endl << "Choisir quelle carte couper : " << endl;
             cin >> card;
             if(playerCards[card - 1].getType() == DEFUSING)
+                this->nbDefusingCut++;
                 cout << "Cable de désamorçage" << endl;
+                if(this->nbDefusingCut == this->nbPlayer){
+                    cout << "Tous les câbles de désamorçage ont été trouvés, Big Ben est sauvé YOUPI !" << endl;
+                    gameOver = true;
+                    break;
+                }
             if(playerCards[card - 1].getType() == CABLE)
                 cout << "Cable normal" << endl;
-            if(playerCards[card - 1].getType() == BOMB)
-                cout << "BOMBE" << endl;
+            if(playerCards[card - 1].getType() == BOMB){
+                gameOver = true;
+                cout << "La bombe a été coupé, Big Ben a explosé.." << endl;
+                break;
+            }
 
             //TODO : supprimer id fixe (idéfix lol)
-            //int tmp = this->curPlayer.cutCardTo(this->players[player - 1], card);
-            //this->removeCard(tmp);
+            Player_Controller::cutCardTo(this->players[player - 1], card - 1);
+            if(i == this->players.size() -1){
+                cout << "Tout le monde à joué" << endl;
+                continue;
+            }
 
 
             // on change de joueur courant (celui qui vient de se faire couper)
             this->curPlayer = this->players[player - 1];
             cout << "Au tour de " << this->curPlayer.getName().toStdString() << endl;
          }
-
-        cout << "Tout le monde à joué" << endl;
 
 
 
@@ -177,7 +190,7 @@ void Game::removeCard(int t)
 //TODO à revoir
 bool Game::isOver()
 {
-    bool res = false;
+    bool res = gameOver;
     ++this->nbTour;
     if(this->nbTour >= 4)
         res = true;

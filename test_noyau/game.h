@@ -42,12 +42,13 @@ class Game
 
     private:
         int nbTour;
-        int nbCut;
+        int nbDefusingCut;
         int nbPlayer;
         int winner;
         Player curPlayer;
         std::vector<Player> players;
         std::vector<CardJeu> cards;
+        static bool gameOver;
 };
 
 #endif // GAME_H

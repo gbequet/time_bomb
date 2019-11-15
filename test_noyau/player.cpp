@@ -100,6 +100,8 @@ void Player::showCards()
     }
 }
 
+
+
 int Player::cutCardTo(Player& p, int id)
 {
     if(!p.cards[id].isCut())
