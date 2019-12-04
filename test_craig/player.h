@@ -4,7 +4,6 @@
 #include <vector>
 #include <QString>
 #include "cardjeu.h"
-#include "cardperso.h"
 
 class Player
 {
@@ -19,8 +18,6 @@ class Player
         void setTeam(int t);
         bool getHasPlayed();
         void setHasPlayed(bool b);
-//        CardPerso getPerso();
-//        void setPerso(CardPerso p);
 
         std::vector<CardJeu> getCards();
         void setCards(std::vector<CardJeu> c);
@@ -35,7 +32,6 @@ class Player
         void showCards();
 
     private:
-//        CardPerso perso;
         QString name;
         int team;
         bool hasPlayed;

@@ -5,8 +5,6 @@
 #define DESAMORCAGE 1
 #define BOMBE 2
 
-#include "card.h"
-
 class CardJeu
 {
     public:

@@ -1,7 +1,9 @@
 #ifndef JEULOCAL_H
 #define JEULOCAL_H
 
+#include <vector>
 #include <QWidget>
+#include "ui_jeulocal.h"
 
 namespace Ui {
 class JeuLocal;
@@ -17,9 +19,15 @@ public:
 
 private slots:
     void unSeulJoueur();
+    void makeTabs();
+    int getNbPlayer();
+
+    void on_jouer_clicked();
 
 private:
     Ui::JeuLocal *ui;
+    int nb_player;
+    std::vector<QString> players;
 };
 
 #endif // JEULOCAL_H

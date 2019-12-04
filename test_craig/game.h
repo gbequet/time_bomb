@@ -3,9 +3,7 @@
 
 #include <vector>
 #include "player.h"
-//#include "card.h"
 #include "cardjeu.h"
-//#include "deck.h"
 
 class Game
 {

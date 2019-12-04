@@ -8,6 +8,7 @@
 #include "creationsalon.h"
 #include "salononline.h"
 #include "jeulocal.h"
+#include "reveal.h"
 
 class FenetrePrincipale : public QWidget
 {
@@ -15,7 +16,7 @@ class FenetrePrincipale : public QWidget
 
 public:
     FenetrePrincipale();
-    QStackedWidget *stack;
+    static QStackedWidget *stack;
     Home *home;
     regles *regle;
     JeuEnLigne *jeuEnLigne;
