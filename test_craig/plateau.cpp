@@ -7,6 +7,7 @@ Plateau::Plateau(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Plateau)
 {
+    parent->setWindowState(Qt::WindowFullScreen);
     ui->setupUi(this);
 }
 

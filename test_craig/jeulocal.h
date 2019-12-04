@@ -21,7 +21,6 @@ private slots:
     void unSeulJoueur();
     void makeTabs();
     int getNbPlayer();
-
     void on_jouer_clicked();
 
 private:

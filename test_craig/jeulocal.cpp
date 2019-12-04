@@ -10,13 +10,13 @@ JeuLocal::JeuLocal(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->retour, SIGNAL(clicked()), parent, SLOT(goHome()));
+    connect(ui->jouer, SIGNAL(clicked()), parent, SLOT(goPlateau()));
 
     connect(ui->nbrJoueur4, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->nbrJoueur5, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->nbrJoueur6, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->nbrJoueur7, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->nbrJoueur8, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
-    connect(ui->jouer, SIGNAL(clicked()), this, SLOT(goPlateau()));
 }
 
 JeuLocal::~JeuLocal()
@@ -106,9 +106,9 @@ int JeuLocal::getNbPlayer()
 
 void JeuLocal::on_jouer_clicked()
 {
-    int n = getNbPlayer();
-    makeTabs();
-
-    Game_Controller mainGame(n, players);
-    FenetrePrincipale::stack->setCurrentWidget(new Reveal(this, mainGame));
+    /*int n = getNbPlayer();
+    makeTabs();*/
+    qDebug() << "clicked";
+    //Game_Controller mainGame(n, players);
+    FenetrePrincipale::stack->setCurrentWidget(new Plateau(this));
 }

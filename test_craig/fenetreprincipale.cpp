@@ -2,10 +2,12 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
+QStackedWidget * FenetrePrincipale::stack;
+
 FenetrePrincipale::FenetrePrincipale()
 {
-    stack = new QStackedWidget();
 
+    FenetrePrincipale::stack =  new QStackedWidget();
     home = new Home(this);
     regle = new regles(this);
     jeuEnLigne = new JeuEnLigne(this);
@@ -14,18 +16,18 @@ FenetrePrincipale::FenetrePrincipale()
     jeuLocal = new JeuLocal(this);
     plateau = new Plateau(this);
 
-    stack->addWidget(home);
-    stack->addWidget(regle);
-    stack->addWidget(jeuEnLigne);
-    stack->addWidget(creationSalon);
-    stack->addWidget(salonOnline);
-    stack->addWidget(jeuLocal);
-    stack->addWidget(plateau);
+    FenetrePrincipale::stack->addWidget(home);
+    FenetrePrincipale::stack->addWidget(regle);
+    FenetrePrincipale::stack->addWidget(jeuEnLigne);
+    FenetrePrincipale::stack->addWidget(creationSalon);
+    FenetrePrincipale::stack->addWidget(salonOnline);
+    FenetrePrincipale::stack->addWidget(jeuLocal);
+    FenetrePrincipale::stack->addWidget(plateau);
 
-    stack->setCurrentWidget(home);
+    FenetrePrincipale::stack->setCurrentWidget(home);
 
     QVBoxLayout *layout = new QVBoxLayout;
-    layout->addWidget(stack);
+    layout->addWidget(FenetrePrincipale::stack);
     setLayout(layout);
 
     connect(this, SIGNAL(changerNom(QString)), creationSalon, SLOT(setNom(QString)));
@@ -35,37 +37,39 @@ FenetrePrincipale::FenetrePrincipale()
 
 void FenetrePrincipale::goRegles()
 {
-    stack->setCurrentWidget(regle);
+    FenetrePrincipale::stack->setCurrentWidget(regle);
 }
 
 void FenetrePrincipale::goHome()
 {
-    stack->setCurrentWidget(home);
+    FenetrePrincipale::stack->setCurrentWidget(home);
 }
 
 void FenetrePrincipale::goJeuEnLigne()
 {
-    stack->setCurrentWidget(jeuEnLigne);
+    FenetrePrincipale::stack->setCurrentWidget(jeuEnLigne);
 }
 
 void FenetrePrincipale::goCreationSalon()
 {
-    stack->setCurrentWidget(creationSalon);
+    FenetrePrincipale::stack->setCurrentWidget(creationSalon);
 }
 
 void FenetrePrincipale::goSalonOnline()
 {
-    stack->setCurrentWidget(salonOnline);
+    FenetrePrincipale::stack->setCurrentWidget(salonOnline);
 }
 
 void FenetrePrincipale::goJeuLocal()
 {
-    stack->setCurrentWidget(jeuLocal);
+    FenetrePrincipale::stack->setCurrentWidget(jeuLocal);
 }
 
 void FenetrePrincipale::goPlateau()
 {
-    stack->setCurrentWidget(plateau);
+    FenetrePrincipale::stack->setCurrentWidget(plateau);
+
+
 }
 
 void FenetrePrincipale::recupertaionPseudo(QString pseudo)
