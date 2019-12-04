@@ -9,6 +9,7 @@
 #include "salononline.h"
 #include "jeulocal.h"
 #include "reveal.h"
+#include "plateau.h"
 
 class FenetrePrincipale : public QWidget
 {
@@ -23,6 +24,7 @@ public:
     CreationSalon *creationSalon;
     SalonOnline *salonOnline;
     JeuLocal *jeuLocal;
+    Plateau *plateau;
 
 
     QString pseudo;
@@ -38,6 +40,8 @@ public slots:
     void recupertaionPseudo(QString);
     void recuperationNomSalon(QString);
     void recuperationnbrJoueur();
+    void goPlateau();
+
 
 signals:
     void changerNom(QString);

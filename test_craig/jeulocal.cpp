@@ -16,7 +16,7 @@ JeuLocal::JeuLocal(QWidget *parent) :
     connect(ui->nbrJoueur6, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->nbrJoueur7, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->nbrJoueur8, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
-    connect(ui->jouer, SIGNAL(clicked()), this, SLOT(on_jouer_clicked()));
+    connect(ui->jouer, SIGNAL(clicked()), this, SLOT(goPlateau()));
 }
 
 JeuLocal::~JeuLocal()

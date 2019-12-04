@@ -15,7 +15,8 @@ SOURCES += \
     cardjeu.cpp \
     player.cpp \
     card_controller.cpp \
-    player_controller.cpp
+    player_controller.cpp \
+    plateau.cpp
 
 HEADERS += \
     creationsalon.h \
@@ -31,7 +32,8 @@ HEADERS += \
     cardjeu.h \
     player.h \
     card_controller.h \
-    player_controller.h
+    player_controller.h \
+    plateau.h
 
 FORMS += \
     creationsalon.ui \
@@ -40,4 +42,5 @@ FORMS += \
     jeulocal.ui \
     regles.ui \
     reveal.ui \
-    salononline.ui
+    salononline.ui \
+    plateau.ui
