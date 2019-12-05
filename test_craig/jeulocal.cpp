@@ -106,9 +106,4 @@ int JeuLocal::getNbPlayer()
 
 void JeuLocal::on_jouer_clicked()
 {
-    /*int n = getNbPlayer();
-    makeTabs();*/
-    qDebug() << "clicked";
-    //Game_Controller mainGame(n, players);
-    FenetrePrincipale::stack->setCurrentWidget(new Plateau(this));
 }

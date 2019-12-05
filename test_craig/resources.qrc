@@ -40,5 +40,8 @@
         <file>images/titles/title-button.png</file>
         <file>images/titles/title-frame.png</file>
         <file>images/main-assets-picture.png</file>
+        <file>back-small.png</file>
+        <file>cable-small.png</file>
+        <file>defusing-small.png</file>
     </qresource>
 </RCC>

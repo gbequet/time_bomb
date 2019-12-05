@@ -105,8 +105,7 @@
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">border : 1px solid black;
-background-color: rgb(253, 255, 153);</string>
+           <string notr="true">border-image: url(:/images/cards/card-hidden.png)</string>
           </property>
          </widget>
         </item>
@@ -141,8 +140,7 @@ background-color: rgb(253, 255, 153);</string>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">border : 1px solid black;
-background-color: rgb(253, 255, 153);</string>
+           <string notr="true">border-image: url(:/images/cards/card-hidden.png)</string>
           </property>
          </widget>
         </item>
@@ -177,8 +175,7 @@ background-color: rgb(253, 255, 153);</string>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">border : 1px solid black;
-background-color: rgb(253, 255, 153);</string>
+           <string notr="true">border-image: url(:/images/cards/card-hidden.png)</string>
           </property>
          </widget>
         </item>
@@ -226,7 +223,7 @@ background-color: rgb(253, 255, 153);</string>
          </spacer>
         </item>
         <item>
-         <widget class="QWidget" name="card_19" native="true">
+         <widget class="QWidget" name="card_20" native="true">
           <property name="minimumSize">
            <size>
             <width>50</width>
@@ -240,8 +237,7 @@ background-color: rgb(253, 255, 153);</string>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">border : 1px solid black;
-background-color: rgb(253, 255, 153);</string>
+           <string notr="true">border-image: url(:/images/cards/card-hidden.png)</string>
           </property>
          </widget>
         </item>
@@ -262,7 +258,7 @@ background-color: rgb(253, 255, 153);</string>
          </spacer>
         </item>
         <item>
-         <widget class="QWidget" name="card_20" native="true">
+         <widget class="QWidget" name="card_19" native="true">
           <property name="minimumSize">
            <size>
             <width>50</width>
@@ -276,8 +272,7 @@ background-color: rgb(253, 255, 153);</string>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">border : 1px solid black;
-background-color: rgb(253, 255, 153);</string>
+           <string notr="true">border-image: url(:/images/cards/card-hidden.png)</string>
           </property>
          </widget>
         </item>
@@ -319,7 +314,7 @@ background-color: rgb(253, 255, 153);</string>
      <x>0</x>
      <y>0</y>
      <width>1001</width>
-     <height>45</height>
+     <height>50</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="Infos_line">
@@ -338,7 +333,7 @@ background-color: rgb(253, 255, 153);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:icons/button-home.png);</string>
+       <string notr="true">border-image: url(:/images/icons/button-home.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -360,7 +355,7 @@ background-color: rgb(253, 255, 153);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:icons/button-rules.png);</string>
+       <string notr="true">border-image: url(:/images/icons/button-rules.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -381,12 +376,36 @@ background-color: rgb(253, 255, 153);</string>
      </spacer>
     </item>
     <item>
+     <widget class="QLabel" name="tour_label">
+      <property name="minimumSize">
+       <size>
+        <width>300</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>300</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image : url(:/images/titles/title-frame.png);
+color:orange;
+font-size:24px;</string>
+      </property>
+      <property name="text">
+       <string>AU TOUR DE JOREN</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QLabel" name="label_2">
       <property name="text">
        <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="images.qrc">:/icons/title-tour.png</pixmap>
       </property>
      </widget>
     </item>
@@ -424,11 +443,14 @@ background-color: rgb(253, 255, 153);</string>
         <height>32</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border-image : url(:/images/icons/button-token-on.png)</string>
+      </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="images.qrc">:/icons/button-token.png</pixmap>
+       <pixmap>:/icons/button-token.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -462,11 +484,14 @@ background-color: rgb(253, 255, 153);</string>
               <height>32</height>
              </size>
             </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/defusing-small.png)</string>
+            </property>
             <property name="text">
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap resource="images.qrc">:/cartes/defusing-small.png</pixmap>
+             <pixmap>:/cartes/defusing-small.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>true</bool>
@@ -509,11 +534,14 @@ background-color: rgb(253, 255, 153);</string>
             <height>32</height>
            </size>
           </property>
+          <property name="styleSheet">
+           <string notr="true">border-image : url(:/cable-small.png)</string>
+          </property>
           <property name="text">
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="images.qrc">:/cartes/cable-small.png</pixmap>
+           <pixmap>:/cartes/cable-small.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -535,7 +563,7 @@ background-color: rgb(253, 255, 153);</string>
      <height>77</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="player_line_bot">
+   <layout class="QHBoxLayout" name="players_line_bot">
     <property name="sizeConstraint">
      <enum>QLayout::SetDefaultConstraint</enum>
     </property>
@@ -556,7 +584,7 @@ background-color: rgb(253, 255, 153);</string>
      </spacer>
     </item>
     <item>
-     <widget class="QPushButton" name="player_button_3">
+     <widget class="QPushButton" name="player_button_11">
       <property name="minimumSize">
        <size>
         <width>64</width>
@@ -570,7 +598,7 @@ background-color: rgb(253, 255, 153);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:back.png);</string>
+       <string notr="true">border-image: url(:back-small.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -594,7 +622,7 @@ background-color: rgb(253, 255, 153);</string>
      </spacer>
     </item>
     <item>
-     <widget class="QPushButton" name="player_button_4">
+     <widget class="QPushButton" name="player_button_10">
       <property name="minimumSize">
        <size>
         <width>64</width>
@@ -608,7 +636,7 @@ background-color: rgb(253, 255, 153);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:back.png);</string>
+       <string notr="true">border-image: url(:back-small.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -642,7 +670,7 @@ background-color: rgb(253, 255, 153);</string>
      <height>77</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="player_line_top">
+   <layout class="QHBoxLayout" name="players_line_top">
     <item>
      <spacer name="players_top_left_spacer">
       <property name="orientation">
@@ -660,7 +688,7 @@ background-color: rgb(253, 255, 153);</string>
      </spacer>
     </item>
     <item>
-     <widget class="QPushButton" name="player_button_8">
+     <widget class="QPushButton" name="player_button_14">
       <property name="minimumSize">
        <size>
         <width>64</width>
@@ -674,7 +702,7 @@ background-color: rgb(253, 255, 153);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:back.png);</string>
+       <string notr="true">border-image: url(:back-small.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -687,7 +715,7 @@ background-color: rgb(253, 255, 153);</string>
        <enum>Qt::Horizontal</enum>
       </property>
       <property name="sizeType">
-       <enum>QSizePolicy::Minimum</enum>
+       <enum>QSizePolicy::Ignored</enum>
       </property>
       <property name="sizeHint" stdset="0">
        <size>
@@ -698,7 +726,7 @@ background-color: rgb(253, 255, 153);</string>
      </spacer>
     </item>
     <item>
-     <widget class="QPushButton" name="player_button_7">
+     <widget class="QPushButton" name="player_button_15">
       <property name="minimumSize">
        <size>
         <width>64</width>
@@ -712,7 +740,7 @@ background-color: rgb(253, 255, 153);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:back.png);</string>
+       <string notr="true">border-image: url(:back-small.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -741,9 +769,9 @@ background-color: rgb(253, 255, 153);</string>
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>190</y>
+     <y>220</y>
      <width>71</width>
-     <height>321</height>
+     <height>221</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="players_line_left">
@@ -761,7 +789,7 @@ background-color: rgb(253, 255, 153);</string>
      </spacer>
     </item>
     <item>
-     <widget class="QPushButton" name="player_button">
+     <widget class="QPushButton" name="player_button_13">
       <property name="minimumSize">
        <size>
         <width>64</width>
@@ -775,7 +803,7 @@ background-color: rgb(253, 255, 153);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:back.png);</string>
+       <string notr="true">border-image: url(:back-small.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -796,7 +824,7 @@ background-color: rgb(253, 255, 153);</string>
      </spacer>
     </item>
     <item>
-     <widget class="QPushButton" name="player_button_2">
+     <widget class="QPushButton" name="player_button_12">
       <property name="minimumSize">
        <size>
         <width>64</width>
@@ -810,8 +838,7 @@ background-color: rgb(253, 255, 153);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:back.png);
-</string>
+       <string notr="true">border-image: url(:back-small.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -837,9 +864,9 @@ background-color: rgb(253, 255, 153);</string>
    <property name="geometry">
     <rect>
      <x>770</x>
-     <y>190</y>
+     <y>220</y>
      <width>71</width>
-     <height>321</height>
+     <height>221</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="players_line_right">
@@ -871,7 +898,7 @@ background-color: rgb(253, 255, 153);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:back.png);</string>
+       <string notr="true">border-image: url(:back-small.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -892,7 +919,7 @@ background-color: rgb(253, 255, 153);</string>
      </spacer>
     </item>
     <item>
-     <widget class="QPushButton" name="player_button_5">
+     <widget class="QPushButton" name="player_button_9">
       <property name="minimumSize">
        <size>
         <width>64</width>
@@ -906,7 +933,7 @@ background-color: rgb(253, 255, 153);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-image: url(:back.png);</string>
+       <string notr="true">border-image: url(:back-small.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -968,8 +995,6 @@ background-color: rgb(253, 255, 153);</string>
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="images.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
