@@ -40,7 +40,7 @@ public slots:
     void recupertaionPseudo(QString);
     void recuperationNomSalon(QString);
     void recuperationnbrJoueur();
-    void goPlateau(int);
+    void goPlateau();
 
 
 signals:

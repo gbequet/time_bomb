@@ -64,9 +64,9 @@ void FenetrePrincipale::goJeuLocal()
     FenetrePrincipale::stack->setCurrentWidget(jeuLocal);
 }
 
-void FenetrePrincipale::goPlateau(int nbJoueurs)
+void FenetrePrincipale::goPlateau()
 {
-    plateau = new Plateau(this, nbJoueurs);
+    plateau = new Plateau(this);
     FenetrePrincipale::stack->addWidget(plateau);
     this->setWindowState(Qt::WindowFullScreen);
     FenetrePrincipale::stack->setCurrentWidget(plateau);

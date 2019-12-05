@@ -3,15 +3,12 @@
 #include "game_controller.h"
 #include "fenetreprincipale.h"
 
-Plateau::Plateau(QWidget *parent, int nbJoueurs) :
+Plateau::Plateau(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Plateau)
 {
     ui->setupUi(this);
     connect(ui->player_button, SIGNAL(clicked()), this, SLOT(click_home()));
-
-   qDebug() << nbJoueurs;
-
 
 }
 
