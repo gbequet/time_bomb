@@ -46,4 +46,4 @@ FORMS += \
     plateau.ui
 
 RESOURCES += \
-    images.qrc
+    resources.qrc

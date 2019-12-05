@@ -1,0 +1,44 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/cards/card-big-ben-explosion.png</file>
+        <file>images/cards/card-defuse.png</file>
+        <file>images/cards/card-hidden.png</file>
+        <file>images/cards/card-useless.png</file>
+        <file>images/characters/hidden.png</file>
+        <file>images/characters/moriarty1.png</file>
+        <file>images/characters/moriarty2.png</file>
+        <file>images/characters/moriarty3.png</file>
+        <file>images/characters/sherlock1.png</file>
+        <file>images/characters/sherlock2.png</file>
+        <file>images/characters/sherlock3.png</file>
+        <file>images/characters/sherlock4.png</file>
+        <file>images/characters/sherlock5.png</file>
+        <file>images/icons/button-back.png</file>
+        <file>images/icons/button-cancel-off.png</file>
+        <file>images/icons/button-cancel-on.png</file>
+        <file>images/icons/button-confirm-off.png</file>
+        <file>images/icons/button-confirm-on.png</file>
+        <file>images/icons/button-home.png</file>
+        <file>images/icons/button-quit.png</file>
+        <file>images/icons/button-rules.png</file>
+        <file>images/icons/button-settings.png</file>
+        <file>images/icons/button-token-off.png</file>
+        <file>images/icons/button-token-on.png</file>
+        <file>images/icons/select-player-4-off.png</file>
+        <file>images/icons/select-player-4-on.png</file>
+        <file>images/icons/select-player-5-off.png</file>
+        <file>images/icons/select-player-5-on.png</file>
+        <file>images/icons/select-player-6-off.png</file>
+        <file>images/icons/select-player-6-on.png</file>
+        <file>images/icons/select-player-7-off.png</file>
+        <file>images/icons/select-player-7-on.png</file>
+        <file>images/icons/select-player-8-off.png</file>
+        <file>images/icons/select-player-8-on.png</file>
+        <file>images/miscs/cutter.png</file>
+        <file>images/miscs/flag-english.png</file>
+        <file>images/miscs/flag-french.png</file>
+        <file>images/titles/title-button.png</file>
+        <file>images/titles/title-frame.png</file>
+        <file>images/main-assets-picture.png</file>
+    </qresource>
+</RCC>
