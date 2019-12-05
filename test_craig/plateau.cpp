@@ -7,8 +7,16 @@ Plateau::Plateau(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Plateau)
 {
-    parent->setWindowState(Qt::WindowFullScreen);
     ui->setupUi(this);
+
+
+    connect(ui->player_button, SIGNAL(clicked()), this, SLOT(click_home()));
+
+
+}
+
+void Plateau::click_home(){
+    qDebug() << "Ok boi";
 }
 
 

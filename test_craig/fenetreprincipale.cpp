@@ -62,14 +62,14 @@ void FenetrePrincipale::goSalonOnline()
 
 void FenetrePrincipale::goJeuLocal()
 {
+
     FenetrePrincipale::stack->setCurrentWidget(jeuLocal);
 }
 
 void FenetrePrincipale::goPlateau()
 {
+    this->setWindowState(Qt::WindowFullScreen);
     FenetrePrincipale::stack->setCurrentWidget(plateau);
-
-
 }
 
 void FenetrePrincipale::recupertaionPseudo(QString pseudo)

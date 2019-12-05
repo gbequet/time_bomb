@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>932</width>
-    <height>588</height>
+    <width>860</width>
+    <height>545</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -310,7 +310,81 @@ background-color: rgb(253, 255, 153);</string>
      <height>41</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="Infos_line"/>
+   <layout class="QHBoxLayout" name="Infos_line">
+    <item>
+     <widget class="QPushButton" name="home_button">
+      <property name="minimumSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:icons/button-home.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="rules_button">
+      <property name="minimumSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:icons/button-rules.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+    </item>
+   </layout>
   </widget>
   <widget class="QWidget" name="horizontalLayoutWidget_2">
    <property name="geometry">
@@ -342,22 +416,24 @@ background-color: rgb(253, 255, 153);</string>
      </spacer>
     </item>
     <item>
-     <widget class="QWidget" name="player_bot_left" native="true">
+     <widget class="QPushButton" name="player_button_3">
       <property name="minimumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border : 1px solid black;
-border-radius:35px;</string>
+       <string notr="true">border-image: url(:back.png);</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>
@@ -378,22 +454,24 @@ border-radius:35px;</string>
      </spacer>
     </item>
     <item>
-     <widget class="QWidget" name="player_bot_right" native="true">
+     <widget class="QPushButton" name="player_button_4">
       <property name="minimumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border : 1px solid black;
-border-radius:35px;</string>
+       <string notr="true">border-image: url(:back.png);</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>
@@ -442,22 +520,24 @@ border-radius:35px;</string>
      </spacer>
     </item>
     <item>
-     <widget class="QWidget" name="player_top_left" native="true">
+     <widget class="QPushButton" name="player_button_8">
       <property name="minimumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border : 1px solid black;
-border-radius:35px;</string>
+       <string notr="true">border-image: url(:back.png);</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>
@@ -478,22 +558,24 @@ border-radius:35px;</string>
      </spacer>
     </item>
     <item>
-     <widget class="QWidget" name="player_top_right" native="true">
+     <widget class="QPushButton" name="player_button_7">
       <property name="minimumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border : 1px solid black;
-border-radius:35px;</string>
+       <string notr="true">border-image: url(:back.png);</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>
@@ -518,10 +600,10 @@ border-radius:35px;</string>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>60</y>
-     <width>77</width>
-     <height>361</height>
+     <x>70</x>
+     <y>100</y>
+     <width>71</width>
+     <height>321</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="players_line_left">
@@ -539,22 +621,24 @@ border-radius:35px;</string>
      </spacer>
     </item>
     <item>
-     <widget class="QWidget" name="player_left_top" native="true">
+     <widget class="QPushButton" name="player_button">
       <property name="minimumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border : 1px solid black;
-border-radius:35px;</string>
+       <string notr="true">border-image: url(:back.png);</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>
@@ -572,22 +656,25 @@ border-radius:35px;</string>
      </spacer>
     </item>
     <item>
-     <widget class="QWidget" name="player_left_bot" native="true">
+     <widget class="QPushButton" name="player_button_2">
       <property name="minimumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border : 1px solid black;
-border-radius:35px;</string>
+       <string notr="true">border-image: url(:back.png);
+</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>
@@ -610,9 +697,9 @@ border-radius:35px;</string>
    <property name="geometry">
     <rect>
      <x>690</x>
-     <y>60</y>
-     <width>77</width>
-     <height>361</height>
+     <y>100</y>
+     <width>71</width>
+     <height>321</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="players_line_right">
@@ -630,22 +717,24 @@ border-radius:35px;</string>
      </spacer>
     </item>
     <item>
-     <widget class="QWidget" name="player_right_top" native="true">
+     <widget class="QPushButton" name="player_button_6">
       <property name="minimumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border : 1px solid black;
-border-radius:35px;</string>
+       <string notr="true">border-image: url(:back.png);</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>
@@ -663,22 +752,24 @@ border-radius:35px;</string>
      </spacer>
     </item>
     <item>
-     <widget class="QWidget" name="player_right_bot" native="true">
+     <widget class="QPushButton" name="player_button_5">
       <property name="minimumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>75</width>
-        <height>75</height>
+        <width>64</width>
+        <height>64</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border : 1px solid black;
-border-radius:35px;</string>
+       <string notr="true">border-image: url(:back.png);</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>
@@ -696,6 +787,19 @@ border-radius:35px;</string>
      </spacer>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>60</y>
+     <width>60</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
   </widget>
  </widget>
  <resources/>

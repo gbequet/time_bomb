@@ -44,3 +44,6 @@ FORMS += \
     reveal.ui \
     salononline.ui \
     plateau.ui
+
+RESOURCES += \
+    images.qrc
