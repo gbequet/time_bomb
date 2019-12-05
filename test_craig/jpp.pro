@@ -47,3 +47,5 @@ FORMS += \
 
 RESOURCES += \
     resources.qrc
+
+CONFIG += resources_big
