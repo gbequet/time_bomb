@@ -2,11 +2,15 @@
     <qresource prefix="/">
         <file>back.png</file>
     </qresource>
-    <qresource prefix="/cartes"/>
+    <qresource prefix="/cartes">
+        <file>cable-small.png</file>
+        <file>defusing-small.png</file>
+    </qresource>
     <qresource prefix="/icons">
         <file>button-home.png</file>
         <file>button-rules.png</file>
         <file>button-token.png</file>
         <file>title.png</file>
+        <file>title-tour.png</file>
     </qresource>
 </RCC>

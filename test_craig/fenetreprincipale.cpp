@@ -14,7 +14,6 @@ FenetrePrincipale::FenetrePrincipale()
     creationSalon = new CreationSalon(this);
     salonOnline = new SalonOnline(this);
     jeuLocal = new JeuLocal(this);
-    plateau = new Plateau(this);
 
     FenetrePrincipale::stack->addWidget(home);
     FenetrePrincipale::stack->addWidget(regle);
@@ -22,7 +21,6 @@ FenetrePrincipale::FenetrePrincipale()
     FenetrePrincipale::stack->addWidget(creationSalon);
     FenetrePrincipale::stack->addWidget(salonOnline);
     FenetrePrincipale::stack->addWidget(jeuLocal);
-    FenetrePrincipale::stack->addWidget(plateau);
 
     FenetrePrincipale::stack->setCurrentWidget(home);
 
@@ -66,8 +64,10 @@ void FenetrePrincipale::goJeuLocal()
     FenetrePrincipale::stack->setCurrentWidget(jeuLocal);
 }
 
-void FenetrePrincipale::goPlateau()
+void FenetrePrincipale::goPlateau(int nbJoueurs)
 {
+    plateau = new Plateau(this, nbJoueurs);
+    FenetrePrincipale::stack->addWidget(plateau);
     this->setWindowState(Qt::WindowFullScreen);
     FenetrePrincipale::stack->setCurrentWidget(plateau);
 }

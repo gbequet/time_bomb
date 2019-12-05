@@ -14,7 +14,7 @@ class Plateau : public QWidget
     Q_OBJECT
 
 public:
-    explicit Plateau(QWidget *parent = nullptr);
+    explicit Plateau(QWidget *parent = nullptr, int nbJoueurs = 2);
     ~Plateau();
 
 private slots:
