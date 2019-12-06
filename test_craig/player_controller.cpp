@@ -85,6 +85,10 @@ vector<Player> Player_Controller::getPlayers(){
     return players;
 }
 
+void Player_Controller::setPlayers(vector<Player> players){
+    players = players;
+}
+
 void Player_Controller::cutCardTo(Player& p, int index)
 {
     vector<CardJeu> cards = p.getCards();

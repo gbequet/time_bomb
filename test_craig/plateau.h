@@ -19,6 +19,7 @@ public:
 
 private slots:
     void click_home();
+    void cut_card();
 
 
 private:

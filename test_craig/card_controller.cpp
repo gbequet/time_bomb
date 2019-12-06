@@ -49,7 +49,7 @@ vector<CardJeu> Card_Controller::getCards(){
     return cards;
 }
 
-/*void Card_Controller::deal(){
+void Card_Controller::deal(){
     vector<Player> players = Player_Controller::getPlayers();
     random_shuffle(cards.begin(), cards.end());
     for(int i=0; i<5; i++)
@@ -61,4 +61,4 @@ vector<CardJeu> Card_Controller::getCards(){
     }
 
     Player_Controller::setPlayers(players);
-}*/
+}
