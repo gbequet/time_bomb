@@ -2,6 +2,7 @@
 #define FENETREPRINCIPALE_H
 
 #include <QStackedWidget>
+#include <fstream>
 #include "home.h"
 #include "regles.h"
 #include "jeuenligne.h"
@@ -10,6 +11,8 @@
 #include "jeulocal.h"
 #include "reveal.h"
 #include "plateau.h"
+#include "options.h"
+
 
 class FenetrePrincipale : public QWidget
 {
@@ -25,10 +28,16 @@ public:
     SalonOnline *salonOnline;
     JeuLocal *jeuLocal;
     Plateau *plateau;
-
+    Options *options;
 
     QString pseudo;
     QString nomSalon;
+
+    static std::fstream& getOptionStream()
+    {
+      static std::fstream optionsFile;
+      return optionsFile;
+    }
 
 public slots:
     void goRegles();
@@ -41,6 +50,9 @@ public slots:
     void recuperationNomSalon(QString);
     void recuperationnbrJoueur();
     void goPlateau();
+    void goOptions();
+    void goQuit();
+    void changeLangue();
 
 
 signals:

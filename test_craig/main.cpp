@@ -5,6 +5,8 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
+    static std::fstream optionsFile;
+
     FenetrePrincipale fenetre;
     fenetre.show();
 

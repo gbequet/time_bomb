@@ -25,7 +25,7 @@
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-image:url(://images/icons/button-quit.png);</string>
+        <string notr="true">border-image:url(://images/icons/button-settings.png);</string>
        </property>
        <property name="text">
         <string/>
@@ -47,8 +47,17 @@
      </item>
      <item>
       <widget class="QPushButton" name="quitter">
+       <property name="minimumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image:url(://images/icons/button-quit.png);</string>
+       </property>
        <property name="text">
-        <string>Quitter</string>
+        <string/>
        </property>
       </widget>
      </item>

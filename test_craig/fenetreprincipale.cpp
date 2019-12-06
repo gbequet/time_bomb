@@ -4,8 +4,10 @@
 
 QStackedWidget * FenetrePrincipale::stack;
 
+
 FenetrePrincipale::FenetrePrincipale()
 {
+    getOptionStream().open("./options.txt", std::fstream::in | std::fstream::out | std::fstream::app);
 
     FenetrePrincipale::stack =  new QStackedWidget();
     home = new Home(this);
@@ -14,6 +16,7 @@ FenetrePrincipale::FenetrePrincipale()
     creationSalon = new CreationSalon(this);
     salonOnline = new SalonOnline(this);
     jeuLocal = new JeuLocal(this);
+    options = new Options(this);
 
     FenetrePrincipale::stack->addWidget(home);
     FenetrePrincipale::stack->addWidget(regle);
@@ -21,6 +24,27 @@ FenetrePrincipale::FenetrePrincipale()
     FenetrePrincipale::stack->addWidget(creationSalon);
     FenetrePrincipale::stack->addWidget(salonOnline);
     FenetrePrincipale::stack->addWidget(jeuLocal);
+    FenetrePrincipale::stack->addWidget(options);
+
+    std::string line; std::string param = ""; QString value = "";
+    std::size_t found;
+    if(getOptionStream().is_open())
+    {
+        while (getline(getOptionStream(), line))
+        {
+            found = line.find_first_of(":");
+            param = line.substr(0, found);
+            value = QString::fromStdString(line.substr(found+1));
+
+            //rajouter ici les comparaisons et attributions de valeurs du fichier options.txt
+            if(param.compare("lang") == 0)
+                options->lang = value;
+
+            printf("options->%s = %s\n", param.c_str(), value.toStdString().c_str());
+
+        }
+    }
+    fflush(stdout);
 
     FenetrePrincipale::stack->setCurrentWidget(home);
 
@@ -40,6 +64,7 @@ void FenetrePrincipale::goRegles()
 
 void FenetrePrincipale::goHome()
 {
+    FenetrePrincipale::setWindowTitle(QString("Accueil"));
     FenetrePrincipale::stack->setCurrentWidget(home);
 }
 
@@ -64,6 +89,12 @@ void FenetrePrincipale::goJeuLocal()
     FenetrePrincipale::stack->setCurrentWidget(jeuLocal);
 }
 
+void FenetrePrincipale::goOptions()
+{
+    this->setWindowTitle("Options");
+    FenetrePrincipale::stack->setCurrentWidget(options);
+}
+
 void FenetrePrincipale::goPlateau()
 {
     plateau = new Plateau(this);
@@ -71,6 +102,20 @@ void FenetrePrincipale::goPlateau()
     this->setWindowState(Qt::WindowFullScreen);
     FenetrePrincipale::stack->setCurrentWidget(plateau);
 }
+
+void FenetrePrincipale::goQuit()
+{
+    getOptionStream().close();
+    QApplication::quit();
+}
+
+void FenetrePrincipale::changeLangue()
+{
+    options->lang = options->tmp_lang;
+    printf("langue modifiée %s\n", options->lang.toStdString().c_str());
+    goHome();
+}
+
 
 void FenetrePrincipale::recupertaionPseudo(QString pseudo)
 {
