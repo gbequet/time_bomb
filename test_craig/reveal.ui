@@ -87,7 +87,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QToolButton" name="toolButton">
+       <widget class="QToolButton" name="perso">
         <property name="minimumSize">
          <size>
           <width>200</width>
@@ -118,7 +118,7 @@
      </spacer>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <layout class="QHBoxLayout" name="playerCards">
       <item>
        <widget class="QToolButton" name="toolButton_3">
         <property name="minimumSize">

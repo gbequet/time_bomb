@@ -23,7 +23,9 @@ private slots:
 private:
     Ui::Reveal *ui;
     Game_Controller *game;
-    int nbTour;
+    int nbCard;
+    bool first;
+    int cmp;
 };
 
 #endif // REVEAL_H

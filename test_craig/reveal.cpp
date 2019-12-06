@@ -2,6 +2,11 @@
 #include "reveal.h"
 #include "ui_reveal.h"
 #include "game_controller.h"
+#include "fenetreprincipale.h"
+#include "card_controller.h"
+#include "cardjeu.h"
+
+using namespace std;
 
 Reveal::Reveal(QWidget *parent, Game_Controller *game) :
     QWidget(parent),
@@ -10,17 +15,14 @@ Reveal::Reveal(QWidget *parent, Game_Controller *game) :
 {
     ui->setupUi(this);
 
-    nbTour = 5;
+    nbCard = 5;
+    ui->next->setText("Start");
+//    aVue = false;
+    cmp = 0;
+    first = true;
 
     connect(ui->quitter, SIGNAL(clicked()), parent, SLOT(goHome()));
     connect(ui->next, SIGNAL(clicked()), this, SLOT(nextMove()));
-
-//    qDebug() << "coucou" << endl;
-
-//    QString c = game->getPlayerName(0);
-//    QString c = game->players[0].getName();
-//    ui->curPlayer->setText("Cartes de " + c);
-//    qDebug() << game->nbPlayer << endl;
 }
 
 Reveal::~Reveal()
@@ -35,5 +37,52 @@ void Reveal::setGame(Game_Controller *g)
 
 void Reveal::nextMove()
 {
+    if(cmp < game->nbPlayer)
+    {
+        if(ui->next->text() == "Start" || ui->next->text() == "Next") // on montre ses cartes a players[cmp]
+        {
+            if(game->players[cmp].getTeam() == 0) // gentil
+                ui->perso->setStyleSheet("border-image: url(:/images/characters/sherlock1.png)");
+            else // mechant
+                ui->perso->setStyleSheet("border-image: url(:/images/characters/moriarty1.png)");
 
+            vector<CardJeu> cardsCurPlayer = game->players[cmp].getCards();
+
+            for(int i=0; i<nbCard; i++)
+            {
+                QToolButton * qt = (QToolButton *)ui->playerCards->itemAt(i)->widget();
+                switch(cardsCurPlayer[i].getType())
+                {
+                    case 1:
+                        qt->setStyleSheet("border-image: url(:/images/cards/card-defuse.png)");
+                        break;
+                    case 2:
+                        qt->setStyleSheet("border-image: url(:/images/cards/card-big-ben-explosion.png)");
+                        break;
+                    default:
+                        qt->setStyleSheet("border-image: url(:/images/cards/card-useless.png)");
+                        break;
+                }
+            }
+            ui->next->setText("Show");
+            cmp++;
+        }
+        else if(ui->next->text() == "Show")
+        {
+            ui->perso->setStyleSheet("border-image: url(:/images/characters/hidden.png)");
+
+            vector<CardJeu> cardsCurPlayer = game->players[cmp].getCards();
+
+            for(int i=0; i<nbCard; i++)
+            {
+                QToolButton * qt = (QToolButton *)ui->playerCards->itemAt(i)->widget();
+                qt->setStyleSheet("border-image: url(:/images/cards/card-hidden.png)");
+            }
+
+            QString c = game->players[cmp].getName();
+            ui->curPlayer->setText("Cartes de " + c);
+
+            ui->next->setText("Next");
+        }
+    }
 }
