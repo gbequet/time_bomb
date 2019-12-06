@@ -18,8 +18,14 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="retour">
+       <property name="styleSheet">
+        <string notr="true">border-image:url(:/images/icons/button-back.png);
+width: 70px;
+height:70px;
+</string>
+       </property>
        <property name="text">
-        <string>retour</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -555,7 +561,7 @@ background-color: #bfbfbf;
    </item>
    <item>
     <layout class="QGridLayout" name="gridLayout_2">
-     <item row="2" column="8">
+     <item row="4" column="8">
       <widget class="QPushButton" name="bot6">
        <property name="text">
         <string>Bot</string>
@@ -565,7 +571,7 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="2" column="3">
+     <item row="4" column="3">
       <widget class="QLineEdit" name="joueur5">
        <property name="styleSheet">
         <string notr="true">QLineEdit:read-only
@@ -581,7 +587,7 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="1" column="3">
+     <item row="2" column="3">
       <widget class="QLineEdit" name="joueur3">
        <property name="text">
         <string>joueur3</string>
@@ -591,21 +597,21 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="2" column="6">
+     <item row="4" column="6">
       <widget class="QLabel" name="label_7">
        <property name="text">
         <string>Joueur 6</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="2">
+     <item row="6" column="2">
       <widget class="QLabel" name="label_8">
        <property name="text">
         <string>Joueur 7</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="7">
+     <item row="2" column="7">
       <widget class="QLineEdit" name="joueur4">
        <property name="text">
         <string>joueur4</string>
@@ -615,7 +621,7 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="1" column="8">
+     <item row="2" column="8">
       <widget class="QPushButton" name="bot4">
        <property name="text">
         <string>Bot</string>
@@ -645,27 +651,14 @@ background-color: #bfbfbf;
        </property>
       </spacer>
      </item>
-     <item row="3" column="6">
+     <item row="6" column="6">
       <widget class="QLabel" name="label_9">
        <property name="text">
         <string>Joueur 8</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="5">
-      <spacer name="horizontalSpacer_8">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="3" column="3">
+     <item row="6" column="3">
       <widget class="QLineEdit" name="joueur7">
        <property name="styleSheet">
         <string notr="true">QLineEdit:read-only
@@ -694,7 +687,7 @@ background-color: #bfbfbf;
        </property>
       </spacer>
      </item>
-     <item row="3" column="4">
+     <item row="6" column="4">
       <widget class="QPushButton" name="bot7">
        <property name="text">
         <string>Bot</string>
@@ -714,7 +707,7 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="3" column="7">
+     <item row="6" column="7">
       <widget class="QLineEdit" name="joueur8">
        <property name="styleSheet">
         <string notr="true">QLineEdit:read-only
@@ -730,7 +723,7 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="1" column="6">
+     <item row="2" column="6">
       <widget class="QLabel" name="label_10">
        <property name="text">
         <string>Joueur 4</string>
@@ -754,7 +747,7 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="2" column="4">
+     <item row="4" column="4">
       <widget class="QPushButton" name="bot5">
        <property name="text">
         <string>Bot</string>
@@ -764,7 +757,7 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="2" column="7">
+     <item row="4" column="7">
       <widget class="QLineEdit" name="joueur6">
        <property name="styleSheet">
         <string notr="true">QLineEdit:read-only
@@ -790,14 +783,14 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="2" column="2">
+     <item row="4" column="2">
       <widget class="QLabel" name="label_6">
        <property name="text">
         <string>Joueur 5</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="8">
+     <item row="6" column="8">
       <widget class="QPushButton" name="bot8">
        <property name="text">
         <string>Bot</string>
@@ -807,20 +800,10 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="1" column="2">
+     <item row="2" column="2">
       <widget class="QLabel" name="label_4">
        <property name="text">
         <string>Joueur 3</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="4">
-      <widget class="QPushButton" name="bot3">
-       <property name="text">
-        <string>Bot</string>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -850,23 +833,92 @@ background-color: #bfbfbf;
        </property>
       </spacer>
      </item>
+     <item row="2" column="4">
+      <widget class="QPushButton" name="bot3">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>45</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image:url(:/images/icons/button-bot-off.png);
+width: 45px;
+height:45px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <spacer name="horizontalSpacer_8">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="5">
+      <spacer name="verticalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Minimum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="3" column="5">
+      <spacer name="verticalSpacer_7">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="5" column="5">
+      <spacer name="verticalSpacer_8">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
     </layout>
    </item>
    <item>
     <spacer name="verticalSpacer_3">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item>
-    <spacer name="verticalSpacer_5">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>

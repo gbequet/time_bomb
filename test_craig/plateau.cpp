@@ -27,7 +27,8 @@ Plateau::Plateau(QWidget *parent) :
 
     Card_Controller::createDeck(nbPlayers);
     players = Player_Controller::assignTeams(users);
-    for(int i = 0; i < players.size(); i++){
+    for(int i = 0; i < players.size(); i++)
+    {
         Player p = players[i];
         std::vector<CardJeu> cards = p.getCards();
     }
@@ -44,19 +45,25 @@ Plateau::Plateau(QWidget *parent) :
     layouts.push_back(line_right);
 
     //Placement des joueurs
-    for(int i = 0; i < 8; i++){
+    for(int i = 0; i < 8; i++)
+    {
         QLayout  * layout = layouts[i%4];
         QPushButton *qp;
-        if(i >= nbPlayers){
+        if(i >= nbPlayers)
+        {
             qp = (QPushButton *)layout->itemAt(3)->widget();
             QWidget *sp = layout->itemAt(2)->widget();
             delete qp;
             layout->removeWidget(sp);
-        }else if(i < nbPlayers){
-            if(i < 4){
+        }
+        else if(i < nbPlayers)
+        {
+            if(i < 4)
+            {
                 qp = (QPushButton *) layout->itemAt(1)->widget();
             }
-            else{
+            else
+            {
                 qDebug() << i%4;
                 qp = (QPushButton *) layout->itemAt(3)->widget();
             }
@@ -68,7 +75,8 @@ Plateau::Plateau(QWidget *parent) :
 
 
 //Select player and show cards
-void Plateau::click_home(){
+void Plateau::click_home()
+{
     QPushButton *senderObj = (QPushButton * )sender();
     int id =  senderObj->property("id").toInt();
     Player p = players[id];
@@ -79,13 +87,16 @@ void Plateau::click_home(){
 
     QLayout* cur_layout = layouts[0];
     int card_index = 1;
-    for(int i = 0; i < cards.size(); i++){
-        if(i == 3){
+    for(int i = 0; i < cards.size(); i++)
+    {
+        if(i == 3)
+        {
             cur_layout = layouts[1];
             card_index = 1;
         }
         QPushButton * qt = (QPushButton *)cur_layout->itemAt(card_index)->widget();
-        if(!cards[i].isCut()){
+        if(!cards[i].isCut())
+        {
             qt->setStyleSheet("border-image: url(:/images/cards/card-hidden.png)");
             qt->setProperty("type", cards[i].getType());
             qt->setProperty("owner", id);
@@ -93,7 +104,9 @@ void Plateau::click_home(){
             connect(qt, SIGNAL(clicked()), this, SLOT(cut_card()));
             qt->show();
 
-        }else{
+        }
+        else
+        {
             qt->hide();
         }
         card_index += 2;
@@ -103,10 +116,12 @@ void Plateau::click_home(){
 
 
 //Cut card
-void Plateau::cut_card(){
+void Plateau::cut_card()
+{
     QPushButton *senderObj = (QPushButton * )sender();
     int type = senderObj->property("type").toInt();
-    switch(type){
+    switch(type)
+    {
         case 1 :
             senderObj->setStyleSheet("border-image: url(:/images/cards/card-defuse.png)");
             break;

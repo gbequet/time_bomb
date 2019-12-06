@@ -41,6 +41,25 @@ Compilation
      plateforme -->
 
 
+LINUX - distributions basées sur Debian comme Ubuntu, Linux Mint...
+avec gestionnaire de paquets APT
+
+build-essential
+libglib-dev
+
+
+(??)
+libx11-xcb-dev
+libglu1-mesa-dev
+
+
+
+QMake version 3.1                                                                      
+Installation de Qt version 5.9.5
+
+
+
+
 Lancement
 ---------
 

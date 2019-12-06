@@ -25,7 +25,10 @@
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-image:url(://images/icons/button-quit.png);</string>
+        <string notr="true">border-image:url(:/images/icons/button-settings.png);
+width: 70px;
+height:70px;
+</string>
        </property>
        <property name="text">
         <string/>
@@ -47,8 +50,14 @@
      </item>
      <item>
       <widget class="QPushButton" name="quitter">
+       <property name="styleSheet">
+        <string notr="true">border-image:url(:/images/icons/button-quit.png);
+width: 70px;
+height:70px;
+</string>
+       </property>
        <property name="text">
-        <string>Quitter</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -342,15 +351,42 @@ background-color: #bfbfbf;
      </item>
      <item>
       <widget class="QPushButton" name="credits">
+       <property name="styleSheet">
+        <string notr="true">border-image:url(:/images/icons/button-credits.png);
+width: 70px;
+height:70px;</string>
+       </property>
        <property name="text">
-        <string>Crédits</string>
+        <string/>
        </property>
       </widget>
      </item>
      <item>
+      <spacer name="horizontalSpacer_9">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Minimum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <widget class="QPushButton" name="regles">
+       <property name="styleSheet">
+        <string notr="true">border-image:url(:/images/icons/button-rules.png);
+width: 70px;
+height:70px;
+</string>
+       </property>
        <property name="text">
-        <string>Règles</string>
+        <string/>
        </property>
       </widget>
      </item>

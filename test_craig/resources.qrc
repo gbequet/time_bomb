@@ -14,10 +14,13 @@
         <file>images/characters/sherlock4.png</file>
         <file>images/characters/sherlock5.png</file>
         <file>images/icons/button-back.png</file>
+        <file>images/icons/button-bot-off.png</file>
+        <file>images/icons/button-bot-on.png</file>
         <file>images/icons/button-cancel-off.png</file>
         <file>images/icons/button-cancel-on.png</file>
         <file>images/icons/button-confirm-off.png</file>
         <file>images/icons/button-confirm-on.png</file>
+        <file>images/icons/button-credits.png</file>
         <file>images/icons/button-home.png</file>
         <file>images/icons/button-quit.png</file>
         <file>images/icons/button-rules.png</file>

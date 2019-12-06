@@ -15,7 +15,7 @@ Reveal::Reveal(QWidget *parent, Game_Controller *game) :
     connect(ui->quitter, SIGNAL(clicked()), parent, SLOT(goHome()));
     connect(ui->next, SIGNAL(clicked()), this, SLOT(nextMove()));
 
-    qDebug() << "coucou" << endl;
+//    qDebug() << "coucou" << endl;
 
 //    QString c = game->getPlayerName(0);
 //    QString c = game->players[0].getName();

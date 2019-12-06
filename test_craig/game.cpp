@@ -71,7 +71,7 @@ Game::Game(int nb_player, vector<QString> users) : nbPlayer(nb_player)
                 this->nbDefusingCut++;
                 cout << "Cable de désamorçage" << endl;
                 if(this->nbDefusingCut == this->nbPlayer){
-                    cout << "Tous les câbles de désamorçage ont été trouvés, Big Ben est sauvé YOUPI !" << endl;
+                    cout << "Tous les câbles de désamorçage ont été trouvés, Big Ben est sauvé !" << endl;
                     gameOver = true;
                     break;
                 }

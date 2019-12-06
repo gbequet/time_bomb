@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>896</width>
-    <height>707</height>
+    <height>709</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,8 +18,14 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="retour">
+       <property name="styleSheet">
+        <string notr="true">border-image:url(:/images/icons/button-back.png);
+width: 70px;
+height:70px;
+</string>
+       </property>
        <property name="text">
-        <string>retour</string>
+        <string/>
        </property>
       </widget>
      </item>
