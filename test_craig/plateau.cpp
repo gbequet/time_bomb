@@ -29,12 +29,7 @@ Plateau::Plateau(QWidget *parent) :
     players = Player_Controller::assignTeams(users);
     for(int i = 0; i < players.size(); i++){
         Player p = players[i];
-        qDebug() << p.getName() << " est dans l'équipe " << p.getTeam();
-
         std::vector<CardJeu> cards = p.getCards();
-        for(int j = 0; j < cards.size(); j++){
-            qDebug() << "Card " << j << ": " << cards[j].getType();
-        }
     }
 
     QLayout * line_top = ui->players_line_top;
@@ -48,7 +43,7 @@ Plateau::Plateau(QWidget *parent) :
     layouts.push_back(line_left);
     layouts.push_back(line_right);
 
-
+    //Placement des joueurs
     for(int i = 0; i < 8; i++){
         QLayout  * layout = layouts[i%4];
         QPushButton *qp;
@@ -69,10 +64,10 @@ Plateau::Plateau(QWidget *parent) :
             qp->setProperty("id", i);
         }
     }
-
-
 }
 
+
+//Select player and show cards
 void Plateau::click_home(){
     QPushButton *senderObj = (QPushButton * )sender();
     int id =  senderObj->property("id").toInt();
@@ -85,24 +80,29 @@ void Plateau::click_home(){
     QLayout* cur_layout = layouts[0];
     int card_index = 1;
     for(int i = 0; i < cards.size(); i++){
-
         if(i == 3){
             cur_layout = layouts[1];
             card_index = 1;
         }
-
         QPushButton * qt = (QPushButton *)cur_layout->itemAt(card_index)->widget();
-        qt->setStyleSheet("border-image: url(:/images/cards/card-hidden.png)");
-        qt->setProperty("type", cards[i].getType());
-        qt->setProperty("owner", id);
-        qt->setProperty("id", i);
-        connect(qt, SIGNAL(clicked()), this, SLOT(cut_card()));
+        if(!cards[i].isCut()){
+            qt->setStyleSheet("border-image: url(:/images/cards/card-hidden.png)");
+            qt->setProperty("type", cards[i].getType());
+            qt->setProperty("owner", id);
+            qt->setProperty("id", i);
+            connect(qt, SIGNAL(clicked()), this, SLOT(cut_card()));
+            qt->show();
+
+        }else{
+            qt->hide();
+        }
         card_index += 2;
     }
     this->repaint();
-
 }
 
+
+//Cut card
 void Plateau::cut_card(){
     QPushButton *senderObj = (QPushButton * )sender();
     int type = senderObj->property("type").toInt();
@@ -119,16 +119,10 @@ void Plateau::cut_card(){
     }
     this->repaint();
 
-    sleep(2);
-
     int player_id = senderObj->property("owner").toInt();
     int card_index = senderObj->property("id").toInt();
 
     Player_Controller::cutCardTo(players[player_id], card_index);
-
-    std::vector<CardJeu> c = players[player_id].getCards();
-
-
 }
 
 
