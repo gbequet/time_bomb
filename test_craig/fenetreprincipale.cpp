@@ -81,8 +81,8 @@ void FenetrePrincipale::goPlateau()
 
 void FenetrePrincipale::goReveal(int nbPlayer, vector<QString> users)
 {
-    Game_Controller g(nbPlayer, users);
-    FenetrePrincipale::reveal->setGame(&g);
+    Game_Controller *g = new Game_Controller(nbPlayer, users);
+    FenetrePrincipale::reveal->setGame(g);
     FenetrePrincipale::stack->setCurrentWidget(FenetrePrincipale::reveal);
 }
 

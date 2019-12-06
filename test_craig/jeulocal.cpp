@@ -22,6 +22,7 @@ JeuLocal::JeuLocal(QWidget *parent) :
     connect(ui->nbrJoueur8, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->rev, &QPushButton::clicked, [this]{
         int n = getNbPlayer();
+        qDebug() << n << endl;
         vector<QString> users = getUsers();
         FenetrePrincipale::goReveal(n, users);
     });
