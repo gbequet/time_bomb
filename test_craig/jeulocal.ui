@@ -561,7 +561,7 @@ background-color: #bfbfbf;
    </item>
    <item>
     <layout class="QGridLayout" name="gridLayout_2">
-     <item row="4" column="8">
+     <item row="4" column="9">
       <widget class="QPushButton" name="bot6">
        <property name="text">
         <string>Bot</string>
@@ -597,7 +597,7 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="4" column="6">
+     <item row="4" column="7">
       <widget class="QLabel" name="label_7">
        <property name="text">
         <string>Joueur 6</string>
@@ -611,7 +611,7 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="2" column="7">
+     <item row="2" column="8">
       <widget class="QLineEdit" name="joueur4">
        <property name="text">
         <string>joueur4</string>
@@ -621,7 +621,7 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="2" column="8">
+     <item row="2" column="9">
       <widget class="QPushButton" name="bot4">
        <property name="text">
         <string>Bot</string>
@@ -651,7 +651,7 @@ background-color: #bfbfbf;
        </property>
       </spacer>
      </item>
-     <item row="6" column="6">
+     <item row="6" column="7">
       <widget class="QLabel" name="label_9">
        <property name="text">
         <string>Joueur 8</string>
@@ -697,7 +697,7 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="0" column="7">
+     <item row="0" column="8">
       <widget class="QLineEdit" name="joueur2">
        <property name="text">
         <string>joueur2</string>
@@ -707,7 +707,7 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="6" column="7">
+     <item row="6" column="8">
       <widget class="QLineEdit" name="joueur8">
        <property name="styleSheet">
         <string notr="true">QLineEdit:read-only
@@ -723,21 +723,21 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="2" column="6">
+     <item row="2" column="7">
       <widget class="QLabel" name="label_10">
        <property name="text">
         <string>Joueur 4</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="6">
+     <item row="0" column="7">
       <widget class="QLabel" name="label_5">
        <property name="text">
         <string>Joueur 2</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="8">
+     <item row="0" column="9">
       <widget class="QPushButton" name="bot2">
        <property name="text">
         <string>Bot</string>
@@ -757,7 +757,7 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="4" column="7">
+     <item row="4" column="8">
       <widget class="QLineEdit" name="joueur6">
        <property name="styleSheet">
         <string notr="true">QLineEdit:read-only
@@ -790,7 +790,7 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="6" column="8">
+     <item row="6" column="9">
       <widget class="QPushButton" name="bot8">
        <property name="text">
         <string>Bot</string>
@@ -807,7 +807,7 @@ background-color: #bfbfbf;
        </property>
       </widget>
      </item>
-     <item row="0" column="9">
+     <item row="0" column="10">
       <spacer name="horizontalSpacer_7">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -820,7 +820,7 @@ background-color: #bfbfbf;
        </property>
       </spacer>
      </item>
-     <item row="0" column="10">
+     <item row="0" column="11">
       <spacer name="horizontalSpacer_26">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -845,9 +845,26 @@ background-color: #bfbfbf;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-image:url(:/images/icons/button-bot-off.png);
-width: 45px;
-height:45px;</string>
+        <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:checked
+{
+    border-image:url(:/images/icons/button-bot-on.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:disabled
+{
+    border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+}</string>
        </property>
        <property name="text">
         <string/>
@@ -860,20 +877,7 @@ height:45px;</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="5">
-      <spacer name="horizontalSpacer_8">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="1" column="5">
+     <item row="1" column="6">
       <spacer name="verticalSpacer_5">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -889,7 +893,7 @@ height:45px;</string>
        </property>
       </spacer>
      </item>
-     <item row="3" column="5">
+     <item row="3" column="6">
       <spacer name="verticalSpacer_7">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -902,7 +906,7 @@ height:45px;</string>
        </property>
       </spacer>
      </item>
-     <item row="5" column="5">
+     <item row="5" column="6">
       <spacer name="verticalSpacer_8">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -910,6 +914,19 @@ height:45px;</string>
        <property name="sizeHint" stdset="0">
         <size>
          <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="6">
+      <spacer name="horizontalSpacer_8">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
          <height>20</height>
         </size>
        </property>
