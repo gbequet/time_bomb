@@ -25,6 +25,11 @@ Options::~Options()
 void Options::selectLangueFr()
 {
     this->tmp_lang = "fr";
+    (this->tmp_lang.compare(this->lang) != 0)
+    ? this->ui->valider_btn->setStyleSheet("border-image:url(\":/images/icons/button-confirm-on.png\")")
+    : this->ui->valider_btn->setStyleSheet("border-image:url(\":/images/icons/button-confirm-off.png\")");
+
+
 
     this->ui->lang_en_btn->setStyleSheet("border-image:url(\":/images/miscs/flag-english.png\")");
 }
@@ -32,6 +37,9 @@ void Options::selectLangueFr()
 void Options::selectLangueEn()
 {
     this->tmp_lang = "en";
+    (this->tmp_lang.compare(this->lang) != 0)
+    ? this->ui->valider_btn->setStyleSheet("border-image:url(\":/images/icons/button-confirm-on.png\")")
+    : this->ui->valider_btn->setStyleSheet("border-image:url(\":/images/icons/button-confirm-off.png\")");
 
     this->ui->lang_fr_btn->setStyleSheet("border-image:url(\":/images/miscs/flag-french.png\")");
 }

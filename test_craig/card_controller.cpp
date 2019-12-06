@@ -14,6 +14,7 @@ vector <CardJeu> Card_Controller::cards;
 
 Card_Controller::Card_Controller()
 {
+
 }
 
 vector<CardJeu> Card_Controller::createDeck(int nbPlayer)
@@ -21,7 +22,8 @@ vector<CardJeu> Card_Controller::createDeck(int nbPlayer)
     int nbDefusing;
     int nbNormal;
 
-    if(nbPlayer > 8 || nbPlayer < 4){
+    if(nbPlayer > 8 || nbPlayer < 4)
+    {
         cout << "nombre de joueur invalide" << endl;
         exit(0);
     }
@@ -34,10 +36,12 @@ vector<CardJeu> Card_Controller::createDeck(int nbPlayer)
 
     //TODO : false valeur par défaut -> à bouger dans le constructeur
 
-    for(i=0;i<nbNormal;i++){
+    for(i=0;i<nbNormal;i++)
+    {
         cards.push_back(CardJeu(CABLE));
     }
-    for(i=0;i<nbDefusing;i++){
+    for(i=0;i<nbDefusing;i++)
+    {
         cards.push_back(CardJeu(DEFUSING));
     }
     cards.push_back(CardJeu(BOMBE));
@@ -45,11 +49,13 @@ vector<CardJeu> Card_Controller::createDeck(int nbPlayer)
     return cards;
 }
 
-vector<CardJeu> Card_Controller::getCards(){
+vector<CardJeu> Card_Controller::getCards()
+{
     return cards;
 }
 
-/*void Card_Controller::deal(){
+void Card_Controller::deal()
+{
     vector<Player> players = Player_Controller::getPlayers();
     random_shuffle(cards.begin(), cards.end());
     for(int i=0; i<5; i++)
@@ -61,4 +67,4 @@ vector<CardJeu> Card_Controller::getCards(){
     }
 
     Player_Controller::setPlayers(players);
-}*/
+}

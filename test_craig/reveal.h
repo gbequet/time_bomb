@@ -13,12 +13,17 @@ class Reveal : public QWidget
     Q_OBJECT
 
 public:
-    explicit Reveal(QWidget *parent, Game_Controller game);
+    explicit Reveal(QWidget *parent = nullptr, Game_Controller *game = nullptr);
     ~Reveal();
+    void setGame(Game_Controller *g);
+
+private slots:
+    void nextMove();
 
 private:
     Ui::Reveal *ui;
-    Game_Controller game;
+    Game_Controller *game;
+    int nbTour;
 };
 
 #endif // REVEAL_H

@@ -86,10 +86,7 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image:url(:/images/miscs/flag-french.png);
-
-
-hover{   background-color: yellow;};</string>
+         <string notr="true">border-image:url(:/images/miscs/flag-french.png);</string>
         </property>
         <property name="text">
          <string/>

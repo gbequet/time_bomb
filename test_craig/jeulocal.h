@@ -19,9 +19,8 @@ public:
 
 private slots:
     void unSeulJoueur();
-    void makeTabs();
+    std::vector<QString> getUsers();
     int getNbPlayer();
-    void on_jouer_clicked();
 
 private:
     Ui::JeuLocal *ui;

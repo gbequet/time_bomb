@@ -29,6 +29,8 @@ public:
     JeuLocal *jeuLocal;
     Plateau *plateau;
     Options *options;
+    static Reveal *reveal;
+
 
     QString pseudo;
     QString nomSalon;
@@ -53,6 +55,7 @@ public slots:
     void goOptions();
     void goQuit();
     void changeLangue();
+    static void goReveal(int nbPlayers, std::vector<QString> users);
 
 
 signals:
