@@ -9,13 +9,16 @@ class Game_Controller
 {
 public:
     Game_Controller(int nbPlayer, std::vector<QString> users);
+    QString getPlayerName(int id);
+    std::vector<Player> players;
+    int nbPlayer;
 
 private:
     int nbTour;
     int nbDefusingCut;
-    int nbPlayer;
+//    int nbPlayer;
     Player curPlayer;
-    std::vector<Player> players;
+//    std::vector<Player> players;
     std::vector<CardJeu> cards;
     static bool gameOver;
 

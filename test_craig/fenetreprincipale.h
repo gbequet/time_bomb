@@ -25,6 +25,7 @@ public:
     SalonOnline *salonOnline;
     JeuLocal *jeuLocal;
     Plateau *plateau;
+    static Reveal *reveal;
 
 
     QString pseudo;
@@ -41,6 +42,7 @@ public slots:
     void recuperationNomSalon(QString);
     void recuperationnbrJoueur();
     void goPlateau();
+    static void goReveal(int nbPlayers, std::vector<QString> users);
 
 
 signals:

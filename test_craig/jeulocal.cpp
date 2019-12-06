@@ -1,7 +1,10 @@
+#include <vector>
 #include "jeulocal.h"
 #include "ui_jeulocal.h"
 #include "game_controller.h"
 #include "fenetreprincipale.h"
+
+using namespace std;
 
 JeuLocal::JeuLocal(QWidget *parent) :
     QWidget(parent),
@@ -17,6 +20,11 @@ JeuLocal::JeuLocal(QWidget *parent) :
     connect(ui->nbrJoueur6, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->nbrJoueur7, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->nbrJoueur8, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
+    connect(ui->rev, &QPushButton::clicked, [this]{
+        int n = getNbPlayer();
+        vector<QString> users = getUsers();
+        FenetrePrincipale::goReveal(n, users);
+    });
 }
 
 JeuLocal::~JeuLocal()
@@ -73,16 +81,21 @@ void JeuLocal::unSeulJoueur()
     }
 }
 
-void JeuLocal::makeTabs()
+vector<QString> JeuLocal::getUsers()
 {
-    players[0] = ui->joueur1->text();
-    players[1] = ui->joueur2->text();
-    players[2] = ui->joueur3->text();
-    players[3] = ui->joueur4->text();
-    players[4] = ui->joueur5->text();
-    players[5] = ui->joueur6->text();
-    players[6] = ui->joueur7->text();
-    players[7] = ui->joueur8->text();
+    vector<QString> users;
+
+    users.clear();
+    users.push_back(ui->joueur1->text());
+    users.push_back(ui->joueur2->text());
+    users.push_back(ui->joueur3->text());
+    users.push_back(ui->joueur4->text());
+    users.push_back(ui->joueur5->text());
+    users.push_back(ui->joueur6->text());
+    users.push_back(ui->joueur7->text());
+    users.push_back(ui->joueur8->text());
+
+    return users;
 }
 
 int JeuLocal::getNbPlayer()
@@ -99,11 +112,7 @@ int JeuLocal::getNbPlayer()
     {
         if(tab[i]->isChecked())
         {
-            return i;
+            return i+4;
         }
     }
-}
-
-void JeuLocal::on_jouer_clicked()
-{
 }

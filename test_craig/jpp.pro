@@ -1,4 +1,5 @@
 QT += widgets multimedia multimediawidgets
+CONFIG += c++11
 
 SOURCES += \
     creationsalon.cpp \

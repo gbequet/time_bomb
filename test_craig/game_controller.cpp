@@ -26,3 +26,9 @@ Game_Controller::Game_Controller(int nbPlayer, std::vector<QString> users) : nbP
     this->players = Player_Controller::getPlayers();
     this->curPlayer = Player_Controller::getRandomPlayer(this->players);
 }
+
+QString Game_Controller::getPlayerName(int id)
+{
+//    qDebug() << "coucoucou" << endl;
+//    return this->players[id].getName();
+}

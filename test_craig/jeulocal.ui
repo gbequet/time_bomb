@@ -894,6 +894,13 @@ background-color: #bfbfbf;
       </spacer>
      </item>
      <item>
+      <widget class="QPushButton" name="rev">
+       <property name="text">
+        <string>reveal</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="jouer">
        <property name="text">
         <string>Jouer</string>

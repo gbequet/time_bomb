@@ -1,8 +1,12 @@
 #include "fenetreprincipale.h"
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <vector>
+
+using namespace std;
 
 QStackedWidget * FenetrePrincipale::stack;
+Reveal * FenetrePrincipale::reveal;
 
 FenetrePrincipale::FenetrePrincipale()
 {
@@ -14,6 +18,8 @@ FenetrePrincipale::FenetrePrincipale()
     creationSalon = new CreationSalon(this);
     salonOnline = new SalonOnline(this);
     jeuLocal = new JeuLocal(this);
+    FenetrePrincipale::reveal = new Reveal(this, nullptr);
+
 
     FenetrePrincipale::stack->addWidget(home);
     FenetrePrincipale::stack->addWidget(regle);
@@ -21,6 +27,7 @@ FenetrePrincipale::FenetrePrincipale()
     FenetrePrincipale::stack->addWidget(creationSalon);
     FenetrePrincipale::stack->addWidget(salonOnline);
     FenetrePrincipale::stack->addWidget(jeuLocal);
+    FenetrePrincipale::stack->addWidget(FenetrePrincipale::reveal);
 
     FenetrePrincipale::stack->setCurrentWidget(home);
 
@@ -70,6 +77,13 @@ void FenetrePrincipale::goPlateau()
     FenetrePrincipale::stack->addWidget(plateau);
     this->setWindowState(Qt::WindowFullScreen);
     FenetrePrincipale::stack->setCurrentWidget(plateau);
+}
+
+void FenetrePrincipale::goReveal(int nbPlayer, vector<QString> users)
+{
+    Game_Controller g(nbPlayer, users);
+    FenetrePrincipale::reveal->setGame(&g);
+    FenetrePrincipale::stack->setCurrentWidget(FenetrePrincipale::reveal);
 }
 
 void FenetrePrincipale::recupertaionPseudo(QString pseudo)
