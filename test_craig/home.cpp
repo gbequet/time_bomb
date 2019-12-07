@@ -13,7 +13,7 @@ Home::Home(QWidget *parent) :
     connect(ui->jeuLocal, SIGNAL(clicked()), parent, SLOT(goJeuLocal()));
     connect(ui->options, SIGNAL(clicked()), parent, SLOT(goOptions()));
     connect(ui->quitter, SIGNAL(clicked()), parent, SLOT(goQuit()));
-
+    connect(ui->credits, SIGNAL(clicked()), parent, SLOT(goCredits()));
 }
 
 Home::~Home()

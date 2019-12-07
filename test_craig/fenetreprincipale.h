@@ -12,6 +12,7 @@
 #include "reveal.h"
 #include "plateau.h"
 #include "options.h"
+#include "credits.h"
 
 
 class FenetrePrincipale : public QWidget
@@ -30,7 +31,7 @@ public:
     static Plateau *plateau;
     Options *options;
     static Reveal *reveal;
-
+    Credits *credits;
 
     QString pseudo;
     QString nomSalon;
@@ -48,6 +49,7 @@ public slots:
     void goCreationSalon();
     void goSalonOnline();
     void goJeuLocal();
+    void goCredits();
     void recupertaionPseudo(QString);
     void recuperationNomSalon(QString);
     void recuperationnbrJoueur();

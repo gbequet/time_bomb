@@ -18,7 +18,8 @@ SOURCES += \
     card_controller.cpp \
     player_controller.cpp \
     plateau.cpp \
-    options.cpp
+    options.cpp \
+    credits.cpp
 
 HEADERS += \
     creationsalon.h \
@@ -36,7 +37,8 @@ HEADERS += \
     card_controller.h \
     player_controller.h \
     plateau.h \
-    options.h
+    options.h \
+    credits.h
 
 FORMS += \
     creationsalon.ui \
@@ -47,7 +49,8 @@ FORMS += \
     reveal.ui \
     salononline.ui \
     plateau.ui \
-    options.ui
+    options.ui \
+    credits.ui
 
 RESOURCES += \
     resources.qrc

@@ -7,6 +7,7 @@ using namespace std;
 
 #define OPTIONFILE "../test_craig/options.txt"
 #define DEFAULTFILE "../test_craig/default.txt"
+#define WINDOWTITLETIMEBOMB "Timebomb - "
 
 QStackedWidget * FenetrePrincipale::stack;
 Reveal * FenetrePrincipale::reveal;
@@ -22,6 +23,7 @@ FenetrePrincipale::FenetrePrincipale()
     salonOnline = new SalonOnline(this);
     jeuLocal = new JeuLocal(this);
     options = new Options(this);
+    credits = new Credits(this);
     FenetrePrincipale::reveal = new Reveal(this, nullptr);
     FenetrePrincipale::plateau = new Plateau(this, nullptr);
 
@@ -32,12 +34,13 @@ FenetrePrincipale::FenetrePrincipale()
     FenetrePrincipale::stack->addWidget(salonOnline);
     FenetrePrincipale::stack->addWidget(jeuLocal);
     FenetrePrincipale::stack->addWidget(options);
+    FenetrePrincipale::stack->addWidget(credits);
+
     FenetrePrincipale::stack->addWidget(FenetrePrincipale::reveal);
     FenetrePrincipale::stack->addWidget(FenetrePrincipale::plateau);
 
     // couleur de fond d'écran de tous les écrans
     this->setStyleSheet("background-color: #413425;");
-
 
     getOptionStream().open(OPTIONFILE, std::fstream::in);
 
@@ -83,7 +86,7 @@ FenetrePrincipale::FenetrePrincipale()
 
     fflush(stdout);
 
-    FenetrePrincipale::stack->setCurrentWidget(home);
+    goHome();
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(FenetrePrincipale::stack);
@@ -96,12 +99,13 @@ FenetrePrincipale::FenetrePrincipale()
 
 void FenetrePrincipale::goRegles()
 {
+    this->setWindowTitle(QString(WINDOWTITLETIMEBOMB) + "Règles");
     FenetrePrincipale::stack->setCurrentWidget(regle);
 }
 
 void FenetrePrincipale::goHome()
 {
-    FenetrePrincipale::setWindowTitle(QString("Accueil"));
+    this->setWindowTitle(QString(WINDOWTITLETIMEBOMB) + "Accueil");
     FenetrePrincipale::stack->setCurrentWidget(home);
 }
 
@@ -112,23 +116,25 @@ void FenetrePrincipale::goJeuEnLigne()
 
 void FenetrePrincipale::goCreationSalon()
 {
+    this->setWindowTitle(QString(WINDOWTITLETIMEBOMB) + "Création de salon");
     FenetrePrincipale::stack->setCurrentWidget(creationSalon);
 }
 
 void FenetrePrincipale::goSalonOnline()
 {
+    this->setWindowTitle(QString(WINDOWTITLETIMEBOMB) + "Salons");
     FenetrePrincipale::stack->setCurrentWidget(salonOnline);
 }
 
 void FenetrePrincipale::goJeuLocal()
 {
-
+    this->setWindowTitle(QString(WINDOWTITLETIMEBOMB) + "Création de partie");
     FenetrePrincipale::stack->setCurrentWidget(jeuLocal);
 }
 
 void FenetrePrincipale::goOptions()
 {
-    this->setWindowTitle("Options");
+    this->setWindowTitle(QString(WINDOWTITLETIMEBOMB) + "Options");
     FenetrePrincipale::stack->setCurrentWidget(options);
 }
 
@@ -139,9 +145,14 @@ void FenetrePrincipale::goPlateau(int nbPlayers, std::vector<QString> users)
     FenetrePrincipale::stack->setCurrentWidget(FenetrePrincipale::plateau);
 }
 
+void FenetrePrincipale::goCredits()
+{
+    this->setWindowTitle(QString(WINDOWTITLETIMEBOMB) + "Crédits");
+    FenetrePrincipale::stack->setCurrentWidget(credits);
+}
+
 void FenetrePrincipale::goQuit()
 {
-    getOptionStream().close();
     QApplication::quit();
 }
 
