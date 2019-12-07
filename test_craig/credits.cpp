@@ -7,7 +7,7 @@ Credits::Credits(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(ui->retour_4, SIGNAL(clicked()), parent, SLOT(goHome()));
+    connect(ui->retour, SIGNAL(clicked()), parent, SLOT(goHome()));
 }
 
 Credits::~Credits()
