@@ -13,18 +13,23 @@ JeuLocal::JeuLocal(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->retour, SIGNAL(clicked()), parent, SLOT(goHome()));
-    connect(ui->jouer, SIGNAL(clicked()), parent, SLOT(goPlateau()));
 
     connect(ui->nbrJoueur4, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->nbrJoueur5, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->nbrJoueur6, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->nbrJoueur7, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->nbrJoueur8, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
-    connect(ui->rev, &QPushButton::clicked, [this]{
+    connect(ui->rev, &QPushButton::clicked, [this]
+    {
         int n = getNbPlayer();
-        qDebug() << n << endl;
         vector<QString> users = getUsers();
         FenetrePrincipale::goReveal(n, users);
+    });
+    connect(ui->jouer, &QPushButton::clicked, [this]
+    {
+        int n = getNbPlayer();
+        vector<QString> users = getUsers();
+        FenetrePrincipale::goPlateau(n, users);
     });
 }
 

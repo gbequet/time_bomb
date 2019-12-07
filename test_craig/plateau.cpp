@@ -9,27 +9,21 @@
 std::vector<Player> players;
 std::vector<CardJeu> cards;
 
-Plateau::Plateau(QWidget *parent) :
+Plateau::Plateau(QWidget *parent, Game_Controller *game) :
     QWidget(parent),
-    ui(new Ui::Plateau)
+    ui(new Ui::Plateau),
+    game(game)
 {
     ui->setupUi(this);
+}
 
-    std::vector<QString> users;
-    users.push_back("Craig");
-    users.push_back("Joren");
-    users.push_back("Guillaume");
-    users.push_back("Sam");
-    users.push_back("Arthur");
-    int nbPlayers = 5;
+void Plateau::setGame(Game_Controller *g)
+{
+    game = g;
 
-    Game_Controller game_ctrl(nbPlayers, users);
-
-    Card_Controller::createDeck(nbPlayers);
-    players = Player_Controller::assignTeams(users);
-    for(int i = 0; i < players.size(); i++)
+    for(int i = 0; i < game->players.size(); i++)
     {
-        Player p = players[i];
+        Player p = game->players[i];
         std::vector<CardJeu> cards = p.getCards();
     }
 
@@ -49,14 +43,14 @@ Plateau::Plateau(QWidget *parent) :
     {
         QLayout  * layout = layouts[i%4];
         QPushButton *qp;
-        if(i >= nbPlayers)
+        if(i >= game->nbPlayer)
         {
             qp = (QPushButton *)layout->itemAt(3)->widget();
             QWidget *sp = layout->itemAt(2)->widget();
             delete qp;
             layout->removeWidget(sp);
         }
-        else if(i < nbPlayers)
+        else if(i < game->nbPlayer)
         {
             if(i < 4)
             {
@@ -73,13 +67,12 @@ Plateau::Plateau(QWidget *parent) :
     }
 }
 
-
 //Select player and show cards
 void Plateau::click_home()
 {
     QPushButton *senderObj = (QPushButton * )sender();
     int id =  senderObj->property("id").toInt();
-    Player p = players[id];
+    Player p = game->players[id];
     cards = p.getCards();
     std::vector<QLayout*> layouts;
     layouts.push_back(ui->cards_line_top);

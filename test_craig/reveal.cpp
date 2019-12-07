@@ -16,7 +16,7 @@ Reveal::Reveal(QWidget *parent, Game_Controller *game) :
     ui->setupUi(this);
 
     nbCard = 5;
-    ui->next->setText("Start");
+    ui->next->setText("Show");
 //    aVue = false;
     cmp = 0;
     first = true;
@@ -33,14 +33,20 @@ Reveal::~Reveal()
 void Reveal::setGame(Game_Controller *g)
 {
     game = g;
+
+    QString c = game->players[0].getName();
+    ui->curPlayer->setText("Cartes de " + c);
 }
 
 void Reveal::nextMove()
 {
     if(cmp < game->nbPlayer)
     {
-        if(ui->next->text() == "Start" || ui->next->text() == "Next") // on montre ses cartes a players[cmp]
+        if(ui->next->text() == "Show") // on montre ses cartes a players[cmp]
         {
+            QString c = game->players[cmp].getName();
+            ui->curPlayer->setText("Cartes de " + c);
+
             if(game->players[cmp].getTeam() == 0) // gentil
                 ui->perso->setStyleSheet("border-image: url(:/images/characters/sherlock1.png)");
             else // mechant
@@ -64,11 +70,13 @@ void Reveal::nextMove()
                         break;
                 }
             }
-            ui->next->setText("Show");
-            cmp++;
+            ui->next->setText("Next");
         }
-        else if(ui->next->text() == "Show")
+        else if(ui->next->text() == "Next")
         {
+            ++cmp;
+            QString c = game->players[cmp].getName();
+            ui->curPlayer->setText("Cartes de " + c);
             ui->perso->setStyleSheet("border-image: url(:/images/characters/hidden.png)");
 
             vector<CardJeu> cardsCurPlayer = game->players[cmp].getCards();
@@ -79,10 +87,7 @@ void Reveal::nextMove()
                 qt->setStyleSheet("border-image: url(:/images/cards/card-hidden.png)");
             }
 
-            QString c = game->players[cmp].getName();
-            ui->curPlayer->setText("Cartes de " + c);
-
-            ui->next->setText("Next");
+            ui->next->setText("Show");
         }
     }
 }

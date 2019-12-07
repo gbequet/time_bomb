@@ -27,7 +27,7 @@ public:
     CreationSalon *creationSalon;
     SalonOnline *salonOnline;
     JeuLocal *jeuLocal;
-    Plateau *plateau;
+    static Plateau *plateau;
     Options *options;
     static Reveal *reveal;
 
@@ -51,7 +51,7 @@ public slots:
     void recupertaionPseudo(QString);
     void recuperationNomSalon(QString);
     void recuperationnbrJoueur();
-    void goPlateau();
+    static void goPlateau(int nbPlayers, std::vector<QString> users);
     void goOptions();
     void goQuit();
     void changeLangue();

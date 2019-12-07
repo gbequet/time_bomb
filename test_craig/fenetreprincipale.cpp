@@ -10,7 +10,7 @@ using namespace std;
 
 QStackedWidget * FenetrePrincipale::stack;
 Reveal * FenetrePrincipale::reveal;
-
+Plateau * FenetrePrincipale::plateau;
 
 FenetrePrincipale::FenetrePrincipale()
 {
@@ -23,6 +23,7 @@ FenetrePrincipale::FenetrePrincipale()
     jeuLocal = new JeuLocal(this);
     options = new Options(this);
     FenetrePrincipale::reveal = new Reveal(this, nullptr);
+    FenetrePrincipale::plateau = new Plateau(this, nullptr);
 
     FenetrePrincipale::stack->addWidget(home);
     FenetrePrincipale::stack->addWidget(regle);
@@ -32,6 +33,7 @@ FenetrePrincipale::FenetrePrincipale()
     FenetrePrincipale::stack->addWidget(jeuLocal);
     FenetrePrincipale::stack->addWidget(options);
     FenetrePrincipale::stack->addWidget(FenetrePrincipale::reveal);
+    FenetrePrincipale::stack->addWidget(FenetrePrincipale::plateau);
 
 
     getOptionStream().open(OPTIONFILE, std::fstream::in);
@@ -127,12 +129,11 @@ void FenetrePrincipale::goOptions()
     FenetrePrincipale::stack->setCurrentWidget(options);
 }
 
-void FenetrePrincipale::goPlateau()
+void FenetrePrincipale::goPlateau(int nbPlayers, std::vector<QString> users)
 {
-    plateau = new Plateau(this);
-    FenetrePrincipale::stack->addWidget(plateau);
-    this->setWindowState(Qt::WindowFullScreen);
-    FenetrePrincipale::stack->setCurrentWidget(plateau);
+    Game_Controller *g = new Game_Controller(nbPlayers, users);
+    FenetrePrincipale::plateau->setGame(g);
+    FenetrePrincipale::stack->setCurrentWidget(FenetrePrincipale::plateau);
 }
 
 void FenetrePrincipale::goQuit()
@@ -205,9 +206,9 @@ void FenetrePrincipale::changeLangue()
 }
 
 
-void FenetrePrincipale::goReveal(int nbPlayer, vector<QString> users)
+void FenetrePrincipale::goReveal(int nbPlayers, vector<QString> users)
 {
-    Game_Controller *g = new Game_Controller(nbPlayer, users);
+    Game_Controller *g = new Game_Controller(nbPlayers, users);
     FenetrePrincipale::reveal->setGame(g);
     FenetrePrincipale::stack->setCurrentWidget(FenetrePrincipale::reveal);
 }
