@@ -256,7 +256,8 @@ QPushButton:hover
     border-image:url(:/images/titles/title-button.png);
 	color:#d0d0d0;
 	background-color:#73a6a0;
-	border-radius:10px;
+	border-radius:5px;
+	border-width:2px;
 }
 </string>
        </property>
@@ -303,12 +304,12 @@ QPushButton:hover
     border-image:url(:/images/titles/title-button.png);
 	color:#d0d0d0;
 	background-color:#73a6a0;
-	border-radius:10px;
-}
-</string>
+	border-radius:5px;
+	border-width:2px;
+}</string>
        </property>
        <property name="text">
-        <string>Jeu En Ligne</string>
+        <string>Jeu en Ligne</string>
        </property>
       </widget>
      </item>

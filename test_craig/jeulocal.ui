@@ -896,6 +896,9 @@ QLineEdit:read-only
      </item>
      <item row="4" column="7">
       <widget class="QLabel" name="label_7">
+       <property name="styleSheet">
+        <string notr="true">color:#d0d0d0;</string>
+       </property>
        <property name="text">
         <string>Joueur 6</string>
        </property>
@@ -903,6 +906,9 @@ QLineEdit:read-only
      </item>
      <item row="6" column="2">
       <widget class="QLabel" name="label_8">
+       <property name="styleSheet">
+        <string notr="true">color:#d0d0d0;</string>
+       </property>
        <property name="text">
         <string>Joueur 7</string>
        </property>
@@ -970,6 +976,9 @@ QPushButton:disabled
      </item>
      <item row="0" column="2">
       <widget class="QLabel" name="label_3">
+       <property name="styleSheet">
+        <string notr="true">color:#d0d0d0;</string>
+       </property>
        <property name="text">
         <string>Joueur 1</string>
        </property>
@@ -990,6 +999,9 @@ QPushButton:disabled
      </item>
      <item row="6" column="7">
       <widget class="QLabel" name="label_9">
+       <property name="styleSheet">
+        <string notr="true">color:#d0d0d0;</string>
+       </property>
        <property name="text">
         <string>Joueur 8</string>
        </property>
@@ -1112,6 +1124,9 @@ QLineEdit:read-only
      </item>
      <item row="2" column="7">
       <widget class="QLabel" name="label_10">
+       <property name="styleSheet">
+        <string notr="true">color:#d0d0d0;</string>
+       </property>
        <property name="text">
         <string>Joueur 4</string>
        </property>
@@ -1119,6 +1134,9 @@ QLineEdit:read-only
      </item>
      <item row="0" column="7">
       <widget class="QLabel" name="label_5">
+       <property name="styleSheet">
+        <string notr="true">color:#d0d0d0;</string>
+       </property>
        <property name="text">
         <string>Joueur 2</string>
        </property>
@@ -1254,6 +1272,9 @@ QLineEdit:read-only
      </item>
      <item row="4" column="2">
       <widget class="QLabel" name="label_6">
+       <property name="styleSheet">
+        <string notr="true">color:#d0d0d0;</string>
+       </property>
        <property name="text">
         <string>Joueur 5</string>
        </property>
@@ -1308,6 +1329,9 @@ QPushButton:disabled
      </item>
      <item row="2" column="2">
       <widget class="QLabel" name="label_4">
+       <property name="styleSheet">
+        <string notr="true">color:#d0d0d0;</string>
+       </property>
        <property name="text">
         <string>Joueur 3</string>
        </property>
@@ -1486,25 +1510,38 @@ QPushButton:disabled
      </item>
      <item>
       <widget class="QPushButton" name="jouer">
+       <property name="minimumSize">
+        <size>
+         <width>190</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>ArrowCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
-    border-image:url(:/images/icons/button-confirm-on.png);
-	width:50px;
-	height:50px;
+	font: 12pt sans-serif;
+	color:#d0d0d0;
+    border-image:url(:/images/titles/title-button.png);
+	color:#d0d0d0;
 }
 
 QPushButton:hover
 {
-    border-image:url(:/images/icons/button-confirm-on.png);
-	width:50px;
-	height:50px;
+	font: 12pt sans-serif;
+	color:#d0d0d0;
+    border-image:url(:/images/titles/title-button.png);
+	color:#d0d0d0;
 	background-color:#73a6a0;
-	border-radius: 20px;
-}</string>
+	border-radius:5px;
+	border-width:2px;
+}
+</string>
        </property>
        <property name="text">
-        <string/>
+        <string>Lancer la partie</string>
        </property>
       </widget>
      </item>
