@@ -73,6 +73,7 @@ void Plateau::setGame(Game_Controller *g)
             }
             connect(qp, SIGNAL(clicked()), this, SLOT(click_home()));
             qp->setProperty("id", i);
+            qp->setText(game->players[i].getName());
         }
     }
 
@@ -83,6 +84,7 @@ void Plateau::setGame(Game_Controller *g)
     int totalDefusing = game->nbPlayer;
     int totalCable = (game->nbPlayer * 5) - game->nbPlayer - 1;
 
+    //Définition des propriétés par défaut
     ui->defusing_count_label->setProperty("total", totalDefusing);
     ui->cable_cout_label->setProperty("total", totalCable);
     ui->defusing_count_label->setProperty("cut", 0);
@@ -92,6 +94,9 @@ void Plateau::setGame(Game_Controller *g)
     ui->cable_cout_label->setText("0/"+QString::number(totalCable));
 
 
+    ui->tour_label->setText("AU TOUR DE " + game->curPlayer.getName().toUpper());
+
+
 
 }
 
@@ -99,11 +104,13 @@ void Plateau::setGame(Game_Controller *g)
 void Plateau::click_home()
 {
     QPushButton *senderObj = (QPushButton * )sender();
-    if(prev_selected_player) prev_selected_player->setStyleSheet("border-image : url(:/back-small.png)");
-    senderObj->setStyleSheet("border-image : url(:/player-selected.png)");
-    prev_selected_player = senderObj;
     int id =  senderObj->property("id").toInt();
     Player p = game->players[id];
+
+    if(p.getName() == game->curPlayer.getName()) return;
+    senderObj->setStyleSheet("border-image : url(:/player-selected.png); color:white;");
+    prev_selected_player = senderObj;
+
     cards = p.getCards();
     std::vector<QLayout*> layouts;
     layouts.push_back(ui->cards_line_top);
@@ -188,6 +195,8 @@ void Plateau::cut_card()
 }
 
 void Plateau::clear_table(){
+
+    if(prev_selected_player) prev_selected_player->setStyleSheet("border-image : url(:/back-small.png); color:white;");
     std::vector<QLayout*> cards_layouts;
     cards_layouts.push_back(ui->cards_line_top);
     cards_layouts.push_back(ui->cards_line_bot);
