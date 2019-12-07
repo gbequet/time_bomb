@@ -18,11 +18,24 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="retour">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
        <property name="styleSheet">
-        <string notr="true">border-image:url(:/images/icons/button-back.png);
-width: 70px;
-height:70px;
-</string>
+        <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-back.png);
+}
+
+QPushButton:hover
+{
+    border-image:url(:/images/icons/button-back.png);
+	background-color:#73a6a0;
+	border-radius: 20px;
+}</string>
        </property>
        <property name="text">
         <string/>
@@ -66,20 +79,29 @@ height:70px;
        </property>
        <property name="minimumSize">
         <size>
-         <width>600</width>
-         <height>125</height>
+         <width>500</width>
+         <height>120</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>500</width>
+         <height>120</height>
         </size>
        </property>
        <property name="font">
         <font>
-         <pointsize>70</pointsize>
+         <family>sans-serif</family>
+         <pointsize>30</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-width: 1px;
-border-style: solid;
-border-color: black;
-border-radius: 25px;</string>
+        <string notr="true">border-image:url(:/images/titles/title-frame.png);
+font: 30pt sans-serif;
+color:#d0d0d0;</string>
        </property>
        <property name="text">
         <string>Jeu Local</string>
@@ -136,20 +158,58 @@ border-radius: 25px;</string>
       <widget class="QPushButton" name="nbrJoueur4">
        <property name="minimumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>45</width>
+         <height>45</height>
         </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>45</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
-border : 1px solid black;
-border-radius :20px;
+    border-image:url(:/images/icons/select-player-4-off.png);
+	width: 45px;
+	height:45px;
+	color:#32780c;
+	font-size:1px;
+}
+
+QPushButton:hover
+{
+	border-image:url(:/images/icons/select-player-4-off.png);
+	width: 45px;
+	height:45px;
+	color:#32780c;
+	font-size:1px;
+	background-color:#73a6a0;
+	border-radius: 20px;
 }
 
 QPushButton:checked
 {
-background-color: #bfbfbf;
+    border-image:url(:/images/icons/select-player-4-on.png);
+	width: 45px;
+	height:45px;
+	color:#82fc41;
+	font-size:1px;
+}
+
+QPushButton:disabled
+{
+    border-image:url(:/images/icons/select-player-4-off.png);
+	width: 45px;
+	height:45px;
+	color:#32780c;
+	font-size:1px;
 }
 </string>
        </property>
@@ -158,6 +218,9 @@ background-color: #bfbfbf;
        </property>
        <property name="checkable">
         <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -173,16 +236,6 @@ background-color: #bfbfbf;
         </size>
        </property>
       </spacer>
-     </item>
-     <item row="2" column="8">
-      <widget class="QCheckBox" name="checkBox">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
      </item>
      <item row="0" column="0">
       <spacer name="horizontalSpacer_15">
@@ -237,20 +290,52 @@ background-color: #bfbfbf;
       <widget class="QPushButton" name="nbrJoueur7">
        <property name="minimumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>45</width>
+         <height>45</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
-border : 1px solid black;
-border-radius :20px;
+    border-image:url(:/images/icons/select-player-7-off.png);
+	width: 45px;
+	height:45px;
+	color:#32780c;
+	font-size:1px;
+}
+
+QPushButton:hover
+{
+	border-image:url(:/images/icons/select-player-7-off.png);
+	width: 45px;
+	height:45px;
+	color:#32780c;
+	font-size:1px;
+	background-color:#73a6a0;
+	border-radius: 20px;
 }
 
 QPushButton:checked
 {
-background-color: #bfbfbf;
+    border-image:url(:/images/icons/select-player-7-on.png);
+	width: 45px;
+	height:45px;
+	color:#82fc41;
+	font-size:1px;
+}
+
+QPushButton:disabled
+{
+    border-image:url(:/images/icons/select-player-7-off.png);
+	width: 45px;
+	height:45px;
+	color:#32780c;
+	font-size:1px;
 }
 </string>
        </property>
@@ -344,20 +429,52 @@ background-color: #bfbfbf;
       <widget class="QPushButton" name="nbrJoueur5">
        <property name="minimumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>45</width>
+         <height>45</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
-border : 1px solid black;
-border-radius :20px;
+    border-image:url(:/images/icons/select-player-5-off.png);
+	width: 45px;
+	height:45px;
+	color:#32780c;
+	font-size:1px;
+}
+
+QPushButton:hover
+{
+	border-image:url(:/images/icons/select-player-5-off.png);
+	width: 45px;
+	height:45px;
+	color:#32780c;
+	font-size:1px;
+	background-color:#73a6a0;
+	border-radius: 20px;
 }
 
 QPushButton:checked
 {
-background-color: #bfbfbf;
+    border-image:url(:/images/icons/select-player-5-on.png);
+	width: 45px;
+	height:45px;
+	color:#82fc41;
+	font-size:1px;
+}
+
+QPushButton:disabled
+{
+    border-image:url(:/images/icons/select-player-5-off.png);
+	width: 45px;
+	height:45px;
+	color:#32780c;
+	font-size:1px;
 }
 </string>
        </property>
@@ -367,26 +484,61 @@ background-color: #bfbfbf;
        <property name="checkable">
         <bool>true</bool>
        </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
       </widget>
      </item>
      <item row="0" column="12">
       <widget class="QPushButton" name="nbrJoueur6">
        <property name="minimumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>45</width>
+         <height>45</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
-border : 1px solid black;
-border-radius :20px;
+    border-image:url(:/images/icons/select-player-6-off.png);
+	width: 45px;
+	height:45px;
+	color:#32780c;
+	font-size:1px;
+}
+
+QPushButton:hover
+{
+	border-image:url(:/images/icons/select-player-6-off.png);
+	width: 45px;
+	height:45px;
+	color:#32780c;
+	font-size:1px;
+	background-color:#73a6a0;
+	border-radius: 20px;
 }
 
 QPushButton:checked
 {
-background-color: #bfbfbf;
+    border-image:url(:/images/icons/select-player-6-on.png);
+	width: 45px;
+	height:45px;
+	color:#82fc41;
+	font-size:1px;
+}
+
+QPushButton:disabled
+{
+    border-image:url(:/images/icons/select-player-6-off.png);
+	width: 45px;
+	height:45px;
+	color:#32780c;
+	font-size:1px;
 }
 </string>
        </property>
@@ -402,20 +554,52 @@ background-color: #bfbfbf;
       <widget class="QPushButton" name="nbrJoueur8">
        <property name="minimumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>45</width>
+         <height>45</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
-border : 1px solid black;
-border-radius :20px;
+    border-image:url(:/images/icons/select-player-8-off.png);
+	width: 45px;
+	height:45px;
+	color:#32780c;
+	font-size:1px;
+}
+
+QPushButton:hover
+{
+	border-image:url(:/images/icons/select-player-8-off.png);
+	width: 45px;
+	height:45px;
+	color:#32780c;
+	font-size:1px;
+	background-color:#73a6a0;
+	border-radius: 20px;
 }
 
 QPushButton:checked
 {
-background-color: #bfbfbf;
+    border-image:url(:/images/icons/select-player-8-on.png);
+	width: 45px;
+	height:45px;
+	color:#82fc41;
+	font-size:1px;
+}
+
+QPushButton:disabled
+{
+    border-image:url(:/images/icons/select-player-8-off.png);
+	width: 45px;
+	height:45px;
+	color:#32780c;
+	font-size:1px;
 }
 </string>
        </property>
@@ -544,6 +728,56 @@ background-color: #bfbfbf;
        </property>
       </spacer>
      </item>
+     <item row="2" column="8">
+      <widget class="QPushButton" name="pushButton">
+       <property name="maximumSize">
+        <size>
+         <width>45</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-token-off.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:hover
+{
+	border-image:url(:/images/icons/button-token-off.png);
+	width: 45px;
+	height:45px;
+	background-color:#73a6a0;
+	border-radius: 20px;
+}
+
+QPushButton:checked
+{
+    border-image:url(:/images/icons/button-token-on.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:disabled
+{
+    border-image:url(:/images/icons/button-token-off.png);
+	width: 45px;
+	height:45px;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item>
@@ -563,8 +797,45 @@ background-color: #bfbfbf;
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="4" column="9">
       <widget class="QPushButton" name="bot6">
+       <property name="maximumSize">
+        <size>
+         <width>45</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:hover
+{
+	border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+	background-color:#73a6a0;
+	border-radius: 20px;
+}
+
+QPushButton:checked
+{
+    border-image:url(:/images/icons/button-bot-on.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:disabled
+{
+    border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+}</string>
+       </property>
        <property name="text">
-        <string>Bot</string>
+        <string/>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -576,7 +847,7 @@ background-color: #bfbfbf;
        <property name="styleSheet">
         <string notr="true">QLineEdit:read-only
 {
-    background-color: #bfbfbf;
+    background-color: #53230a;
 }</string>
        </property>
        <property name="text">
@@ -623,8 +894,45 @@ background-color: #bfbfbf;
      </item>
      <item row="2" column="9">
       <widget class="QPushButton" name="bot4">
+       <property name="maximumSize">
+        <size>
+         <width>45</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:hover
+{
+	border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+	background-color:#73a6a0;
+	border-radius: 20px;
+}
+
+QPushButton:checked
+{
+    border-image:url(:/images/icons/button-bot-on.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:disabled
+{
+    border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+}</string>
+       </property>
        <property name="text">
-        <string>Bot</string>
+        <string/>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -663,7 +971,7 @@ background-color: #bfbfbf;
        <property name="styleSheet">
         <string notr="true">QLineEdit:read-only
 {
-    background-color: #bfbfbf;
+    background-color: #53230a;
 }</string>
        </property>
        <property name="text">
@@ -689,8 +997,45 @@ background-color: #bfbfbf;
      </item>
      <item row="6" column="4">
       <widget class="QPushButton" name="bot7">
+       <property name="maximumSize">
+        <size>
+         <width>45</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:hover
+{
+	border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+	background-color:#73a6a0;
+	border-radius: 20px;
+}
+
+QPushButton:checked
+{
+    border-image:url(:/images/icons/button-bot-on.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:disabled
+{
+    border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+}</string>
+       </property>
        <property name="text">
-        <string>Bot</string>
+        <string/>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -712,7 +1057,7 @@ background-color: #bfbfbf;
        <property name="styleSheet">
         <string notr="true">QLineEdit:read-only
 {
-    background-color: #bfbfbf;
+    background-color: #53230a;
 }</string>
        </property>
        <property name="text">
@@ -739,8 +1084,45 @@ background-color: #bfbfbf;
      </item>
      <item row="0" column="9">
       <widget class="QPushButton" name="bot2">
+       <property name="maximumSize">
+        <size>
+         <width>45</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:hover
+{
+	border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+	background-color:#73a6a0;
+	border-radius: 20px;
+}
+
+QPushButton:checked
+{
+    border-image:url(:/images/icons/button-bot-on.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:disabled
+{
+    border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+}</string>
+       </property>
        <property name="text">
-        <string>Bot</string>
+        <string/>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -749,8 +1131,45 @@ background-color: #bfbfbf;
      </item>
      <item row="4" column="4">
       <widget class="QPushButton" name="bot5">
+       <property name="maximumSize">
+        <size>
+         <width>45</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:hover
+{
+	border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+	background-color:#73a6a0;
+	border-radius: 20px;
+}
+
+QPushButton:checked
+{
+    border-image:url(:/images/icons/button-bot-on.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:disabled
+{
+    border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+}</string>
+       </property>
        <property name="text">
-        <string>Bot</string>
+        <string/>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -762,7 +1181,7 @@ background-color: #bfbfbf;
        <property name="styleSheet">
         <string notr="true">QLineEdit:read-only
 {
-    background-color: #bfbfbf;
+    background-color: #53230a;
 }</string>
        </property>
        <property name="text">
@@ -792,8 +1211,45 @@ background-color: #bfbfbf;
      </item>
      <item row="6" column="9">
       <widget class="QPushButton" name="bot8">
+       <property name="maximumSize">
+        <size>
+         <width>45</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:hover
+{
+	border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+	background-color:#73a6a0;
+	border-radius: 20px;
+}
+
+QPushButton:checked
+{
+    border-image:url(:/images/icons/button-bot-on.png);
+	width: 45px;
+	height:45px;
+}
+
+QPushButton:disabled
+{
+    border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+}</string>
+       </property>
        <property name="text">
-        <string>Bot</string>
+        <string/>
        </property>
        <property name="checkable">
         <bool>true</bool>
@@ -850,6 +1306,15 @@ background-color: #bfbfbf;
     border-image:url(:/images/icons/button-bot-off.png);
 	width: 45px;
 	height:45px;
+}
+
+QPushButton:hover
+{
+	border-image:url(:/images/icons/button-bot-off.png);
+	width: 45px;
+	height:45px;
+	background-color:#73a6a0;
+	border-radius: 20px;
 }
 
 QPushButton:checked

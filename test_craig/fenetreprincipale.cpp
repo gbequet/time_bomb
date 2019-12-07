@@ -35,6 +35,9 @@ FenetrePrincipale::FenetrePrincipale()
     FenetrePrincipale::stack->addWidget(FenetrePrincipale::reveal);
     FenetrePrincipale::stack->addWidget(FenetrePrincipale::plateau);
 
+    // couleur de fond d'écran de tous les écrans
+    this->setStyleSheet("background-color: #413425;");
+
 
     getOptionStream().open(OPTIONFILE, std::fstream::in);
 
@@ -59,7 +62,7 @@ FenetrePrincipale::FenetrePrincipale()
     }
     else
     {
-        //Le fichier par défaut doit exister et être rempli avant de laner le programme
+        //Le fichier par défaut doit exister et être rempli avant de lancer le programme
         getOptionStream().open(DEFAULTFILE, std::fstream::in);
 
         while (getline(getOptionStream(), line))

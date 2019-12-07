@@ -86,7 +86,17 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image:url(:/images/miscs/flag-french.png);</string>
+         <string notr="true">QPushButton
+{
+    border-image:url(:/images/miscs/flag-french.png);
+}
+
+QPushButton:hover
+{
+    border-image:url(:/images/miscs/flag-french.png);
+	background-color:#73a6a0;
+	border-radius: 30px;
+}</string>
         </property>
         <property name="text">
          <string/>
@@ -115,7 +125,17 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image:url(:/images/miscs/flag-english.png);</string>
+         <string notr="true">QPushButton
+{
+    border-image:url(:/images/miscs/flag-english.png);
+}
+
+QPushButton:hover
+{
+    border-image:url(:/images/miscs/flag-english.png);
+	background-color:#73a6a0;
+	border-radius: 30px;
+}</string>
         </property>
         <property name="text">
          <string/>
@@ -205,9 +225,24 @@
         <height>70</height>
        </size>
       </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
       <property name="styleSheet">
-       <string notr="true">border-image:url(:/images/icons/button-cancel-on.png);
-</string>
+       <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-cancel-on.png);
+}
+
+QPushButton:hover
+{
+    border-image:url(:/images/icons/button-cancel-on.png);
+	background-color:#73a6a0;
+	border-radius: 30px;
+}</string>
       </property>
       <property name="text">
        <string/>
@@ -219,9 +254,12 @@
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>40</width>
+        <width>10</width>
         <height>20</height>
        </size>
       </property>
@@ -241,8 +279,17 @@
         <height>70</height>
        </size>
       </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
       <property name="styleSheet">
-       <string notr="true">border-image:url(:/images/icons/button-confirm-off.png);</string>
+       <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-confirm-off.png);
+}</string>
       </property>
       <property name="text">
        <string/>
@@ -257,7 +304,7 @@
      <x>10</x>
      <y>10</y>
      <width>70</width>
-     <height>78</height>
+     <height>70</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -272,9 +319,24 @@
      <height>70</height>
     </size>
    </property>
+   <property name="maximumSize">
+    <size>
+     <width>70</width>
+     <height>70</height>
+    </size>
+   </property>
    <property name="styleSheet">
-    <string notr="true">border-image:url(:/images/icons/button-back.png);
-</string>
+    <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-back.png);
+}
+
+QPushButton:hover
+{
+    border-image:url(:/images/icons/button-back.png);
+	background-color:#73a6a0;
+	border-radius: 30px;
+}</string>
    </property>
    <property name="text">
     <string/>
@@ -307,26 +369,35 @@
      <widget class="QLabel" name="title_lbl">
       <property name="minimumSize">
        <size>
-        <width>700</width>
-        <height>125</height>
+        <width>500</width>
+        <height>120</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>500</width>
+        <height>120</height>
        </size>
       </property>
       <property name="font">
        <font>
-        <pointsize>70</pointsize>
+        <family>sans-serif</family>
+        <pointsize>30</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-width: 1px;
-border-style: solid;
-border-color: black;
-border-radius: 25px;</string>
+       <string notr="true">border-image:url(:/images/titles/title-frame.png);
+font: 30pt sans-serif;
+color:#d0d0d0;</string>
       </property>
       <property name="text">
-       <string>OPTIONS</string>
+       <string>Options</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>

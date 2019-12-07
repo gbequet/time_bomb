@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>896</width>
-    <height>709</height>
+    <height>756</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,11 +18,24 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="retour">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
        <property name="styleSheet">
-        <string notr="true">border-image:url(:/images/icons/button-back.png);
-width: 70px;
-height:70px;
-</string>
+        <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-back.png);
+}
+
+QPushButton:hover
+{
+    border-image:url(:/images/icons/button-back.png);
+	background-color:#73a6a0;
+	border-radius: 20px;
+}</string>
        </property>
        <property name="text">
         <string/>
@@ -64,19 +77,28 @@ height:70px;
        <property name="minimumSize">
         <size>
          <width>500</width>
-         <height>125</height>
+         <height>120</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>500</width>
+         <height>120</height>
         </size>
        </property>
        <property name="font">
         <font>
-         <pointsize>70</pointsize>
+         <family>sans-serif</family>
+         <pointsize>30</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-width: 1px;
-border-style: solid;
-border-color: black;
-border-radius: 25px;</string>
+        <string notr="true">border-image:url(:/images/titles/title-frame.png);
+font: 30pt sans-serif;
+color:#d0d0d0;</string>
        </property>
        <property name="text">
         <string>Salons</string>

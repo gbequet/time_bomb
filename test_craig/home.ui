@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -25,9 +28,17 @@
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-image:url(:/images/icons/button-settings.png);
-width: 70px;
-height:70px;
+        <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-settings.png);
+}
+
+QPushButton:hover
+{
+    border-image:url(:/images/icons/button-settings.png);
+	background-color:#73a6a0;
+	border-radius: 30px;
+}
 </string>
        </property>
        <property name="text">
@@ -57,7 +68,17 @@ height:70px;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-image:url(://images/icons/button-quit.png);</string>
+        <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-quit.png);
+}
+
+QPushButton:hover
+{
+    border-image:url(:/images/icons/button-quit.png);
+	background-color:#73a6a0;
+	border-radius: 30px;
+}</string>
        </property>
        <property name="text">
         <string/>
@@ -98,29 +119,44 @@ height:70px;
       <widget class="QLabel" name="timebomb">
        <property name="minimumSize">
         <size>
-         <width>700</width>
-         <height>125</height>
+         <width>600</width>
+         <height>200</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>200</height>
         </size>
        </property>
        <property name="font">
         <font>
-         <pointsize>70</pointsize>
+         <family>Uroob,50pt sans-serif</family>
+         <pointsize>69</pointsize>
+         <weight>9</weight>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="autoFillBackground">
         <bool>false</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-width: 1px;
-border-style: solid;
-border-color: black;
-border-radius: 25px;</string>
+        <string notr="true">border-image:url(:/images/titles/title-frame.png);
+font: 75 69pt &quot;Uroob&quot;, 50pt sans-serif;
+color:#d0d0d0;</string>
        </property>
        <property name="text">
-        <string>TIMEBOMB</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#3b5061;&quot;&gt;- &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;TIMEBOMB&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::AutoText</enum>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+       <property name="indent">
+        <number>-1</number>
        </property>
       </widget>
      </item>
@@ -203,7 +239,7 @@ border-radius: 25px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>20</pointsize>
+         <pointsize>18</pointsize>
         </font>
        </property>
        <property name="autoFillBackground">
@@ -212,21 +248,18 @@ border-radius: 25px;</string>
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
-border: 1px solid black;
-background-color: #e7e7e7;
-border-radius: 15px;
+    border-image:url(:/images/titles/title-button.png);
+	color:#d0d0d0;
 }
 
 QPushButton:hover
 {
-background-color: #e4e7e7;
-border-color: #2c7ab4;
+    border-image:url(:/images/titles/title-button.png);
+	color:#d0d0d0;
+	background-color:#73a6a0;
+	border-radius:10px;
 }
-
-QPushButton:pressed
-{
-background-color: #bfbfbf;
-}</string>
+</string>
        </property>
        <property name="text">
         <string>Jeu Local</string>
@@ -256,27 +289,24 @@ background-color: #bfbfbf;
        </property>
        <property name="font">
         <font>
-         <pointsize>20</pointsize>
+         <pointsize>18</pointsize>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
-border: 1px solid black;
-background-color: #e7e7e7;
-border-radius: 15px;
+    border-image:url(:/images/titles/title-button.png);
+	color:#d0d0d0;
 }
 
 QPushButton:hover
 {
-background-color: #e4e7e7;
-border-color: #2c7ab4;
+    border-image:url(:/images/titles/title-button.png);
+	color:#d0d0d0;
+	background-color:#73a6a0;
+	border-radius:10px;
 }
-
-QPushButton:pressed
-{
-background-color: #bfbfbf;
-}</string>
+</string>
        </property>
        <property name="text">
         <string>Jeu En Ligne</string>
@@ -354,10 +384,24 @@ background-color: #bfbfbf;
      </item>
      <item>
       <widget class="QPushButton" name="credits">
+       <property name="minimumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
        <property name="styleSheet">
-        <string notr="true">border-image:url(:/images/icons/button-credits.png);
-width: 70px;
-height:70px;</string>
+        <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-credits.png);
+}
+
+QPushButton:hover
+{
+    border-image:url(:/images/icons/button-credits.png);
+	background-color:#73a6a0;
+	border-radius: 30px;
+}</string>
        </property>
        <property name="text">
         <string/>
@@ -382,11 +426,24 @@ height:70px;</string>
      </item>
      <item>
       <widget class="QPushButton" name="regles">
+       <property name="minimumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
        <property name="styleSheet">
-        <string notr="true">border-image:url(:/images/icons/button-rules.png);
-width: 70px;
-height:70px;
-</string>
+        <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-rules.png);
+}
+
+QPushButton:hover
+{
+    border-image:url(:/images/icons/button-rules.png);
+	background-color:#73a6a0;
+	border-radius: 30px;
+}</string>
        </property>
        <property name="text">
         <string/>

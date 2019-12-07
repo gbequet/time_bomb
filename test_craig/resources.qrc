@@ -22,6 +22,7 @@
         <file>images/icons/button-confirm-on.png</file>
         <file>images/icons/button-credits.png</file>
         <file>images/icons/button-home.png</file>
+        <file>images/icons/button-next.png</file>
         <file>images/icons/button-quit.png</file>
         <file>images/icons/button-rules.png</file>
         <file>images/icons/button-settings.png</file>
@@ -38,7 +39,9 @@
         <file>images/icons/select-player-8-off.png</file>
         <file>images/icons/select-player-8-on.png</file>
         <file>images/miscs/cutter.png</file>
+        <file>images/miscs/flag-english-off.png</file>
         <file>images/miscs/flag-english.png</file>
+        <file>images/miscs/flag-french-off.png</file>
         <file>images/miscs/flag-french.png</file>
         <file>images/titles/title-button.png</file>
         <file>images/titles/title-frame.png</file>

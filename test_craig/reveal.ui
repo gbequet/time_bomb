@@ -33,8 +33,25 @@
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QPushButton" name="quitter">
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-quit.png);
+	width:50px;
+	height:50px;
+}
+
+QPushButton:hover
+{
+    border-image:url(:/images/icons/button-quit.png);
+	width:50px;
+	height:50px;
+	background-color:#73a6a0;
+	border-radius: 20px;
+}</string>
+        </property>
         <property name="text">
-         <string>Quitter</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -242,8 +259,37 @@
       </item>
       <item>
        <widget class="QPushButton" name="next">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-next.png);
+	width:50px;
+	height:50px;
+}
+
+QPushButton:hover
+{
+    border-image:url(:/images/icons/button-next.png);
+	width:50px;
+	height:50px;
+	background-color:#73a6a0;
+	border-radius: 20px;
+}</string>
+        </property>
         <property name="text">
-         <string>Next</string>
+         <string/>
         </property>
        </widget>
       </item>
