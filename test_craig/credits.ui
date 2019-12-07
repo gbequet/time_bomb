@@ -19,11 +19,14 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
   <widget class="QPushButton" name="retour_4">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
+     <x>10</x>
+     <y>10</y>
      <width>70</width>
      <height>70</height>
     </rect>
@@ -54,9 +57,9 @@ QPushButton:hover
   <widget class="QWidget" name="horizontalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>80</y>
-     <width>1081</width>
+     <x>10</x>
+     <y>70</y>
+     <width>1061</width>
      <height>131</height>
     </rect>
    </property>
@@ -128,32 +131,99 @@ color:#d0d0d0;</string>
     </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="label_7">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>400</y>
-     <width>281</width>
-     <height>131</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: #7d5b3a;</string>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>240</y>
-     <width>1081</width>
-     <height>311</height>
+     <x>10</x>
+     <y>200</y>
+     <width>1061</width>
+     <height>271</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2"/>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Preferred</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <spacer name="horizontalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-width: 1px;
+border-style: solid;
+border-color: black;
+</string>
+        </property>
+        <property name="text">
+         <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquet 
+semper justo sed tincidunt. Vivamus ut risus lorem. Aliquam dapibus 
+libero in nisl placerat dictum. Vestibulum vehicula ultricies metus et 
+mattis. Nullam posuere pulvinar diam quis vestibulum. Suspendisse 
+potenti. Duis posuere eget erat in convallis. Fusce pharetra laoreet 
+justo a lacinia. Morbi at hendrerit lacus, ac feugiat dui. Duis lectus 
+purus, venenatis in sagittis a, egestas at metus. Pellentesque habitant 
+morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+Vivamus eget elit in lorem pellentesque sodales. Cras efficitur mauris 
+augue, et efficitur diam feugiat fermentum.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
