@@ -9,6 +9,7 @@
 
 std::vector<CardJeu> cards;
 QPushButton * prev_selected_player;
+bool paused;
 
 Plateau::Plateau(QWidget *parent, Game_Controller *game) :
     QWidget(parent),
@@ -107,7 +108,7 @@ void Plateau::click_home()
     int id =  senderObj->property("id").toInt();
     Player p = game->players[id];
 
-    if(p.getName() == game->curPlayer.getName()) return;
+    if(p.getName() == game->curPlayer.getName() || paused) return;
     senderObj->setStyleSheet("border-image : url(:/player-selected.png); color:white;");
     prev_selected_player = senderObj;
 
@@ -192,9 +193,13 @@ void Plateau::cut_card()
 
     this->repaint();
 
+    paused = true;
+
     QTime dieTime= QTime::currentTime().addSecs(2);
         while (QTime::currentTime() < dieTime)
             QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+
+    paused = false;
 
     this->clear_table();
 
