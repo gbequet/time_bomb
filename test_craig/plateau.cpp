@@ -6,7 +6,6 @@
 #include "fenetreprincipale.h"
 #include <unistd.h>
 
-std::vector<Player> players;
 std::vector<CardJeu> cards;
 
 Plateau::Plateau(QWidget *parent, Game_Controller *game) :
@@ -58,7 +57,6 @@ void Plateau::setGame(Game_Controller *g)
             }
             else
             {
-                qDebug() << i%4;
                 qp = (QPushButton *) layout->itemAt(3)->widget();
             }
             connect(qp, SIGNAL(clicked()), this, SLOT(click_home()));
@@ -82,6 +80,7 @@ void Plateau::click_home()
     int card_index = 1;
     for(int i = 0; i < cards.size(); i++)
     {
+        qDebug() << "Card " << i << " is cut " << cards[i].isCut();
         if(i == 3)
         {
             cur_layout = layouts[1];
@@ -111,6 +110,7 @@ void Plateau::click_home()
 //Cut card
 void Plateau::cut_card()
 {
+
     QPushButton *senderObj = (QPushButton * )sender();
     int type = senderObj->property("type").toInt();
     switch(type)
@@ -129,8 +129,7 @@ void Plateau::cut_card()
 
     int player_id = senderObj->property("owner").toInt();
     int card_index = senderObj->property("id").toInt();
-
-    Player_Controller::cutCardTo(players[player_id], card_index);
+    Player_Controller::cutCardTo(game->players[player_id], card_index);
 }
 
 

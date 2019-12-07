@@ -3,6 +3,7 @@
 #include "player_controller.h"
 #include "card_controller.h"
 #include "player.h"
+#include <QDebug>
 
 
 #define SHERLOCK 1
