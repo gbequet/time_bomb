@@ -921,12 +921,50 @@ color:white;</string>
     </layout>
    </widget>
   </widget>
+  <widget class="QWidget" name="overlay_fin" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>130</y>
+     <width>971</width>
+     <height>421</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgba(252, 32, 21, 181);</string>
+   </property>
+   <widget class="QLabel" name="label_fin">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>861</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+background-color:none;
+font-size:46px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
   <zorder>table</zorder>
   <zorder>horizontalLayoutWidget_3</zorder>
   <zorder>horizontalLayoutWidget_2</zorder>
   <zorder>horizontalLayoutWidget_4</zorder>
   <zorder>verticalLayoutWidget</zorder>
   <zorder>verticalLayoutWidget_2</zorder>
+  <zorder>overlay_fin</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -92,7 +92,7 @@ void Plateau::setGame(Game_Controller *g)
 
     ui->defusing_count_label->setText("0/"+QString::number(totalDefusing));
     ui->cable_cout_label->setText("0/"+QString::number(totalCable));
-
+    ui->overlay_fin->hide();
 
     ui->tour_label->setText("AU TOUR DE " + game->curPlayer.getName().toUpper());
 
@@ -164,9 +164,17 @@ void Plateau::cut_card()
             ui->defusing_count_label->setProperty("cut", nbCut + 1);
             nbCut++;
             ui->defusing_count_label->setText(QString::number(nbCut) + "/" + QString::number(total));
+
+            if(nbCut == total){
+                ui->label_fin->setText("LA BOMBE A ÉTÉ DÉSAMORCÉE, L'ÉQUIPE DE SHERLOCK REMPORTE LA PARTIE");
+                ui->overlay_fin->setStyleSheet("background-color: rgba(30, 61, 255, 151);");
+                ui->overlay_fin->show();
+            }
             break;
         case 2 :
             senderObj->setStyleSheet("border-image: url(:/images/cards/card-big-ben-explosion.png)");
+            ui->label_fin->setText("LA BOMBE A ÉTÉ TROUVÉE, L'ÉQUIPE DE MORIARTY REMPORTE LA PARTIE");
+            ui->overlay_fin->show();
             break;
         default:
             senderObj->setStyleSheet("border-image: url(:/images/cards/card-useless.png)");
@@ -175,6 +183,10 @@ void Plateau::cut_card()
             ui->cable_cout_label->setProperty("cut", nbCut + 1);
             nbCut++;
             ui->cable_cout_label->setText(QString::number(nbCut) + "/" + QString::number(total));
+            if(nbCut == total){
+                ui->label_fin->setText("LA BOMBE N'A PAS ÉTÉ DÉSAMORCÉE, L'ÉQUIPE DE MORIARTY REMPORTE LA PARTIE");
+                ui->overlay_fin->show();
+            }
             break;
     }
 
