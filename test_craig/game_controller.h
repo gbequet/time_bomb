@@ -12,12 +12,12 @@ public:
     QString getPlayerName(int id);
     std::vector<Player> players;
     int nbPlayer;
+    Player curPlayer;
 
 private:
     int nbTour;
     int nbDefusingCut;
 //    int nbPlayer;
-    Player curPlayer;
 //    std::vector<Player> players;
     std::vector<CardJeu> cards;
     static bool gameOver;

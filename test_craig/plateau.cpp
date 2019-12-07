@@ -7,6 +7,9 @@
 #include <unistd.h>
 
 std::vector<CardJeu> cards;
+QPushButton * prev_selected_player;
+int nbCable = 0;
+int nbDefusing = 0;
 
 Plateau::Plateau(QWidget *parent, Game_Controller *game) :
     QWidget(parent),
@@ -63,12 +66,32 @@ void Plateau::setGame(Game_Controller *g)
             qp->setProperty("id", i);
         }
     }
+
+    //Cartes cachées par défaut
+
+    std::vector<QLayout*> cards_layouts;
+    cards_layouts.push_back(ui->cards_line_top);
+    cards_layouts.push_back(ui->cards_line_bot);
+    for(int i = 0; i < cards_layouts.size(); i++){
+        for(int j = 0; j < cards_layouts[i]->count(); j++){
+            QWidget * w = cards_layouts[i]->itemAt(j)->widget();
+            if (w != NULL)
+              {
+                w->setVisible(false);
+              }
+        }
+    }
+
+
 }
 
 //Select player and show cards
 void Plateau::click_home()
 {
     QPushButton *senderObj = (QPushButton * )sender();
+    if(prev_selected_player) prev_selected_player->setStyleSheet("border-image : url(:/back-small.png)");
+    senderObj->setStyleSheet("border-image : url(:/player-selected.png)");
+    prev_selected_player = senderObj;
     int id =  senderObj->property("id").toInt();
     Player p = game->players[id];
     cards = p.getCards();
@@ -130,6 +153,8 @@ void Plateau::cut_card()
     int player_id = senderObj->property("owner").toInt();
     int card_index = senderObj->property("id").toInt();
     Player_Controller::cutCardTo(game->players[player_id], card_index);
+    game->curPlayer = game->players[player_id];
+    ui->tour_label->setText("AU TOUR DE " + game->curPlayer.getName().toUpper());
 }
 
 

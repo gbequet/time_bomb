@@ -49,5 +49,6 @@
         <file>back-small.png</file>
         <file>cable-small.png</file>
         <file>defusing-small.png</file>
+        <file>player-selected.png</file>
     </qresource>
 </RCC>
