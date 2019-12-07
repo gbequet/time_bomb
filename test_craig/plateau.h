@@ -26,6 +26,7 @@ private slots:
 private:
     Ui::Plateau *ui;
     Game_Controller *game;
+    void clear_table();
 };
 
 #endif // PLATEAU_H

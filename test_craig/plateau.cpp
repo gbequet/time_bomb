@@ -5,11 +5,10 @@
 #include "card_controller.h"
 #include "fenetreprincipale.h"
 #include <unistd.h>
+#include <QTime>
 
 std::vector<CardJeu> cards;
 QPushButton * prev_selected_player;
-int nbCable = 0;
-int nbDefusing = 0;
 
 Plateau::Plateau(QWidget *parent, Game_Controller *game) :
     QWidget(parent),
@@ -33,6 +32,16 @@ void Plateau::setGame(Game_Controller *g)
     QLayout * line_bot = ui->players_line_bot;
     QLayout * line_left = ui->players_line_left;
     QLayout * line_right = ui->players_line_right;
+
+
+    connect(ui->card_16, SIGNAL(clicked()), this, SLOT(cut_card()));
+    connect(ui->card_17, SIGNAL(clicked()), this, SLOT(cut_card()));
+    connect(ui->card_18, SIGNAL(clicked()), this, SLOT(cut_card()));
+    connect(ui->card_19, SIGNAL(clicked()), this, SLOT(cut_card()));
+    connect(ui->card_20, SIGNAL(clicked()), this, SLOT(cut_card()));
+
+
+
 
     std::vector<QLayout *> layouts;
     layouts.push_back(line_top);
@@ -68,19 +77,20 @@ void Plateau::setGame(Game_Controller *g)
     }
 
     //Cartes cachées par défaut
+    this->clear_table();
 
-    std::vector<QLayout*> cards_layouts;
-    cards_layouts.push_back(ui->cards_line_top);
-    cards_layouts.push_back(ui->cards_line_bot);
-    for(int i = 0; i < cards_layouts.size(); i++){
-        for(int j = 0; j < cards_layouts[i]->count(); j++){
-            QWidget * w = cards_layouts[i]->itemAt(j)->widget();
-            if (w != NULL)
-              {
-                w->setVisible(false);
-              }
-        }
-    }
+
+    int totalDefusing = game->nbPlayer;
+    int totalCable = (game->nbPlayer * 5) - game->nbPlayer - 1;
+
+    ui->defusing_count_label->setProperty("total", totalDefusing);
+    ui->cable_cout_label->setProperty("total", totalCable);
+    ui->defusing_count_label->setProperty("cut", 0);
+    ui->cable_cout_label->setProperty("cut", 0);
+
+    ui->defusing_count_label->setText("0/"+QString::number(totalDefusing));
+    ui->cable_cout_label->setText("0/"+QString::number(totalCable));
+
 
 
 }
@@ -103,7 +113,6 @@ void Plateau::click_home()
     int card_index = 1;
     for(int i = 0; i < cards.size(); i++)
     {
-        qDebug() << "Card " << i << " is cut " << cards[i].isCut();
         if(i == 3)
         {
             cur_layout = layouts[1];
@@ -116,7 +125,6 @@ void Plateau::click_home()
             qt->setProperty("type", cards[i].getType());
             qt->setProperty("owner", id);
             qt->setProperty("id", i);
-            connect(qt, SIGNAL(clicked()), this, SLOT(cut_card()));
             qt->show();
 
         }
@@ -134,27 +142,64 @@ void Plateau::click_home()
 void Plateau::cut_card()
 {
 
+
     QPushButton *senderObj = (QPushButton * )sender();
     int type = senderObj->property("type").toInt();
+    int nbCut = 0;
+    int total = 0;
+
     switch(type)
     {
         case 1 :
             senderObj->setStyleSheet("border-image: url(:/images/cards/card-defuse.png)");
+            nbCut = ui->defusing_count_label->property("cut").toInt();
+            total = ui->defusing_count_label->property("total").toInt();
+            ui->defusing_count_label->setProperty("cut", nbCut + 1);
+            nbCut++;
+            ui->defusing_count_label->setText(QString::number(nbCut) + "/" + QString::number(total));
             break;
         case 2 :
             senderObj->setStyleSheet("border-image: url(:/images/cards/card-big-ben-explosion.png)");
             break;
         default:
             senderObj->setStyleSheet("border-image: url(:/images/cards/card-useless.png)");
+            nbCut = ui->cable_cout_label->property("cut").toInt();
+            total = ui->cable_cout_label->property("total").toInt();
+            ui->cable_cout_label->setProperty("cut", nbCut + 1);
+            nbCut++;
+            ui->cable_cout_label->setText(QString::number(nbCut) + "/" + QString::number(total));
             break;
     }
+
     this->repaint();
+
+    QTime dieTime= QTime::currentTime().addSecs(2);
+        while (QTime::currentTime() < dieTime)
+            QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+
+    this->clear_table();
 
     int player_id = senderObj->property("owner").toInt();
     int card_index = senderObj->property("id").toInt();
     Player_Controller::cutCardTo(game->players[player_id], card_index);
     game->curPlayer = game->players[player_id];
     ui->tour_label->setText("AU TOUR DE " + game->curPlayer.getName().toUpper());
+
+}
+
+void Plateau::clear_table(){
+    std::vector<QLayout*> cards_layouts;
+    cards_layouts.push_back(ui->cards_line_top);
+    cards_layouts.push_back(ui->cards_line_bot);
+    for(int i = 0; i < cards_layouts.size(); i++){
+        for(int j = 0; j < cards_layouts[i]->count(); j++){
+            QWidget * w = cards_layouts[i]->itemAt(j)->widget();
+            if (w != NULL)
+              {
+                w->setVisible(false);
+              }
+        }
+    }
 }
 
 
