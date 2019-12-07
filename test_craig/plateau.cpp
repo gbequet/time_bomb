@@ -106,6 +106,7 @@ void Plateau::setGame(Game_Controller *g)
 void Plateau::setNbCard(int nc)
 {
     nbCard = nc;
+    nbTour = 0;
 }
 
 //Select player and show cards
@@ -210,12 +211,13 @@ void Plateau::cut_card()
     game->curPlayer = game->players[player_id];
     ui->tour_label->setText("AU TOUR DE " + game->curPlayer.getName().toUpper());
 
-    if(nbCut < game->nbPlayer-1)
+    if(nbTour < game->nbPlayer-1)
     {
-//        nbTour++;
+        nbTour++;
     }
     else
     {
+        qDebug() << "coco" << endl;
         emit finTour(nbCard-1);
     }
 }
@@ -230,9 +232,9 @@ void Plateau::clear_table(){
         for(int j = 0; j < cards_layouts[i]->count(); j++){
             QWidget * w = cards_layouts[i]->itemAt(j)->widget();
             if (w != NULL)
-              {
+            {
                 w->setVisible(false);
-              }
+            }
         }
     }
 }
@@ -241,6 +243,7 @@ void Plateau::returnToReveal(int nbCard)
 {
     FenetrePrincipale::reveal->setGame(game);
     FenetrePrincipale::reveal->setNbCard(nbCard);
+    FenetrePrincipale::reveal->setCmp(0);
     FenetrePrincipale::stack->setCurrentWidget(FenetrePrincipale::reveal);
 }
 

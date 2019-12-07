@@ -13,13 +13,14 @@ public:
     std::vector<Player> players;
     int nbPlayer;
     Player curPlayer;
+    std::vector<CardJeu> cards;
 
 private:
     int nbTour;
     int nbDefusingCut;
 //    int nbPlayer;
 //    std::vector<Player> players;
-    std::vector<CardJeu> cards;
+//    std::vector<CardJeu> cards;
     static bool gameOver;
 
 };

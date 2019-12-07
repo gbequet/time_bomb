@@ -23,6 +23,8 @@ Reveal::Reveal(QWidget *parent, Game_Controller *game) :
 
     connect(ui->quitter, SIGNAL(clicked()), parent, SLOT(goHome()));
     connect(ui->next, SIGNAL(clicked()), this, SLOT(nextMove()));
+
+    connect(this, SIGNAL(finReveal(int,Game_Controller*)), this, SLOT(goToPlateau(int,Game_Controller*)));
 }
 
 Reveal::~Reveal()
@@ -51,6 +53,22 @@ void Reveal::setNbCard(int nc)
             w->setVisible(false);
         }
     }
+
+    ui->perso->setStyleSheet("border-image: url(:/images/characters/hidden.png)");
+
+    vector<CardJeu> cardsCurPlayer = game->players[cmp].getCards();
+
+    for(int i=0; i<cardsCurPlayer.size(); i++)
+    {
+        QToolButton * qt = (QToolButton *)ui->playerCards->itemAt(i)->widget();
+        qt->setStyleSheet("border-image: url(:/images/cards/card-hidden.png)");
+    }
+    ui->next->setText("Show");
+}
+
+void Reveal::setCmp(int c)
+{
+    cmp = c;
 }
 
 void Reveal::nextMove()
@@ -87,7 +105,7 @@ void Reveal::nextMove()
             }
             ui->next->setText("Next");
         }
-        else if(ui->next->text() == "Next")
+        else if(ui->next->text() == "Next" && cmp+1<game->nbPlayer)
         {
             ++cmp;
             QString c = game->players[cmp].getName();
@@ -104,9 +122,30 @@ void Reveal::nextMove()
 
             ui->next->setText("Show");
         }
+        else
+        {
+            ui->next->setText("Start");
+            cmp++;
+        }
     }
     else
     {
-
+        if(first)
+        {
+            first = false;
+            emit finReveal(nbCard, game);
+        }
+        else
+            emit finReveal(nbCard, nullptr);
     }
+}
+
+void Reveal::goToPlateau(int nbCard, Game_Controller *game)
+{
+    if(game != nullptr)
+    {
+        FenetrePrincipale::plateau->setGame(game);
+    }
+    FenetrePrincipale::plateau->setNbCard(nbCard);
+    FenetrePrincipale::stack->setCurrentWidget(FenetrePrincipale::plateau);
 }

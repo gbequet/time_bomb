@@ -17,10 +17,11 @@ public:
     ~Reveal();
     void setGame(Game_Controller *g);
     void setNbCard(int nc);
+    void setCmp(int c);
 
 private slots:
     void nextMove();
-//    void
+    void goToPlateau(int nbCard, Game_Controller *game = nullptr);
 
 private:
     Ui::Reveal *ui;
@@ -28,6 +29,9 @@ private:
     int nbCard;
     bool first;
     int cmp;
+
+signals:
+    void finReveal(int,Game_Controller*);
 };
 
 #endif // REVEAL_H
