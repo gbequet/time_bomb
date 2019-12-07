@@ -71,14 +71,17 @@ vector<Player> Player_Controller::assignTeams(vector<QString> users)
 }
 
 
-void Player_Controller::deal()
+void Player_Controller::deal(int nbPlayers)
 {
     vector<CardJeu> cards = Card_Controller::getCards();
     random_shuffle(cards.begin(), cards.end());
     for(int i = 0; i < cards.size(); i++)
     {
-        players[i % players.size()].addCard(cards[i]);
+        players[i % nbPlayers].addCard(cards[i]);
     }
+
+
+
 }
 
 

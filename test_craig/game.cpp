@@ -33,7 +33,7 @@ Game::Game(int nb_player, vector<QString> users) : nbPlayer(nb_player)
 
 
     // on melange et on distribue
-    Player_Controller::deal();
+    Player_Controller::deal(this->nbPlayer);
     this->players = Player_Controller::getPlayers();
     // qui commence?
     this->curPlayer = Player_Controller::getRandomPlayer(this->players);

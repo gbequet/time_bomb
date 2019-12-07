@@ -23,8 +23,9 @@ public:
 private slots:
     void click_home();
     void cut_card();
-//    void goReveal(int nbCard);
     void returnToReveal(int nbCard);
+    void show_rules();
+    void hide_rules();
 
 private:
     Ui::Plateau *ui;
@@ -32,6 +33,9 @@ private:
     int nbTour;
     void clear_table();
     int nbCard;
+    void sherlock_wins();
+    void moriarty_wins();
+    void bomb_explodes();
 
 signals:
     void finTour(int);

@@ -17,9 +17,12 @@ Plateau::Plateau(QWidget *parent, Game_Controller *game) :
     game(game)
 {
     ui->setupUi(this);
-
     nbCard = 5;
     nbTour = 0;
+    connect(ui->home_button, SIGNAL(clicked()), parent, SLOT(goHome()));
+    connect(ui->rules_button, SIGNAL(clicked()), this, SLOT(show_rules()));
+    connect(ui->overlay_button, SIGNAL(clicked()), parent, SLOT(goHome()));
+    connect(ui->rules_button_2, SIGNAL(clicked()), this, SLOT(hide_rules()));
 }
 
 void Plateau::setGame(Game_Controller *g)
@@ -96,6 +99,8 @@ void Plateau::setGame(Game_Controller *g)
     ui->defusing_count_label->setText("0/"+QString::number(totalDefusing));
     ui->cable_cout_label->setText("0/"+QString::number(totalCable));
     ui->overlay_fin->hide();
+    ui->rules_button_2->hide();
+    ui->overlay_button->hide();
 
     ui->tour_label->setText("AU TOUR DE " + game->curPlayer.getName().toUpper());
 
@@ -173,15 +178,13 @@ void Plateau::cut_card()
             ui->defusing_count_label->setText(QString::number(nbCut) + "/" + QString::number(total));
 
             if(nbCut == total){
-                ui->label_fin->setText("LA BOMBE A ÉTÉ DÉSAMORCÉE, L'ÉQUIPE DE SHERLOCK REMPORTE LA PARTIE");
-                ui->overlay_fin->setStyleSheet("background-color: rgba(30, 61, 255, 151);");
-                ui->overlay_fin->show();
+                   this->sherlock_wins();
             }
             break;
         case 2 :
             senderObj->setStyleSheet("border-image: url(:/images/cards/card-big-ben-explosion.png)");
-            ui->label_fin->setText("LA BOMBE A ÉTÉ TROUVÉE, L'ÉQUIPE DE MORIARTY REMPORTE LA PARTIE");
-            ui->overlay_fin->show();
+            this->bomb_explodes();
+
             break;
         default:
             senderObj->setStyleSheet("border-image: url(:/images/cards/card-useless.png)");
@@ -191,8 +194,7 @@ void Plateau::cut_card()
             nbCut++;
             ui->cable_cout_label->setText(QString::number(nbCut) + "/" + QString::number(total));
             if(nbCut == total){
-                ui->label_fin->setText("LA BOMBE N'A PAS ÉTÉ DÉSAMORCÉE, L'ÉQUIPE DE MORIARTY REMPORTE LA PARTIE");
-                ui->overlay_fin->show();
+                this->moriarty_wins();
             }
             break;
     }
@@ -209,6 +211,17 @@ void Plateau::cut_card()
     int card_index = senderObj->property("id").toInt();
     Player_Controller::cutCardTo(game->players[player_id], card_index);
     game->curPlayer = game->players[player_id];
+
+    game->nbTour++;
+    ui->nb_tours_label->setText(QString::number(game->nbTour));
+    if(game->nbTour == game->nbPlayer){
+        //FIN DE TOUR = REVEAL
+    }
+
+    if(game->nbManches == 4){
+        moriarty_wins();
+    }
+
     ui->tour_label->setText("AU TOUR DE " + game->curPlayer.getName().toUpper());
 
     if(nbTour < game->nbPlayer-1)
@@ -220,6 +233,25 @@ void Plateau::cut_card()
         qDebug() << "coco" << endl;
         emit finTour(nbCard-1);
     }
+}
+
+void Plateau::sherlock_wins(){
+    ui->label_fin->setText("LA BOMBE A ÉTÉ DÉSAMORCÉE, L'ÉQUIPE DE SHERLOCK REMPORTE LA PARTIE");
+    ui->overlay_fin->setStyleSheet("background-color: rgba(30, 61, 255, 151);");
+    ui->overlay_fin->show();
+    ui->overlay_button->show();
+}
+
+void Plateau::moriarty_wins(){
+    ui->label_fin->setText("LA BOMBE N'A PAS ÉTÉ DÉSAMORCÉE, L'ÉQUIPE DE MORIARTY REMPORTE LA PARTIE");
+    ui->overlay_fin->show();
+    ui->overlay_button->show();
+}
+
+void Plateau::bomb_explodes(){
+    ui->label_fin->setText("LA BOMBE A ÉTÉ TROUVÉE, L'ÉQUIPE DE MORIARTY REMPORTE LA PARTIE");
+    ui->overlay_fin->show();
+    ui->overlay_button->show();
 }
 
 void Plateau::clear_table(){
@@ -246,6 +278,17 @@ void Plateau::returnToReveal(int nbCard)
     FenetrePrincipale::reveal->setCmp(0);
     FenetrePrincipale::stack->setCurrentWidget(FenetrePrincipale::reveal);
 }
+void Plateau::show_rules(){
+    ui->overlay_fin->show();
+    ui->label_fin->setText("REGLES");
+    ui->rules_button_2->show();
+}
+
+void Plateau::hide_rules(){
+    ui->overlay_fin->hide();
+    ui->rules_button_2->hide();
+}
+
 
 Plateau::~Plateau()
 {

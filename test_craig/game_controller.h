@@ -14,9 +14,10 @@ public:
     int nbPlayer;
     Player curPlayer;
     std::vector<CardJeu> cards;
+    int nbTour;
+    int nbManches;
 
 private:
-    int nbTour;
     int nbDefusingCut;
 //    int nbPlayer;
 //    std::vector<Player> players;

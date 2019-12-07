@@ -4,6 +4,7 @@
 #include "player.h"
 #include <vector>
 #include <iostream>
+#include <QDebug>
 
 #define BOMB 2
 #define DEFUSING 1
@@ -45,7 +46,6 @@ vector<CardJeu> Card_Controller::createDeck(int nbPlayer)
         cards.push_back(CardJeu(DEFUSING));
     }
     cards.push_back(CardJeu(BOMBE));
-
     return cards;
 }
 
@@ -58,6 +58,7 @@ void Card_Controller::deal()
 {
     vector<Player> players = Player_Controller::getPlayers();
     random_shuffle(cards.begin(), cards.end());
+    qDebug() << "Nb cartes " << cards.size();
     for(int i=0; i<5; i++)
     {
         for(int j=0; j<players.size(); j++)
@@ -65,6 +66,7 @@ void Card_Controller::deal()
             players[j].addCard(cards[i]);
         }
     }
+
 
     Player_Controller::setPlayers(players);
 }

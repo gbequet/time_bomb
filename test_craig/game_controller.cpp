@@ -21,7 +21,7 @@ Game_Controller::Game_Controller(int nbPlayer, std::vector<QString> users) : nbP
 
     Card_Controller::createDeck(this->nbPlayer);
     Player_Controller::assignTeams(users);
-    Player_Controller::deal();
+    Player_Controller::deal(this->nbPlayer);
 
     this->players = Player_Controller::getPlayers();
     this->curPlayer = Player_Controller::getRandomPlayer(this->players);

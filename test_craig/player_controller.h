@@ -14,7 +14,7 @@ public:
     static vector<CardJeu> getPlayerCards(int index);
     static vector<Player> getPlayers();
     static void setPlayers(vector<Player> players);
-    static void deal();
+    static void deal(int nbPlayers);
     static void cutCardTo(Player& p, int index);
 
 private :
