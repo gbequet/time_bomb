@@ -21,11 +21,13 @@ private slots:
     void unSeulJoueur();
     std::vector<QString> getUsers();
     int getNbPlayer();
+    std::vector<QString> getBots();
 
 private:
     Ui::JeuLocal *ui;
-    int nb_player;
-    std::vector<QString> players;
+    int nbPlayers;
+    std::vector<QString> users;
+    std::vector<QString> bots;
 };
 
 #endif // JEULOCAL_H

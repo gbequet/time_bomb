@@ -17,6 +17,8 @@ Plateau::Plateau(QWidget *parent, Game_Controller *game) :
     game(game)
 {
     ui->setupUi(this);
+
+    nbTour = 0;
 }
 
 void Plateau::setGame(Game_Controller *g)
@@ -41,8 +43,7 @@ void Plateau::setGame(Game_Controller *g)
     connect(ui->card_19, SIGNAL(clicked()), this, SLOT(cut_card()));
     connect(ui->card_20, SIGNAL(clicked()), this, SLOT(cut_card()));
 
-
-
+    connect(this, SIGNAL(finTour(int)), creationSalon, SLOT(setNom(QString)));
 
     std::vector<QLayout *> layouts;
     layouts.push_back(line_top);
@@ -149,66 +150,66 @@ void Plateau::click_home()
 //Cut card
 void Plateau::cut_card()
 {
-
-
-    QPushButton *senderObj = (QPushButton * )sender();
-    int type = senderObj->property("type").toInt();
-    int nbCut = 0;
-    int total = 0;
-
-    switch(type)
+    if(nbTour < game->nbPlayer)
     {
-        case 1 :
-            senderObj->setStyleSheet("border-image: url(:/images/cards/card-defuse.png)");
-            nbCut = ui->defusing_count_label->property("cut").toInt();
-            total = ui->defusing_count_label->property("total").toInt();
-            ui->defusing_count_label->setProperty("cut", nbCut + 1);
-            nbCut++;
-            ui->defusing_count_label->setText(QString::number(nbCut) + "/" + QString::number(total));
+        QPushButton *senderObj = (QPushButton * )sender();
+        int type = senderObj->property("type").toInt();
+        int nbCut = 0;
+        int total = 0;
 
-            if(nbCut == total){
-                ui->label_fin->setText("LA BOMBE A ÉTÉ DÉSAMORCÉE, L'ÉQUIPE DE SHERLOCK REMPORTE LA PARTIE");
-                ui->overlay_fin->setStyleSheet("background-color: rgba(30, 61, 255, 151);");
+        switch(type)
+        {
+            case 1 :
+                senderObj->setStyleSheet("border-image: url(:/images/cards/card-defuse.png)");
+                nbCut = ui->defusing_count_label->property("cut").toInt();
+                total = ui->defusing_count_label->property("total").toInt();
+                ui->defusing_count_label->setProperty("cut", nbCut + 1);
+                nbCut++;
+                ui->defusing_count_label->setText(QString::number(nbCut) + "/" + QString::number(total));
+
+                if(nbCut == total){
+                    ui->label_fin->setText("LA BOMBE A ÉTÉ DÉSAMORCÉE, L'ÉQUIPE DE SHERLOCK REMPORTE LA PARTIE");
+                    ui->overlay_fin->setStyleSheet("background-color: rgba(30, 61, 255, 151);");
+                    ui->overlay_fin->show();
+                }
+                break;
+            case 2 :
+                senderObj->setStyleSheet("border-image: url(:/images/cards/card-big-ben-explosion.png)");
+                ui->label_fin->setText("LA BOMBE A ÉTÉ TROUVÉE, L'ÉQUIPE DE MORIARTY REMPORTE LA PARTIE");
                 ui->overlay_fin->show();
-            }
-            break;
-        case 2 :
-            senderObj->setStyleSheet("border-image: url(:/images/cards/card-big-ben-explosion.png)");
-            ui->label_fin->setText("LA BOMBE A ÉTÉ TROUVÉE, L'ÉQUIPE DE MORIARTY REMPORTE LA PARTIE");
-            ui->overlay_fin->show();
-            break;
-        default:
-            senderObj->setStyleSheet("border-image: url(:/images/cards/card-useless.png)");
-            nbCut = ui->cable_cout_label->property("cut").toInt();
-            total = ui->cable_cout_label->property("total").toInt();
-            ui->cable_cout_label->setProperty("cut", nbCut + 1);
-            nbCut++;
-            ui->cable_cout_label->setText(QString::number(nbCut) + "/" + QString::number(total));
-            if(nbCut == total){
-                ui->label_fin->setText("LA BOMBE N'A PAS ÉTÉ DÉSAMORCÉE, L'ÉQUIPE DE MORIARTY REMPORTE LA PARTIE");
-                ui->overlay_fin->show();
-            }
-            break;
+                break;
+            default:
+                senderObj->setStyleSheet("border-image: url(:/images/cards/card-useless.png)");
+                nbCut = ui->cable_cout_label->property("cut").toInt();
+                total = ui->cable_cout_label->property("total").toInt();
+                ui->cable_cout_label->setProperty("cut", nbCut + 1);
+                nbCut++;
+                ui->cable_cout_label->setText(QString::number(nbCut) + "/" + QString::number(total));
+                if(nbCut == total){
+                    ui->label_fin->setText("LA BOMBE N'A PAS ÉTÉ DÉSAMORCÉE, L'ÉQUIPE DE MORIARTY REMPORTE LA PARTIE");
+                    ui->overlay_fin->show();
+                }
+                break;
+        }
+
+        this->repaint();
+
+        QTime dieTime= QTime::currentTime().addSecs(2);
+            while (QTime::currentTime() < dieTime)
+                QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+
+        this->clear_table();
+
+        int player_id = senderObj->property("owner").toInt();
+        int card_index = senderObj->property("id").toInt();
+        Player_Controller::cutCardTo(game->players[player_id], card_index);
+        game->curPlayer = game->players[player_id];
+        ui->tour_label->setText("AU TOUR DE " + game->curPlayer.getName().toUpper());
     }
-
-    this->repaint();
-
-    paused = true;
-
-    QTime dieTime= QTime::currentTime().addSecs(2);
-        while (QTime::currentTime() < dieTime)
-            QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
-
-    paused = false;
-
-    this->clear_table();
-
-    int player_id = senderObj->property("owner").toInt();
-    int card_index = senderObj->property("id").toInt();
-    Player_Controller::cutCardTo(game->players[player_id], card_index);
-    game->curPlayer = game->players[player_id];
-    ui->tour_label->setText("AU TOUR DE " + game->curPlayer.getName().toUpper());
-
+    else
+    {
+        emit finTour()
+    }
 }
 
 void Plateau::clear_table(){

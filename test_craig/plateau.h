@@ -26,7 +26,11 @@ private slots:
 private:
     Ui::Plateau *ui;
     Game_Controller *game;
+    int nbTour;
     void clear_table();
+
+signals:
+    void finTour(QString);
 };
 
 #endif // PLATEAU_H

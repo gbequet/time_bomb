@@ -21,15 +21,17 @@ JeuLocal::JeuLocal(QWidget *parent) :
     connect(ui->nbrJoueur8, SIGNAL(clicked()), this, SLOT(unSeulJoueur()));
     connect(ui->rev, &QPushButton::clicked, [this]
     {
-        int n = getNbPlayer();
-        vector<QString> users = getUsers();
-        FenetrePrincipale::goReveal(n, users);
+        nbPlayers = getNbPlayer();
+        users = getUsers();
+//        bots = getBots();
+        FenetrePrincipale::goReveal(nbPlayers, users);
     });
     connect(ui->jouer, &QPushButton::clicked, [this]
     {
-        int n = getNbPlayer();
-        vector<QString> users = getUsers();
-        FenetrePrincipale::goPlateau(n, users);
+        nbPlayers = getNbPlayer();
+        users = getUsers();
+//        bots = getBots();
+        FenetrePrincipale::goPlateau(nbPlayers, users);
     });
 }
 
@@ -120,5 +122,13 @@ int JeuLocal::getNbPlayer()
         {
             return i+4;
         }
+    }
+}
+
+vector<QString> JeuLocal::getBots()
+{
+    for(int i=0; i<nbPlayers; i++)
+    {
+
     }
 }
