@@ -16,9 +16,11 @@ public:
     explicit Reveal(QWidget *parent = nullptr, Game_Controller *game = nullptr);
     ~Reveal();
     void setGame(Game_Controller *g);
+    void setNbCard(int nc);
 
 private slots:
     void nextMove();
+//    void
 
 private:
     Ui::Reveal *ui;

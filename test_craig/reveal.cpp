@@ -38,6 +38,21 @@ void Reveal::setGame(Game_Controller *g)
     ui->curPlayer->setText("Cartes de " + c);
 }
 
+void Reveal::setNbCard(int nc)
+{
+    nbCard = nc;
+
+    QLayout* ql = ui->playerCards;
+    for(int i=0; i < ql->count()-nbCard; i++)
+    {
+        QWidget * w = ql->itemAt(i)->widget();
+        if (w != NULL)
+        {
+            w->setVisible(false);
+        }
+    }
+}
+
 void Reveal::nextMove()
 {
     if(cmp < game->nbPlayer)
@@ -89,5 +104,9 @@ void Reveal::nextMove()
 
             ui->next->setText("Show");
         }
+    }
+    else
+    {
+
     }
 }

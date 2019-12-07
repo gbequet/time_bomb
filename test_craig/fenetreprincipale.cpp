@@ -227,6 +227,12 @@ void FenetrePrincipale::goReveal(int nbPlayers, vector<QString> users)
     FenetrePrincipale::stack->setCurrentWidget(FenetrePrincipale::reveal);
 }
 
+//void FenetrePrincipale::returnToReveal(int nbCard)
+//{
+//    FenetrePrincipale::reveal->setNbCard(nbCard);
+//    FenetrePrincipale::stack->setCurrentWidget(FenetrePrincipale::reveal);
+//}
+
 void FenetrePrincipale::recupertaionPseudo(QString pseudo)
 {
     this->pseudo = pseudo;

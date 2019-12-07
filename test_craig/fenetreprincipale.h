@@ -58,6 +58,7 @@ public slots:
     void goQuit();
     void changeLangue();
     static void goReveal(int nbPlayers, std::vector<QString> users);
+//    static void returnToReveal(int nbCard);
 
 
 signals:
