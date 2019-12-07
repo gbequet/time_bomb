@@ -252,8 +252,17 @@ QPushButton:disabled
      </item>
      <item row="2" column="6">
       <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:#d0d0d0;
+font-size:10pt;</string>
+       </property>
        <property name="text">
-        <string>Token :</string>
+        <string>Tokens</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -694,8 +703,17 @@ QPushButton:disabled
      </item>
      <item row="0" column="6">
       <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:#d0d0d0;
+font-size:10pt;</string>
+       </property>
        <property name="text">
-        <string>Nombre de joueur :</string>
+        <string>Nombre de joueurs</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -845,7 +863,12 @@ QPushButton:disabled
      <item row="4" column="3">
       <widget class="QLineEdit" name="joueur5">
        <property name="styleSheet">
-        <string notr="true">QLineEdit:read-only
+        <string notr="true">QLineEdit
+{
+	background-color: #7d5b3a;
+}
+
+QLineEdit:read-only
 {
     background-color: #53230a;
 }</string>
@@ -860,6 +883,9 @@ QPushButton:disabled
      </item>
      <item row="2" column="3">
       <widget class="QLineEdit" name="joueur3">
+       <property name="styleSheet">
+        <string notr="true">background-color: #7d5b3a;</string>
+       </property>
        <property name="text">
         <string>joueur3</string>
        </property>
@@ -884,6 +910,9 @@ QPushButton:disabled
      </item>
      <item row="2" column="8">
       <widget class="QLineEdit" name="joueur4">
+       <property name="styleSheet">
+        <string notr="true">background-color: #7d5b3a;</string>
+       </property>
        <property name="text">
         <string>joueur4</string>
        </property>
@@ -969,7 +998,12 @@ QPushButton:disabled
      <item row="6" column="3">
       <widget class="QLineEdit" name="joueur7">
        <property name="styleSheet">
-        <string notr="true">QLineEdit:read-only
+        <string notr="true">QLineEdit
+{
+	background-color: #7d5b3a;
+}
+
+QLineEdit:read-only
 {
     background-color: #53230a;
 }</string>
@@ -1044,6 +1078,9 @@ QPushButton:disabled
      </item>
      <item row="0" column="8">
       <widget class="QLineEdit" name="joueur2">
+       <property name="styleSheet">
+        <string notr="true">background-color: #7d5b3a;</string>
+       </property>
        <property name="text">
         <string>joueur2</string>
        </property>
@@ -1055,7 +1092,12 @@ QPushButton:disabled
      <item row="6" column="8">
       <widget class="QLineEdit" name="joueur8">
        <property name="styleSheet">
-        <string notr="true">QLineEdit:read-only
+        <string notr="true">QLineEdit
+{
+	background-color: #7d5b3a;
+}
+
+QLineEdit:read-only
 {
     background-color: #53230a;
 }</string>
@@ -1179,7 +1221,12 @@ QPushButton:disabled
      <item row="4" column="8">
       <widget class="QLineEdit" name="joueur6">
        <property name="styleSheet">
-        <string notr="true">QLineEdit:read-only
+        <string notr="true">QLineEdit
+{
+	background-color: #7d5b3a;
+}
+
+QLineEdit:read-only
 {
     background-color: #53230a;
 }</string>
@@ -1194,6 +1241,9 @@ QPushButton:disabled
      </item>
      <item row="0" column="3">
       <widget class="QLineEdit" name="joueur1">
+       <property name="styleSheet">
+        <string notr="true">background-color: #7d5b3a;</string>
+       </property>
        <property name="text">
         <string>joueur1</string>
        </property>
@@ -1436,8 +1486,25 @@ QPushButton:disabled
      </item>
      <item>
       <widget class="QPushButton" name="jouer">
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+    border-image:url(:/images/icons/button-confirm-on.png);
+	width:50px;
+	height:50px;
+}
+
+QPushButton:hover
+{
+    border-image:url(:/images/icons/button-confirm-on.png);
+	width:50px;
+	height:50px;
+	background-color:#73a6a0;
+	border-radius: 20px;
+}</string>
+       </property>
        <property name="text">
-        <string>Jouer</string>
+        <string/>
        </property>
       </widget>
      </item>

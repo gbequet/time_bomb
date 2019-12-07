@@ -131,11 +131,9 @@ QPushButton:hover
        </property>
        <property name="font">
         <font>
-         <family>Uroob,50pt sans-serif</family>
-         <pointsize>69</pointsize>
-         <weight>9</weight>
-         <italic>false</italic>
-         <bold>false</bold>
+         <pointsize>50</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="autoFillBackground">
@@ -143,11 +141,12 @@ QPushButton:hover
        </property>
        <property name="styleSheet">
         <string notr="true">border-image:url(:/images/titles/title-frame.png);
-font: 75 69pt &quot;Uroob&quot;, 50pt sans-serif;
+font-weight: bold;
+font-size:50pt;
 color:#d0d0d0;</string>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#3b5061;&quot;&gt;- &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;TIMEBOMB&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TIMEBOMB&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="textFormat">
         <enum>Qt::AutoText</enum>

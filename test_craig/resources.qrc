@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>images/cards/card-big-ben-explosion.png</file>
+        <file>images/cards/card-cable.png</file>
         <file>images/cards/card-defuse.png</file>
         <file>images/cards/card-hidden.png</file>
         <file>images/cards/card-useless.png</file>
