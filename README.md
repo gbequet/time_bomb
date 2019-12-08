@@ -31,8 +31,8 @@ de l'UE d'Interface Homme-Machine du semestre 5.
 
 
 
-Compilation
------------
+### Compilation
+
 
 
 Le jeu a été développé sous Windows 10, Mac et sous Linux, et peut être lancé
@@ -59,8 +59,7 @@ gestionnaire `apt` devra être utilisé afin d'installer les paquets suivants :
 
 
 
-Lancement
----------
+### Lancement
 
 Pour lancer le jeu, après avoir compilé à l'aide de QtCreator, il suffit de
 lancer l'exécutable qui aura été créé dans le dossier de `build`.
@@ -80,8 +79,7 @@ laissées en libre consultation afin d'en garder une trace.
 
 
 
-Organisation et tâches à faire
-------------------------------
+### Organisation et tâches à faire
 
 La page *Trello* récapitulant les tâches à faire est accessible en
 [cliquant sur ce lien](https://trello.com/b/0XbpDYb0/timebomb)
@@ -89,8 +87,7 @@ La page *Trello* récapitulant les tâches à faire est accessible en
 
 
 
-Conventions de code
--------------------
+### Conventions de code
 
 - Indentation :
     - accolades en début de ligne
