@@ -53,6 +53,7 @@ FORMS += \
     credits.ui
 
 RESOURCES += \
-    resources.qrc
+    resources.qrc \
+    translations.qrc
 
 CONFIG += resources_big

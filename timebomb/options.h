@@ -2,6 +2,8 @@
 #define OPTIONS_H
 
 #include <QWidget>
+#include <QTranslator>
+#include <QInputDialog>
 
 namespace Ui {
 class Options;

@@ -2,6 +2,8 @@
 #define FENETREPRINCIPALE_H
 
 #include <QStackedWidget>
+#include <QTranslator>
+#include <QInputDialog>
 #include <fstream>
 #include "home.h"
 #include "regles.h"

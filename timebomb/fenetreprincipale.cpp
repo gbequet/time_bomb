@@ -46,6 +46,10 @@ FenetrePrincipale::FenetrePrincipale()
 
     std::string line; std::string param = ""; QString value = "";
     std::size_t found;
+
+
+    QTranslator t;
+
     if(getOptionStream().is_open())
     {
         while (getline(getOptionStream(), line))
@@ -56,10 +60,18 @@ FenetrePrincipale::FenetrePrincipale()
 
             //rajouter ici les comparaisons et attributions de valeurs du fichier options.txt
 
+
             if((param.compare("lang") == 0))
                 options->lang = value;
 
             printf("options->%s = %s\n", param.c_str(), value.toStdString().c_str());
+
+            /**************************************/
+            if (value.compare("en") == 0)
+            {
+                t.load(":/english.qm");
+            }
+            /**************************************/
 
         }
     }
@@ -76,10 +88,19 @@ FenetrePrincipale::FenetrePrincipale()
 
             //rajouter ici les comparaisons et attributions de valeurs du fichier options.txt
 
+
+
             if((param.compare("lang") == 0))
                 options->lang = value;
 
             printf("options->%s = %s\n", param.c_str(), value.toStdString().c_str());
+
+
+
+            /**************************************/
+            if (value.compare("en") == 0)
+                t.load(":/english.qm");
+            /**************************************/
         }
     }
     getOptionStream().close();
