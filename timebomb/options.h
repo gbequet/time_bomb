@@ -25,6 +25,7 @@ public:
 private slots:
     void selectLangueFr();
     void selectLangueEn();
+    void resetUi();
 
 private:
     Ui::Options *ui;
