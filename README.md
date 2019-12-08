@@ -16,7 +16,8 @@ Le dépôt Git du projet est accessible en
 Bienvenue sur cette page du qui regroupe l'ensemble du travail réalisé 
 pour le projet *Timebomb*.
 
-Ce projet a été réalisé par **Guillaume Bequet**, **Samuel Dierstein**,
+Ce projet, qui visait à implémenter le jeu de cartes *Timebomb* sur PC, a été
+réalisé par **Guillaume Bequet**, **Samuel Dierstein**,
 **Craig Hiernard**, **Arthur Klipfel** et **Joren Schuster** dans le cadre
 de l'UE d'Interface Homme-Machine du semestre 5.
 
@@ -33,29 +34,27 @@ de l'UE d'Interface Homme-Machine du semestre 5.
 Compilation
 -----------
 
-<!-- comment compiler, quelles documents pour compil, quelles cibles sont dispos -->
 
-<!-- quelles dépendances, quelle version de qmake est demandée (//cohérence ordis fac) -->
+Le jeu a été développé sous Windows 10, Mac et sous Linux, et peut être lancé
+depuis chacune de ces plateformes.
 
-<!-- infos pour build : paquets et outils nécessaires pour compiler, en fonction de la 
-     plateforme -->
+Pour ce faire, il faut avoir installé :
 
+- **QtCreator** (version 5.9.5)
+  Rendez-vous
+  [sur cette page](https://download.qt.io/official_releases/qt/5.9/5.9.5/),
+  puis téléchargez la version correspondante à votre OS ;
 
-LINUX - distributions basées sur Debian comme Ubuntu, Linux Mint...
-avec gestionnaire de paquets APT
-
-build-essential
-libglib-dev
-
-
-(??)
-libx11-xcb-dev
-libglu1-mesa-dev
+- **QMake** (version 3.1).
 
 
+**Note :**
+Sous Linux, certains paquets sont nécessaires pour que le jeu puisse être
+lancé. Avec une distribution basée sur Debian (comme Ubuntu ou Linux Mint), le
+gestionnaire `apt` devra être utilisé afin d'installer les paquets suivants :
 
-QMake version 3.1                                                                      
-Installation de Qt version 5.9.5
+ - `build-essential`
+ - `libglib-dev`
 
 
 
@@ -63,15 +62,9 @@ Installation de Qt version 5.9.5
 Lancement
 ---------
 
-<!-- comment lancer le jeu -->
+Pour lancer le jeu, après avoir compilé à l'aide de QtCreator, il suffit de
+lancer l'exécutable qui aura été créé dans le dossier de `build`.
 
-
-
-Comment jouer ?
----------------
-
-<!-- où les règles sont-elles dispos--> 
-<!-- quels sont les modes/ fonctionnalités disponibles et comment le tout fonctionne -->
 
 
 
@@ -81,8 +74,8 @@ Comment jouer ?
 
 
 Les sections suivantes ont été utiles lors du développement et de la réalisation
-du projet. Elles sont toutefois laissées en libre consultation afin d'en garder
-une trace.
+du projet. Elles ne sont plus utilisées désormais, mais elles sont toutefois
+laissées en libre consultation afin d'en garder une trace.
 
 
 
@@ -103,11 +96,7 @@ Conventions de code
     - accolades en début de ligne
     - tabulations -> espaces
     - taille d'indentation à 4
-- Commentaires/doc en **Français** :
-    - si sur une ou plusieurs lignes :  `/* ... */` 
-    - si à la suite d'une ligne :       `/**< ... */`
 - Écriture des fonctions/vars/consts en **Anglais** (pour garder 
   l'homogénéité avec les autres fonctions de Qt et du C++) :
     - fonctions et variables en CamelCase : `functionForSomething`
     - constantes : `CONSTANT_FOR_SOMETHING`
-- (essayer de respecter les 80 colonnes)
