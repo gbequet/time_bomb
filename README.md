@@ -10,16 +10,18 @@
 ## Présentation
 
 
-Le dépôt Git du projet est accessible en
-[cliquant sur ce lien](https://git.unistra.fr/joren.schuster/ihm-projet).
+*Le dépôt Git du projet est accessible en
+[cliquant sur ce lien](https://git.unistra.fr/joren.schuster/ihm-projet).*
+
 
 Bienvenue sur cette page du qui regroupe l'ensemble du travail réalisé 
 pour le projet *Timebomb*.
 
+
 Ce projet, qui visait à implémenter le jeu de cartes *Timebomb* sur PC, a été
 réalisé par **Guillaume Bequet**, **Samuel Dierstein**,
 **Craig Hiernard**, **Arthur Klipfel** et **Joren Schuster** dans le cadre
-de l'UE d'Interface Homme-Machine du semestre 5.
+de l'UE d'Interface Homme-Machine (IHM) du semestre 5.
 
 
 
@@ -31,8 +33,7 @@ de l'UE d'Interface Homme-Machine du semestre 5.
 
 
 
-### Compilation
-
+### Pré-requis
 
 
 Le jeu a été développé sous Windows 10, Mac et sous Linux, et peut être lancé
@@ -59,10 +60,25 @@ gestionnaire `apt` devra être utilisé afin d'installer les paquets suivants :
 
 
 
+### Compilation
+
+
+Pour compiler et obtenir l'exécutable permettant de lancer le jeu, il faut
+lancer QtCreator, puis ouvrir le fichier `timebomb.pro`, qui se trouve dans le
+répertoire `timebomb/` du projet.
+Il reste ensuite à lancer la compilation *via* QtCreator.
+
+
+
+
 ### Lancement
 
+
 Pour lancer le jeu, après avoir compilé à l'aide de QtCreator, il suffit de
-lancer l'exécutable qui aura été créé dans le dossier de `build`.
+lancer l'exécutable qui aura été créé dans le dossier de `build` mis en place
+par QtCreator.
+Il est aussi possible de compiler puis lancer directement l'exécutable *via*
+QtCreator.
 
 
 
