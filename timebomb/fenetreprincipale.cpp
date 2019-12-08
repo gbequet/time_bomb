@@ -92,6 +92,8 @@ FenetrePrincipale::FenetrePrincipale()
     FenetrePrincipale::stack->addWidget(FenetrePrincipale::reveal);
     FenetrePrincipale::stack->addWidget(FenetrePrincipale::plateau);
 
+    options->lang = langue;
+
     // couleur de fond d'écran de tous les écrans
     this->setStyleSheet("background-color: #413425;");
 
