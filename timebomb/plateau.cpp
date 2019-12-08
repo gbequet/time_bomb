@@ -142,7 +142,7 @@ void Plateau::click_home()
         QPushButton * qt = (QPushButton *)cur_layout->itemAt(card_index)->widget();
         if(!cards[i].isCut())
         {
-            qt->setStyleSheet("border-image: url(:/images/cards/card-hidden.png)");
+            qt->setStyleSheet("border-image: url(:/images/cards/card-cable.png)");
             qt->setProperty("type", cards[i].getType());
             qt->setProperty("owner", id);
             qt->setProperty("id", i);

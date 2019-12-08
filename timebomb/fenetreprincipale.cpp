@@ -16,6 +16,59 @@ Plateau * FenetrePrincipale::plateau;
 FenetrePrincipale::FenetrePrincipale()
 {
     FenetrePrincipale::stack =  new QStackedWidget();
+
+    getOptionStream().open(OPTIONFILE, std::fstream::in);
+
+    std::string line; std::string param = ""; QString value = "";
+    std::size_t found;
+
+    if(getOptionStream().is_open())
+    {
+        while (getline(getOptionStream(), line))
+        {
+            found = line.find_first_of(":");
+            param = line.substr(0, found);
+            value = QString::fromStdString(line.substr(found+1));
+
+            //rajouter ici les comparaisons et attributions de valeurs du fichier options.txt
+
+            if((param.compare("lang") == 0))
+                langue = value;
+
+            printf("options->%s = %s\n", param.c_str(), value.toStdString().c_str());
+        }
+    }
+    else
+    {
+        //Le fichier par défaut doit exister et être rempli avant de lancer le programme
+        getOptionStream().open(DEFAULTFILE, std::fstream::in);
+
+        while (getline(getOptionStream(), line))
+        {
+            found = line.find_first_of(":");
+            param = line.substr(0, found);
+            value = QString::fromStdString(line.substr(found+1));
+
+            //rajouter ici les comparaisons et attributions de valeurs du fichier options.txt
+
+
+
+            if((param.compare("lang") == 0))
+               langue = value;
+
+            printf("options->%s = %s\n", param.c_str(), value.toStdString().c_str());
+        }
+    }
+    getOptionStream().close();
+    fflush(stdout);
+
+
+    if(langue.compare("en",Qt::CaseInsensitive) == 0)
+    {
+        getTranslator().load(":/english.qm");
+        QApplication::instance()->installTranslator(&getTranslator());
+    }
+
     home = new Home(this);
     regle = new regles(this);
     jeuEnLigne = new JeuEnLigne(this);
@@ -41,71 +94,6 @@ FenetrePrincipale::FenetrePrincipale()
 
     // couleur de fond d'écran de tous les écrans
     this->setStyleSheet("background-color: #413425;");
-
-    getOptionStream().open(OPTIONFILE, std::fstream::in);
-
-    std::string line; std::string param = ""; QString value = "";
-    std::size_t found;
-
-
-    QTranslator t;
-
-    if(getOptionStream().is_open())
-    {
-        while (getline(getOptionStream(), line))
-        {
-            found = line.find_first_of(":");
-            param = line.substr(0, found);
-            value = QString::fromStdString(line.substr(found+1));
-
-            //rajouter ici les comparaisons et attributions de valeurs du fichier options.txt
-
-
-            if((param.compare("lang") == 0))
-                options->lang = value;
-
-            printf("options->%s = %s\n", param.c_str(), value.toStdString().c_str());
-
-            /**************************************/
-            if (value.compare("en") == 0)
-            {
-                t.load(":/english.qm");
-            }
-            /**************************************/
-
-        }
-    }
-    else
-    {
-        //Le fichier par défaut doit exister et être rempli avant de lancer le programme
-        getOptionStream().open(DEFAULTFILE, std::fstream::in);
-
-        while (getline(getOptionStream(), line))
-        {
-            found = line.find_first_of(":");
-            param = line.substr(0, found);
-            value = QString::fromStdString(line.substr(found+1));
-
-            //rajouter ici les comparaisons et attributions de valeurs du fichier options.txt
-
-
-
-            if((param.compare("lang") == 0))
-                options->lang = value;
-
-            printf("options->%s = %s\n", param.c_str(), value.toStdString().c_str());
-
-
-
-            /**************************************/
-            if (value.compare("en") == 0)
-                t.load(":/english.qm");
-            /**************************************/
-        }
-    }
-    getOptionStream().close();
-
-    fflush(stdout);
 
     goHome();
 
@@ -238,6 +226,20 @@ void FenetrePrincipale::changeLangue()
         if((res = rename(fileCopyName.c_str(), OPTIONFILE)) != 0)
             perror("rename copy_options failed");
     }
+
+
+    QApplication::instance()->removeTranslator(&getTranslator());
+    if(options->lang.compare("fr") == 0)
+    {
+        getTranslator().load("");
+        QApplication::instance()->installTranslator(&getTranslator());
+    }
+    else
+    {
+        getTranslator().load(":/english.qm");
+        QApplication::instance()->installTranslator(&getTranslator());
+    }
+
     goHome();
 }
 
@@ -277,3 +279,4 @@ void FenetrePrincipale::recuperationnbrJoueur()
     int nbr = btn->text().toInt();
     emit changerNbrJoueur(nbr);
 }
+

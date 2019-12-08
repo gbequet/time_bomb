@@ -61,7 +61,7 @@ void Reveal::setNbCard(int nc)
     for(int i=0; i<cardsCurPlayer.size(); i++)
     {
         QToolButton * qt = (QToolButton *)ui->playerCards->itemAt(i)->widget();
-        qt->setStyleSheet("border-image: url(:/images/cards/card-hidden.png)");
+        qt->setStyleSheet("border-image: url(:/images/cards/card-cable.png)");
     }
     ui->next->setText("Show");
 }
@@ -117,7 +117,7 @@ void Reveal::nextMove()
             for(int i=0; i<nbCard; i++)
             {
                 QToolButton * qt = (QToolButton *)ui->playerCards->itemAt(i)->widget();
-                qt->setStyleSheet("border-image: url(:/images/cards/card-hidden.png)");
+                qt->setStyleSheet("border-image: url(:/images/cards/card-cable.png)");
             }
 
             ui->next->setText("Show");

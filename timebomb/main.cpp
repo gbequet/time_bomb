@@ -5,7 +5,8 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    static std::fstream optionsFile;
+    QTranslator translator;
+    translator.load(":/english.qm");
 
     FenetrePrincipale fenetre;
     fenetre.show();

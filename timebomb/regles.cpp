@@ -7,15 +7,6 @@ regles::regles(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QMediaPlayer *player = new QMediaPlayer;
-    QVideoWidget *videoWidget = new QVideoWidget;
-
-    player->setVideoOutput(videoWidget);
-    player->setMedia(QUrl::fromLocalFile(""));
-
-    ui->layoutVideo->addWidget(videoWidget);
-    player->play();
-
     connect(ui->retour, SIGNAL(clicked()), parent, SLOT(goHome()));
 }
 

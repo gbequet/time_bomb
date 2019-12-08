@@ -37,11 +37,18 @@ public:
 
     QString pseudo;
     QString nomSalon;
+    QString langue;
 
     static std::fstream& getOptionStream()
     {
       static std::fstream optionsFile;
       return optionsFile;
+    }
+
+    static QTranslator& getTranslator()
+    {
+        static QTranslator translator;
+        return translator;
     }
 
 public slots:
