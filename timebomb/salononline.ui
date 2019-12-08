@@ -363,7 +363,7 @@ color:#d0d0d0;</string>
 	font: 12pt sans-serif;
 	color:#d0d0d0;
     border-image:url(:/images/titles/title-button.png);
-	color:#d0d0d0;
+	color:black;
 }
 
 QPushButton:hover
@@ -371,10 +371,7 @@ QPushButton:hover
 	font: 12pt sans-serif;
 	color:#d0d0d0;
     border-image:url(:/images/titles/title-button.png);
-	color:#d0d0d0;
-	background-color:#73a6a0;
-	border-radius:5px;
-	border-width:2px;
+	color:black;
 }
 </string>
        </property>

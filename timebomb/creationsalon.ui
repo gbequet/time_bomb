@@ -77,13 +77,13 @@ QPushButton:hover
       <widget class="QLabel" name="label">
        <property name="minimumSize">
         <size>
-         <width>500</width>
+         <width>600</width>
          <height>120</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>500</width>
+         <width>600</width>
          <height>120</height>
         </size>
        </property>
@@ -102,7 +102,7 @@ font: 30pt sans-serif;
 color:#d0d0d0;</string>
        </property>
        <property name="text">
-        <string>Création du Salon</string>
+        <string>Création d'un salon</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -1338,7 +1338,13 @@ QPushButton:disabled
       <widget class="QPushButton" name="creer">
        <property name="minimumSize">
         <size>
-         <width>150</width>
+         <width>170</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>170</width>
          <height>50</height>
         </size>
        </property>
@@ -1376,7 +1382,7 @@ QPushButton:hover
 </string>
        </property>
        <property name="text">
-        <string>Créer Partie</string>
+        <string>Créer ce salon</string>
        </property>
       </widget>
      </item>

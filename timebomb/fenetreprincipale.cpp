@@ -111,24 +111,25 @@ void FenetrePrincipale::goHome()
 
 void FenetrePrincipale::goJeuEnLigne()
 {
+    this->setWindowTitle(QString(WINDOWTITLETIMEBOMB) + "Jeu en ligne (Salons disponibles)");
     FenetrePrincipale::stack->setCurrentWidget(jeuEnLigne);
 }
 
 void FenetrePrincipale::goCreationSalon()
 {
-    this->setWindowTitle(QString(WINDOWTITLETIMEBOMB) + "Création de salon");
+    this->setWindowTitle(QString(WINDOWTITLETIMEBOMB) + "Jeu en ligne (Création d'un salon)");
     FenetrePrincipale::stack->setCurrentWidget(creationSalon);
 }
 
 void FenetrePrincipale::goSalonOnline()
 {
-    this->setWindowTitle(QString(WINDOWTITLETIMEBOMB) + "Salons");
+    this->setWindowTitle(QString(WINDOWTITLETIMEBOMB) + "Jeu en ligne (Salon)");
     FenetrePrincipale::stack->setCurrentWidget(salonOnline);
 }
 
 void FenetrePrincipale::goJeuLocal()
 {
-    this->setWindowTitle(QString(WINDOWTITLETIMEBOMB) + "Création de partie");
+    this->setWindowTitle(QString(WINDOWTITLETIMEBOMB) + "Jeu local");
     FenetrePrincipale::stack->setCurrentWidget(jeuLocal);
 }
 
